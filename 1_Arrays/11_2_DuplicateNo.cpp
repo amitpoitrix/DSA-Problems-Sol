@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // Leetcode 287. Find the Duplicate Number
+// Condition : 1 <= a[i] <= n-1 , 
 
 int duplicate(vector<int> a){
     int i = 0;
@@ -15,7 +16,7 @@ int duplicate(vector<int> a){
 }
 
 int main(){
-    vector<int> a = {1,2,2,4,3};
+    vector<int> a = {1,2,4,4,3};
     if(duplicate(a) == -1)
         cout << "Duplicate No does not exist"<< endl;
     else
