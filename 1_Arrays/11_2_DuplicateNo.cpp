@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // Leetcode 287. Find the Duplicate Number
-// Condition : 1 <= a[i] <= n-1 , 
+// Condition : 1 <= a[i] <= n-1 ,  //
 
 int duplicate(vector<int> a){
     int i = 0;
