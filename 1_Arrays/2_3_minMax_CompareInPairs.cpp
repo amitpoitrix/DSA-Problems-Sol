@@ -4,6 +4,8 @@ using namespace std;
 // Calculating min and max element in an array using Compare in Pairs which will take O(n) time
 // In this method we divide the array into two parts and than compare its min & max value
 
+// push using terminal
+
 struct Pair
 {
     int min;
