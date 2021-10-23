@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
+// Print KPC
 
+// This Recursive Method Approach is called level n option approach
 string codes[] = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
 
 void printKPC(string ques, string asf){
@@ -21,7 +23,7 @@ void printKPC(string ques, string asf){
         char cho = charfromch[i];
         printKPC(roq, asf + cho);
     }
-    
+
 }
 
 int main(){
