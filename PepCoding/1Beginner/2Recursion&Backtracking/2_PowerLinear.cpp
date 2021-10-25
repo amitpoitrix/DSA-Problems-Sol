@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+// Power linear approach
 
 int power(int x,int n){
    // write your code here
@@ -12,7 +13,6 @@ int power(int x,int n){
    int xn = x * xnm1;   // meeting expectation using faith
    return xn;
 }
-
 
 int main(){
     int n,x; cin>>x>>n;
