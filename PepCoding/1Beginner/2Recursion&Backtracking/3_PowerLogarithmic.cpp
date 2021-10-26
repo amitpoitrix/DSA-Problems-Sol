@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+// Power Logarithmic - Optimized Approach
 
 int powerLogarithmic(int x,int n){
     // write your code here
