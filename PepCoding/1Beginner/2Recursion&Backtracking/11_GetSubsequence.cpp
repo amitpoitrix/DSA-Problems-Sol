@@ -19,7 +19,7 @@ vector<string> gss(string s){
     char ch = s[0]; // getting first char of a string
     string ros = s.substr(1); // getting rest of the string
 
-    vector<string> result = gss(ros);
+    vector<string> result = gss(ros);   // recursive call
 
     vector<string> output;
 

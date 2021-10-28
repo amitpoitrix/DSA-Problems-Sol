@@ -19,7 +19,7 @@ vector<string> getKpc(string str){
 
     vector<string> result;
 
-    string val = kpc[ch - '0'];     // i.e., ch-48 as '0' - 48  getting string at particular index from global vector<string>
+    string val = kpc[ch - '0'];     // i.e., ch-48 as '0' -> 48  getting string at particular index from global vector<string>
 
     for (int i = 0; i < val.size(); i++){
         char ch2 = val[i];

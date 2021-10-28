@@ -4,6 +4,7 @@ using namespace std;
 
 // This Recursive Method Approach is called level n option approach
 string codes[] = {".;", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+// OR vector<string> codes = {"", "", ""};
 
 void printKPC(string ques, string asf){
     // write your code here
