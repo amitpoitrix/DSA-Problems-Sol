@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+// Print Zig Zag
 
 void pzz(int n){
     // write your code here
