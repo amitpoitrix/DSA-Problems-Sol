@@ -16,8 +16,8 @@ void printEncoding(string str, string asf){
         }
         else{
             int chv = ch - '0';
-            char code = 'a' + chv - 1;
-            cout << asf + code << endl;
+            char code = 'a' + chv - 1;  // Imp Part
+            cout << asf + code << endl;     // or printEncoding(str, asf+code) but the 'str' size should reduce to ""
         }
     }
 
@@ -30,7 +30,7 @@ void printEncoding(string str, string asf){
             return;
         }
         else{
-            int chv = ch - '0';
+            int chv = ch - '0';     // atoi(ch) == ch - '0' -> give int value
             char code = 'a' + chv - 1;
             printEncoding(ros, asf + code);
         }
@@ -40,6 +40,7 @@ void printEncoding(string str, string asf){
         string ros12 = str.substr(2);
         
         // stoi(string_var) & atoi(char_var) - convert string or char into int
+        // to_string(int_var) - convert int into string
         if(stoi(ch12) <= 26){
             char code12 = 'a' + stoi(ch12) - 1;
             printEncoding(ros12, asf + code12);
