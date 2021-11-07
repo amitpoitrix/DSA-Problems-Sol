@@ -23,7 +23,7 @@ void printTargetSumSubsets(vector<int> arr, int idx, string set, int sos, int ta
 int main() {
     int n;
     cin >> n;
-    vector<int> arr(n);
+    vector<int> arr(n); // size of vector should be specify first or else it'll return segmentation fault
     for (int i = 0; i < n; i++){
         cin >> arr[i];
     }
