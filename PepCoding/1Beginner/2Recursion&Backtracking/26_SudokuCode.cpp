@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-// Sudoku Code
+// Sudoku Code - CM
 
 bool isSafe(int mat[][9], int i, int j, int no){
     // checking for no. already there in row & col or not
