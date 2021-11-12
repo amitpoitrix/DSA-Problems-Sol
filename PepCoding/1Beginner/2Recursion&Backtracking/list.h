@@ -9,6 +9,12 @@ class Node{
 public:
     Node * next;
     // Initialize Node class data members 
+    /*
+    Node(int d){
+		this->data = d;
+		next = nullptr;
+	}
+    */
     Node(int d):data(d), next(nullptr){}
 
     // as data is private data member so for read only purpose 
@@ -33,14 +39,14 @@ class List{
     Node * head;
     Node * tail;
 
-    // Recursive searchHelper()
+    // Recursive searchHelper() private in class List
     int searchHelper(Node * start, int key){
         // base case
         if(start == nullptr)
             return -1;
         // If key is the first element
         if(start->getData() == key)
-            return 0;   // Here, 0 is the first index value
+            return 0;   // Here, 0 is the first index of Linked List
         
         // rec case
         int subIdx = searchHelper(start->next, key);
@@ -87,7 +93,7 @@ public:
 
     // Inserting node at particular position
     void insert(int data, int pos){
-        // If pos is ) i.e., inserting node at front
+        // If pos is 0 i.e., inserting node at front
         if(pos == 0){
             push_front(data);
             return;
@@ -136,15 +142,41 @@ public:
 
     // Deleting the Last node
     void pop_back(){
+        if(head->next == nullptr){
+            delete head;
+            head = nullptr;
+            return;
+        }
 
+        Node * temp = head;
+
+        while (temp->next->next != nullptr){
+            temp = temp->next;
+        }
+
+        tail = temp;
+        temp = temp->next;
+        delete temp;
     }
 
     // Deleting the node at a particular position
     void remove(int pos){
+        if(pos == 0){
+            pop_front();
+            return;
+        }
 
+        Node * temp = head;
+        for (int jump = 1; jump <= pos-1; jump++){
+            temp = temp->next;
+        }
+
+        temp->next = temp->next->next;
+
+        
     }
 
-    // Deleting entire Linked List - first under class List than in class Node
+    // Deleting entire Linked List - so we create destructor first under class List than in class Node
     ~List(){
         if(head != nullptr){
             delete head;    // Here After compiler reach this step it'll call the destructor ~Node()  
