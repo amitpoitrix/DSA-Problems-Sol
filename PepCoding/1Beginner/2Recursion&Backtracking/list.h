@@ -136,18 +136,25 @@ public:
     void pop_front(){
         Node * temp = head;
         head = head->next;
-        temp->next = nullptr;
+        temp->next = nullptr;   // this assigning to NULL needs to be done before delete or else it'll delete the whole list
         delete temp;
     }
 
     // Deleting the Last node
     void pop_back(){
+        // If there is no node 
+        if(head == nullptr){
+            return;
+        }
+
+        // If there is only 1 node
         if(head->next == nullptr){
             delete head;
             head = nullptr;
             return;
         }
 
+        // If there is more than 1 node
         Node * temp = head;
 
         while (temp->next->next != nullptr){
@@ -155,8 +162,8 @@ public:
         }
 
         tail = temp;
-        temp = temp->next;
-        delete temp;
+        delete temp->next;
+        temp->next = nullptr;
     }
 
     // Deleting the node at a particular position
@@ -167,13 +174,26 @@ public:
         }
 
         Node * temp = head;
-        for (int jump = 1; jump <= pos-1; jump++){
+        // Going to 1 step back of given pos
+        for (int jump = 1; jump <= pos-1 && temp != nullptr; jump++){
             temp = temp->next;
         }
 
-        temp->next = temp->next->next;
+        if(temp == nullptr){
+            cout << "Out of bound Position" << endl;
+            return;
+        }
 
-        
+        Node * second = temp->next;
+
+        if(second != nullptr){
+            pop_back();
+            return;
+        }
+
+        temp->next = second->next;
+        delete second;
+        second = nullptr;
     }
 
     // Deleting entire Linked List - so we create destructor first under class List than in class Node

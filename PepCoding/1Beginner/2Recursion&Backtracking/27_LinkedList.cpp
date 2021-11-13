@@ -1,0 +1,90 @@
+#include <iostream>
+
+using namespace std;
+
+class node
+{
+public :
+  int data;
+  node* next;
+};
+
+class linked_list
+{
+public:
+  node* head, *tail;
+  int size = 0;
+
+public:
+  linked_list()
+  {
+    head = NULL;
+    tail = NULL;
+  }
+
+  void addLast(int n)
+  {
+    // Write your code here
+    node * temp = new node();
+    temp->data = n;
+    temp->next = NULL;
+
+    if(head == NULL){
+        head = tail = temp;
+    }
+    else{
+        tail->next = temp;
+        tail = temp;
+    }
+    size++;
+  }
+  void display() {
+    // for (node* tmp = head; tmp != NULL; tmp = tmp->next) {
+    //   cout << tmp->data << " ";
+    // }
+
+    node * temp = head;
+    while(temp != NULL){
+        cout << temp->data << endl;
+        temp = temp->next;
+    }
+
+  }
+
+
+  void testList() {
+    for (node* temp = head; temp != NULL; temp = temp->next) {
+      cout << temp->data << endl;
+    }
+    cout << size << endl;
+
+    if (size > 0) {
+      cout << tail->data << endl;
+    }
+  }
+};
+
+
+int main() {
+
+
+  string str;
+  linked_list l;
+  while (true) {
+    getline(cin, str);
+    if (str[0] == 'q') {
+      break;
+    }
+    if (str[0] == 'a') {
+      string ss = str.substr(8, 2);
+      int n = stoi(ss);
+      l.addLast( n);
+
+    }
+
+  }
+
+  l.testList();
+  return 0;
+
+}
