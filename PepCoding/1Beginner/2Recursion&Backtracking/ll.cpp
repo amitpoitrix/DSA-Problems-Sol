@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 // LinkedList - Apna College YT
+// Note : Don't forget to pass head by reference (&head) when modifying linked list
 
 class Node{
 public:
