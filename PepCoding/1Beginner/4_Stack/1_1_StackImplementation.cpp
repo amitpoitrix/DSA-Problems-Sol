@@ -57,18 +57,30 @@ public:
 
 
 int main(){
+    // Stack st;
+    // st.push(1);
+    // st.push(2);
+    // st.push(3);
+    // cout << st.Top() << endl;
+
+    // st.pop();
+    // cout << st.Top() << endl;
+
+    // st.pop();
+    // st.pop();
+    // cout << st.empty() << endl;
+
     Stack st;
     st.push(1);
     st.push(2);
     st.push(3);
-    cout << st.Top() << endl;
+    st.push(4);
+    st.push(5);
 
-    st.pop();
-    cout << st.Top() << endl;
-
-    st.pop();
-    st.pop();
-    cout << st.empty() << endl;
+    while (!st.empty()){
+        cout << st.Top() << endl;
+        st.pop();
+    }
 
     cout << endl;
     return 0;
