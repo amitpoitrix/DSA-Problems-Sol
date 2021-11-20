@@ -3,19 +3,19 @@
 using namespace std;
 // Reversing element of stack using Recursion - TC - O(n) & SC - O(1)
 
-void insertAtBottom(stack<int> &st, int ele){
+void insertAtBottom(stack<int> &st, int data){
     // base case
     if(st.empty()){
-        st.push(ele);   // if stack is empty than we'll push the ele(i.e., 5) that needs to be in bottom
+        st.push(data);   // if stack is empty than we'll push the ele(i.e., 5) that needs to be in bottom
         return;
     }
 
     // rec case
-    int topEle = st.top();  // 1st iteration topEle -> 1 
+    int temp = st.top();  // 1st iteration temp -> 1 
     st.pop();
-    insertAtBottom(st, ele);    // ((2,3,4), 5) <- Parameters
-
-    st.push(topEle);    // push(1)
+    insertAtBottom(st, data);    // ((2,3,4), 5) <- Parameters
+    // Now coming back from base case and pushing the element(stored in temp) back from call stack 
+    st.push(temp);    // push(1)
 }
 
 // Reverse of stack eg : Initially st -> 5,4,3,2,1 reverseStack() -> 1,2,3,4 and we need to insert 5 at bottom

@@ -6,7 +6,7 @@ using namespace std;
 
 int prefixExpression(string s){
     stack<int> st;
-    // As its Prefix Expression so we'll traverse from Last character of string and for post we'll start from starting char
+    // As its Prefix Expression so we'll traverse from Last character of string and for Postfix Expression we'll start from starting char
     for (int i = s.size()-1; i >= 0; i--){
         // If we encounter operand
         if(s[i] >= '0' && s[i] <= '9'){
