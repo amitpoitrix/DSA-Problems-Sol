@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
-// Put Even Nodes after all Odd Position Nodes
+// Pepcoding Ques - Remove Duplicates in Sorted Linked List
+// Constraints : TC - O(n) & SC - O(1)
 
 class Node{
 public:
@@ -42,40 +43,34 @@ void display(Node * head){
     cout << "NULL" << endl;
 }
 
-// Even After Odd Node Pos
-void evenAfterOdd(Node * head){
-    // We'll take 3 ptr
-    Node * odd = head;
-    Node * even = head->next;
-    Node * evenStart = even;
+// Remove duplicates from Sorted Linked List
+void removeDuplicates(Node * &head){
+    Node * temp = head;
+    // Edge Case - If empty linked list is passed
+    if(!temp)
+        return;
 
-    while (odd->next != NULL && even->next != NULL){
-        odd->next = even->next;
-        odd = odd->next;
-        even->next = odd->next;
-        even = even->next;
-    }
+    while (temp->next != NULL){
+        if(temp->data == temp->next->data)
+            temp->next = temp->next->next;
 
-    // Putting even nodes pos after odd ones
-    odd->next = evenStart;
-    // If No. of nodes is Odd than last node will be of odd pos so we'll make even node as last node
-    if(odd->next == NULL){
-        even->next = NULL;
+        else
+            temp = temp->next;
     }
 }
 
 int main(){
     Node * head = NULL;
 
-    InsertAtTail(head, 1);
-    InsertAtTail(head, 2);
-    InsertAtTail(head, 3);
-    InsertAtTail(head, 4);
-    InsertAtTail(head, 5);
-    InsertAtTail(head, 6);
+    int arr[] = {1,2,2,3,3,3,4,4,4,4,5};
+
+    for (int i = 0; i < 11; i++){
+        InsertAtTail(head, arr[i]);
+    }
     display(head);
 
-    evenAfterOdd(head);
+    removeDuplicates(head);
+
     display(head);
 
     cout << endl;

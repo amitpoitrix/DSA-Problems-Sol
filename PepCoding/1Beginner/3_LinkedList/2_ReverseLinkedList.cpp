@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-// Reversing of Linked List
+// Reversing of Linked List - YT(Apna College)
 
 class Node{
 public:
@@ -76,7 +76,7 @@ Node * reverseRecursive(Node * &head){
     return newHead;
 }
 
-// Reversing Kth node in Linked List
+// Reversing Kth node in Linked List - Here we didn't handle that case if last left nodes < k
 Node * reverseK(Node * &head, int k){
     // First iterative way to reverse till K nodes
     Node * previous = NULL;
