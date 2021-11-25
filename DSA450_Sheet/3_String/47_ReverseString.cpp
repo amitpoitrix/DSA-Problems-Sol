@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-// DSA450 47: Reverse a String 
+// DSA450 47: Reverse a String check
 
 void reverseString(vector<char>& s) {
     int n = s.size();
