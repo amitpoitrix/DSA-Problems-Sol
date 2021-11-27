@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 // CM - Binary Tree - Pre Order Traversal -> Root -> Left -> right
+// DFS - Depth First Search Technique
 // Input - 1 2 4 -1 -1 5 7 -1 -1 -1 3 -1 6 -1 -1
 // PreOrder - 1 2 4 5 7 3 6 
 // InOrder - 4 2 7 5 1 3 6
