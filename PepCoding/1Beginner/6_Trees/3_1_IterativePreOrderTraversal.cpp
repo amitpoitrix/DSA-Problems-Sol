@@ -3,6 +3,8 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : Iterative PreOrder Traversal (Leetcode ques 144)
+// TC - O(n) , SC - O(n)
+// Preorder Sol - 10 20 40 70 80 50 30 60 
 
 struct Node{
     int data;
@@ -31,9 +33,10 @@ vector<int> iterativePreOrder(Node * root){
 
         preorder.push_back(temp->data);
 
+        // First will push right side of tree data
         if(temp->right)
             st.push(temp->right);
-
+        // Now we'll push left side tree data
         if(temp->left)
             st.push(temp->left);
     }
