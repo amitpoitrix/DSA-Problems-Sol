@@ -1,7 +1,7 @@
 #include<iostream>
 #include<queue>
 using namespace std;
-// CM - Binary Tree - Level Order Build
+// CM - Binary Tree - Level Order Build + HEIGHT of Tree + DIAMETER of Tree
 // BFS - Breadth First Search Technique
 // Here the Input is given in Level order Manner
 // Input - 1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
