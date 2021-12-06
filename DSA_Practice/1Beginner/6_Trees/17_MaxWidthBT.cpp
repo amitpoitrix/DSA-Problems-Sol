@@ -2,7 +2,7 @@
 #include<queue>
 using namespace std;
 // striver Tree Series : Leetcode 662. Maximum Width of Binary Tree
-// Max width of a BT is the distance btw two nodes at the same level
+// Max width of a BT is the max distance btw two nodes at the same level
 
 struct Node{
     int data;
