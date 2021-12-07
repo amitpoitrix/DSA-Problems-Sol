@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-// Striver Tree series : Leetcode 105. Construct Binary Tree from Preorder and Inorder Traversal
+// Striver Tree series : 106. Construct Binary Tree from Inorder and Postorder Traversal
 // From InOrder & Pre/PostOrder Traversal we can create unique BT but from PreOrder & PostOrder we can't create unique BT 
 // TC - O(N) or O(NlogN) as LogN due to Hash map & SC - O(N)
 
@@ -16,23 +16,23 @@ struct Node{
     }
 };
 
-Node * buildBT(vector<int> &inorder, int inStart, int inEnd, vector<int> &preorder, int preStart, int preEnd, map<int, int> &inMap){
-    if(inStart > inEnd || preStart > preEnd)
+Node * buildBTUsingInPost(vector<int> &inorder, int inStart, int inEnd, vector<int> &postorder, int postStart, int postEnd, map<int, int> &inMap){
+    if(inStart > inEnd || postStart > postEnd)
         return NULL;
 
-    // Starting from PreOrder Traversal Node i.e., Root Node of actual BT
-    Node * root = new Node(preorder[preStart]);
+    // Starting from postorder Traversal Node i.e., Root Node of actual BT
+    Node * root = new Node(postorder[postEnd]);
     int inRoot = inMap[root->data]; // Getting the pos(index) of root node in InOrder Traversal 
     int numsLeft = inRoot - inStart;
 
-    root->left = buildBT(inorder, inStart, inRoot-1, preorder, preStart+1, preStart + numsLeft, inMap);
-    root->right = buildBT(inorder, inRoot+1, inEnd, preorder, preStart+numsLeft+1, preEnd, inMap);
+    root->left = buildBTUsingInPost(inorder, inStart, inRoot-1, postorder, postStart, postStart + numsLeft - 1, inMap);
+    root->right = buildBTUsingInPost(inorder, inRoot+1, inEnd, postorder, postStart+numsLeft, postEnd - 1, inMap);
 
     return root;
 } 
 
-Node * buildTree(vector<int> &inorder, vector<int> &preorder){
-    if(inorder.size() != preorder.size())
+Node * buildTree(vector<int> &inorder, vector<int> &postorder){
+    if(inorder.size() != postorder.size())
         return NULL;
 
     map<int, int> inMap;
@@ -41,7 +41,7 @@ Node * buildTree(vector<int> &inorder, vector<int> &preorder){
         inMap[inorder[i]] = i;
     }
 
-    Node * root = buildBT(inorder, 0, inorder.size()-1, preorder, 0, preorder.size()-1, inMap);
+    Node * root = buildBTUsingInPost(inorder, 0, inorder.size()-1, postorder, 0, postorder.size()-1, inMap);
 
     return root;
 }
@@ -58,9 +58,9 @@ void displayBT(Node * root){
 
 int main(){
     vector<int> inorder = {9,3,15,20,7};
-    vector<int> preorder = {3,9,20,15,7};
+    vector<int> postorder = {9,15,7,20,3};
 
-    Node * root = buildTree(inorder, preorder);
+    Node * root = buildTree(inorder, postorder);
     displayBT(root);
 
     cout << endl;
