@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-// Striver Tree Series : Leetcode 700. Search in a Binary Search Tree
+// Striver Tree Series : Leetcode 701. Insert into a Binary Search Tree
 
 struct Node{
     int data;
@@ -14,13 +14,29 @@ struct Node{
     }
 };
 
-Node * searchInBST(Node * root, int val){
+Node * insertIntoBST(Node * root, int val){
     if(root == NULL)
-        return root;
+        return new Node(val);
     
-    // We'll move from root node till we found desired node or NULL 
-    while (root != NULL && root->data != val){
-        root = val < root->data? root->left : root->right;
+    Node * cur = root;  // We'll take a copy of node
+
+    while (true){
+        if(cur->data <= val){
+            if(cur->right)
+                cur = cur->right;
+            else{
+                cur->right = new Node(val);
+                break;
+            }
+        }
+        else{
+            if(cur->left)
+                cur = cur->left;
+            else{
+                cur->left = new Node(val);
+                break;
+            }
+        }
     }
     
     return root;
@@ -45,8 +61,8 @@ int main(){
     displayBST(root);
     cout << endl;
 
-    int val = 2;
-    Node * result = searchInBST(root, val);
+    int val = 5;
+    Node * result = insertIntoBST(root, val);
     displayBST(result);
 
     return 0;
