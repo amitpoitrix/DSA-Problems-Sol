@@ -1,12 +1,18 @@
 #include <iostream>
-#include<vector>
+
 // Heap Data Structure or Priority Queue
 // Implemention of Max Binary Heap using Vector
 
+#define N 100
+
 class PriorityQueue{
 private:
-    // vector to store heap elements
-    std::vector<int> A;
+    // Creating Array of size 100
+    int A[N];
+
+    // current size of array
+    int size = 0;
+
     // returns parent of A[i]
     int PARENT(int i){
         return (i - 1) / 2 ;
@@ -27,11 +33,11 @@ private:
 
         int largest = i;
 
-        if(left < A.size() && A[left] > A[largest]){
+        if(left < size && A[left] > A[largest]){
             largest = left;
         }
 
-        if(right < A.size() && A[right] > A[largest]){
+        if(right < size && A[right] > A[largest]){
             largest = right;
         }
 
@@ -62,19 +68,23 @@ private:
 public:
     // No. of elements in heap
     int heapSize(){
-        return A.size();
+        return size;
     }
 
     // Function to check if heap is empty
     bool empty(){
-        return A.size() == 0;
+        return size == 0;
     }
 
     // Function to insert the new key element in the heap
     void push(int key){
-        A.push_back(key);
-        int idx = A.size()-1;   // taking the index of last element inserted
+        if(size == N)
+            std::cout << "Heap Overflow" << "\n";
+
+        int idx = size;
+        A[idx] = key;   // Inserting element at last pos of Array
         heapify_up(idx);
+        size++;
     }
 
     // Remove the max element from heap
@@ -82,8 +92,8 @@ public:
         if(empty())
             std::cout << "Heap underflow";
 
-        A[0] = A.back();    // Copy the last element to front
-        A.pop_back();   // and than remove the last element
+        A[0] = A[size - 1];   // Copy the last element to front
+        size--;   // and than remove the last element by reducing size by 1
         heapify_down(0);    // calling heapify() in order to maintain heap property
     }
 
