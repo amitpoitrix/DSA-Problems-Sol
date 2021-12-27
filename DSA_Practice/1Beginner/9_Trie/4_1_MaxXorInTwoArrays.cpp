@@ -48,6 +48,7 @@ public:
 
         for (int i = 31; i >= 0; i--){
             int bit = (num >> i) & 1;
+            // Checking if opposite of bit exist or not if yes than make set bit at pos i of maxNum
             if(node->containsBit(!bit)){
                 maxNum = maxNum | (1 << i); // Setting bit at i pos as 1
                 node = node->get(!bit);
