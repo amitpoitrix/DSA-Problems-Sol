@@ -63,15 +63,16 @@ public:
 };
 
 int maxXOR(int n, int m, std::vector<int> &arr1, std::vector<int> &arr2) {
-    Trie * trie = new Trie();
+    // Trie * trie = new Trie();    // & call its function with -> instead of .
+    Trie trie;
     int maxi = 0;
     // 1. Inserting all the elements of arr1 
     for (auto x : arr1){
-        trie->insertBit(x);
+        trie.insertBit(x);
     }
     // 2. Checking maxXor of each elements of arr2 with elements of arr1
     for (auto y : arr2){
-        maxi = std::max(maxi, trie->getMax(y));
+        maxi = std::max(maxi, trie.getMax(y));
     }
     
     return maxi;
