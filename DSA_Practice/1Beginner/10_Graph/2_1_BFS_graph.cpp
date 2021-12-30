@@ -6,6 +6,9 @@
 // 2. Pick 1st vertex and mark it visited and push it in queue
 // 3. Take the vertex from front of queue & print it followed by adding its adjacent vertex into queue that not visited so far
 
+// TC - O(V + E)
+// SC - O(V + E) + O(V) + O(V)  ; O(V+E) -> For using Adjacency List, O(V) -> Visited Array, O(V) -> for Queue
+
 class Solution{
 public:
     std::vector<int> bfsOfGraph(int V, std::vector<int> adj[]){

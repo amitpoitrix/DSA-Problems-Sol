@@ -4,6 +4,9 @@
 // Here we use recursion to implement DFS & in this it calls for Adjacent Node followed by there adjacent Node that means
 // It goes into the depth of the Nodes first 
 
+// TC - O(V + E)
+// SC - O(V + E) + O(V) + O(V)  ; O(V+E) -> For using Adjacency List, O(V) -> Visited Array, O(V) -> Auxillary Space
+
 class Solution{
 private:
     void dfs(int node, std::vector<int> &visited, std::vector<int> adj[], std::vector<int> &storeDfs){
