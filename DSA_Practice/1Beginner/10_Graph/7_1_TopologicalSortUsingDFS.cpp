@@ -1,8 +1,9 @@
 #include<iostream>
 #include<vector>
 #include<stack>
-// Striver Graph Series : Topological Sort
-// Works only on DAG(Directed Acyclic Graph)
+// Striver Graph Series : Topological Sort Using DFS
+// This sort is a linear ordering of vertices such that if there is an edge u->v, than u will appear before v in that ordering
+// works only on DAG(Directed Acyclic Graph)
 // There can be multiple topological sort for a given DAG
 
 class Solution{
