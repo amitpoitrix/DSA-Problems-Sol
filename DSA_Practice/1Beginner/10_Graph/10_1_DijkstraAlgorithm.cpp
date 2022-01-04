@@ -4,12 +4,12 @@
 
 #define MAX 1e9
 
-// Striver Graph Series : Dijstra's Algorithm - Used to find Shortest Path in Weigted Undirected Graph
+// Striver Graph Series : Dijstra's Algorithm - Used to find Shortest Path in Weigted Undirected Graph from src to all vertices
 // TC - O((V + E)logV)
 // SC - O(V + E) + O(V) + O(V)
 
 void djikstra(int src, int V, std::vector<std::pair<int, int>> adj[]){
-    // Initializing each element of distTo[] as INT_MAX 
+    // Initializing each element of distTo[] as MAX 
     int distTo[V];
     for (int i = 0; i < V; i++){
         distTo[i] = MAX;
@@ -21,30 +21,29 @@ void djikstra(int src, int V, std::vector<std::pair<int, int>> adj[]){
     min_heap.push({distTo[src], src});
 
     while (!min_heap.empty()){
-        int prevDist = min_heap.top().first;
-        int prevNode = min_heap.top().second;
+        int u = min_heap.top().second;
         min_heap.pop();
 
-        // Now checking the adjacent nodes
+        // Now checking the adjacent nodes of u
         std::vector<std::pair<int, int>>::iterator it;
 
-        for (it = adj[prevNode].begin(); it != adj[prevNode].end(); it++){
+        for (it = adj[u].begin(); it != adj[u].end(); it++){
+            int v = it->first;
             int nextDist = it->second;
-            int nextNode = it->first;
-            // distTo[prevNode] = prevDist both are same
-            if(distTo[prevNode] + nextDist < distTo[nextNode]){
-                distTo[nextNode] = distTo[prevNode] + nextDist;
-                min_heap.push({distTo[nextNode], nextNode});
+            // distTo[u] = prevDist(i.e., min_heap.top().first) both are same
+            if(distTo[u] + nextDist < distTo[v]){
+                distTo[v] = distTo[u] + nextDist;
+                min_heap.push({distTo[v], v});
             }
         }
 
-        // for (auto it : adj[prevNode]){
+        // for (auto it : adj[u]){
         //     int nextDist = it.second;
-        //     int nextNode = it.first;
+        //     int v = it.first;
 
-        //     if(distTo[prevNode] + nextDist < distTo[nextNode]){
-        //         distTo[nextNode] = distTo[prevNode] + nextDist;
-        //         min_heap.push({distTo[nextNode], nextNode});
+        //     if(distTo[u] + nextDist < distTo[v]){
+        //         distTo[v] = distTo[u] + nextDist;
+        //         min_heap.push({distTo[v], v});
         //     }
         // }
         

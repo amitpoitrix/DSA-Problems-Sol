@@ -5,14 +5,15 @@
 #define MAX 1e9
 
 // Striver Graph series : Prim's Algorithm - to get the MST(Minimum Spanning Tree) from given graph
-// spanning Tree - A tree formed from graph(V,E) having V nodes & V-1 edges & each node is reachable to every other nodes
-// MST - A spanning tree having minimum cost of edge weight
+// spanning Tree - A subgraph formed from graph(V,E) having V nodes & V-1 edges & each node is reachable from every other
+// MST - A spanning tree having minimum cost of edge weights
+// Prim's Algo almost similar to Dijstra's Algorithm
 
 void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
     // Here we take 3 arrays
-    int distTo[V];
-    bool MST[V];
-    int parentNode[V];
+    int distTo[V];  // This array will store cost(key value) of all vertices as low as possible
+    bool MST[V];    // This will make sure that algo won't consider duplicate vertices
+    int parentNode[V];  // This will actually contain the MST
 
     for (int i = 0; i < V; i++){
         distTo[i] = MAX;
@@ -25,26 +26,31 @@ void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> min_heap;
     min_heap.push({distTo[src], src});
 
+    int cost = 0;
+
     while (!min_heap.empty()){
-        int prevNode = min_heap.top().second;
+        int u = min_heap.top().second;
+        cost += min_heap.top().first;
         min_heap.pop();
 
-        MST[prevNode] = true;
+        MST[u] = true;
 
-        for (auto it : adj[prevNode]){
-            int nextNode = it.first;
+        for (auto it : adj[u]){
+            int v = it.first;
             int nextDist = it.second;
 
-            if(MST[nextNode] == false && nextDist < distTo[nextNode]){
-                distTo[nextNode] = nextDist;
-                min_heap.push({distTo[nextNode], nextNode});
-                parentNode[nextNode] = prevNode;
+            if(MST[v] == false && nextDist < distTo[v]){
+                // cost += nextDist;
+                distTo[v] = nextDist;
+                min_heap.push({distTo[v], v});
+                parentNode[v] = u;
             }
         }
     }
     
+    std::cout << cost << "\n";
     // Display after Prim's Algorithm
-    for (int i = 0; i < V; i++){
+    for (int i = 1; i < V; i++){
         std::cout << parentNode[i] << " - " << i << "\n";
     }
 }
@@ -52,7 +58,7 @@ void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
 int main(){
     int V, E;
     std::cin >> V >> E;
-
+    // Adjacency list {u, v, wt}
     std::vector<std::pair<int, int>> adj[V];
 
     for (int i = 0; i < E; i++){
