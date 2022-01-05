@@ -2,6 +2,7 @@
 #include<vector>
 #include<algorithm>
 // Striver Graph Series : Krushkal's Algorithm - Used to find MSP using Disjoint Set instead of Adjacency List
+// TC - O(ElogV)
 
 // creating Node structure {u, v, wt}
 struct Node{
@@ -60,11 +61,11 @@ void krushkal(int V, std::vector<Node> edges){
     std::vector<std::pair<int, int>> mst;
 
     for (auto it : edges){
-        // Checking if both (u,v) belongs to two different component
+        // Checking if both (u,v) belongs to two different component(i.e., Not making cycle in mst)
         if(findParent(it.u, parent) != findParent(it.v, parent)){
             cost += it.wt;
-            mst.push_back({it.u, it.v});
-            unionNodes(it.u, it.v, parent, rank);
+            mst.push_back({it.u, it.v});    // Considering edge u->v into mst
+            unionNodes(it.u, it.v, parent, rank);   // Making parent u/v of v/u & increasing rank of parent if rank is same
         }
     }
     

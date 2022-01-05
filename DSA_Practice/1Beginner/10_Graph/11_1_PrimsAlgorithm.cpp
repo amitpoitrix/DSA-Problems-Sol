@@ -8,6 +8,7 @@
 // spanning Tree - A subgraph formed from graph(V,E) having V nodes & V-1 edges & each node is reachable from every other
 // MST - A spanning tree having minimum cost of edge weights
 // Prim's Algo almost similar to Dijstra's Algorithm
+// TC - O(ElogV)
 
 void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
     // Here we take 3 arrays
@@ -26,11 +27,8 @@ void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> min_heap;
     min_heap.push({distTo[src], src});
 
-    int cost = 0;
-
     while (!min_heap.empty()){
         int u = min_heap.top().second;
-        cost += min_heap.top().first;
         min_heap.pop();
 
         MST[u] = true;
@@ -40,7 +38,6 @@ void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
             int nextDist = it.second;
 
             if(MST[v] == false && nextDist < distTo[v]){
-                // cost += nextDist;
                 distTo[v] = nextDist;
                 min_heap.push({distTo[v], v});
                 parentNode[v] = u;
@@ -48,7 +45,6 @@ void primsAlgorithm(int src, int V, std::vector<std::pair<int, int>> adj[]){
         }
     }
     
-    std::cout << cost << "\n";
     // Display after Prim's Algorithm
     for (int i = 1; i < V; i++){
         std::cout << parentNode[i] << " - " << i << "\n";
