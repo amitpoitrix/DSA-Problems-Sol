@@ -1,7 +1,10 @@
 #include<iostream>
 #include<vector>
-// Striver Graph Series : Bridges in Graph
+// Striver Graph Series : Bridges in Graph/ Cut Edge
 // Bridges are those edges in graph whose removal lead to increase in no. of components of a graph
+// Here, we'll make use of DFS
+// TC - O(V + E) as we are simply using DFS
+// SC - O(V) overall
 
 void dfs(int node, int parent, std::vector<int> &visited, std::vector<int> &discTime, std::vector<int> &lowTime, int &timer, std::vector<int> adj[]){
     visited[node] = 1;  // Marking the current node as visited
