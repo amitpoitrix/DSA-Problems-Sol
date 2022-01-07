@@ -5,6 +5,7 @@
 #define MAX 1e9
 
 // Striver Graph Series : Dijstra's Algorithm - Used to find Shortest Path in Weigted Undirected Graph from src to all vertices
+// but it doesn't work on -ve edges
 // TC - O((V + E)logV)
 // SC - O(V + E) + O(V) + O(V)
 
