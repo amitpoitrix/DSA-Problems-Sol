@@ -4,6 +4,7 @@
 // Variation of Subset Sum Problem which itself is variation of 0/1 Knapsack Problem
 // TC/SC - O(sum*N)
 
+// Using DP - Tabulation(or Bottom-Up Approach)
 class Solution{
 public:
     int mod = 1e9 + 7;  // As ans can be very large  1e9 + 7 = 1000000007
