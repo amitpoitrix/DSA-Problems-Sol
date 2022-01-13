@@ -1,5 +1,6 @@
 #include<iostream>
-// AdityaVerma DP Series : 2. Partition Equal Subset Sum
+// AdityaVerma DP Series : 2. Partition Equal Subset Sum (or Equal Sum Partition)
+// https://www.geeksforgeeks.org/partition-problem-dp-18/
 // Return True/False if there exist exactly two subsets whose sum are equal
 // Variation of Subset Sum Problem which itself is variation of 0/1 Knapsack Problem
 // TC/SC - O(sum*N)

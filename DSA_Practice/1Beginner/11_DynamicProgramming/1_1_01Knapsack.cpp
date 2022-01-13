@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstring>
 // AdityaVerma DP Series : 0/1 Knapsack Problem 
+// https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
 
 // Its a Parent Problem of DP having 6 varations
 // 1. Subset Sum Problem

@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstring>
 // AdityaVerma DP Series : 1.Subset Sum Problem
+// https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
 // Return True/False if there exist a subset whose sum equals to a given Sum
 // First variation of 0/1 Knapsack Problem
 
