@@ -68,12 +68,12 @@ public:
     bool isSubsetSum(int N, int arr[], int sum){
         bool dp[N+1][sum+1];
         // Initialize the dp matrix for Subset Sum
-        // When sum is 0 store true
+        // When sum is 0 store true in 1st column only when result is ask in boolean
         for (int i = 0; i < N+1; i++)
             dp[i][0] = true;
         
-        // When sum is not 0 store false
-        for (int i = 0; i < sum+1; i++)
+        // When sum is not 0 store false & start i from 1 as dp[0][0] should be true
+        for (int i = 1; i < sum+1; i++)
             dp[0][i] = false;
         
         // Starting loop from 1 as index 0 of i(0..N) & j(0..sum) is already processed

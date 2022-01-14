@@ -3,24 +3,21 @@
 // https://www.geeksforgeeks.org/partition-problem-dp-18/
 // Return True/False if there exist exactly two subsets whose sum are equal
 // Variation of Subset Sum Problem which itself is variation of 0/1 Knapsack Problem
-// TC/SC - O(sum*N)
 
 // Using DP - Tabulation(or Bottom-Up Approach)
+// TC/SC - O(sum*N)
 class Solution{
 private:
     bool subsetSum(int N, int arr[], int sum){
         int dp[N+1][sum+1];
+        // When sum is 0 store true in 1st column only when result is ask in boolean
         for (int i = 0; i < N+1; i++){
-            for (int j = 0; j < sum+1; j++){
-                if(i == 0 && j == 0)
-                    dp[i][j] = true;
-                
-                else if(i == 0)
-                    dp[i][j] = false;
+            dp[i][0] = true;
+        }
 
-                else if(j == 0)
-                    dp[i][j] = true;
-            }
+        // When sum is not 0 store false & start i from 1 as dp[0][0] should be true
+        for (int i = 1; i < sum+1; i++){
+            dp[0][i] = false;
         }
 
         for (int i = 1; i < N+1; i++){
@@ -59,7 +56,10 @@ int main(){
     int N = sizeof(arr)/sizeof(int);
 
     Solution obj;
-    std::cout << obj.equalPartition(N, arr);
+    if(obj.equalPartition(N, arr))
+        std::cout << "Yes, Equal sum partition is possible";
+    else
+        std::cout << "No, Equal sum partition is not possible";
 
     return 0;
 }

@@ -44,7 +44,7 @@ public:
     int knp(int W, int wt[], int val[], int n){
         // Base condition - if No element or No capacity to store than return 0
         if(W == 0 || n == 0)
-            return 0;
+            return 0;   // here profit(or value or val[]) is being return as 0 
         
         // Is the state of matrix[n][W] is already computed before... than return that state value
         else if(dp[n][W] != -1)
@@ -79,8 +79,10 @@ public:
         for (int i = 0; i < n+1; i++){
             for (int j = 0; j < W+1; j++){
                 // Initialize dp[][] having 1st row & column as 0
-                if(i == 0 || j == 0)
+                if(i == 0 || j == 0){
+                    //when there is no element OR there is no capacity left than profit(or value) is being return as 0
                     dp[i][j] = 0;
+                }   
 
                 else if(wt[i-1] <= j){
                     dp[i][j] = std::max(val[i-1] + dp[i-1][ j - wt[i-1] ], dp[i-1][j]);
