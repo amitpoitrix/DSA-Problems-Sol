@@ -36,7 +36,10 @@ public:
             sum += arr[i];
         }
         
-        int s2 = (sum - diff)/2;
+        // 1. s1 + s2 = sum
+        // 2. s1 - s2 = diff
+        // eq1 - eq2 => 2*s2 = sum - diff 
+        int s2 = (sum - diff)/2;    // here s2 has to store int value as fractional can't be possible with given int array elements
 
         // 1st condn : actual elements sum is less than diff than there is no way we can reach the diff
         // 2nd condn : if the (sum - diff) or (sum + diff) is not even than divide by 2 will be fraction & there is no way we can reach
