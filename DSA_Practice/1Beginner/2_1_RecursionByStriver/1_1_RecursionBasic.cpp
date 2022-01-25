@@ -1,6 +1,6 @@
 #include<iostream>
 // Recursion by Striver
-// Using Parameterised Recursion - i.e., recursion using extra parameters
+// Using Parameterised Recursion - i.e., recursion using extra parameters & return type is void
 
 // 1. Printing Names N times
 void printName(int i, int n){
