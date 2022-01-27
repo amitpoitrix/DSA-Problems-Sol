@@ -5,7 +5,9 @@
 // if n is the size of input that output will have 2^n subsequences
 
 // Using Recursion - Here we have choice in each element/character either to choose it or not to choose it so two recursion calls
-// will be used 
+// will be used
+// TC - O(n*(2^n)) - As starting n is due to for loop for each subsequence
+// SC - O(n) - At max stack space is having n no. of elements
 void printSubsequence(int i, int arr[], int n, std::vector<int> &ds){
     if(i == n){
         for (auto x : ds){
