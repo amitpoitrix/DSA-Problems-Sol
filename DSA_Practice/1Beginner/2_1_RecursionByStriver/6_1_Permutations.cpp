@@ -32,6 +32,7 @@ public:
         std::vector<int> ds;
         // Taking a HashMap in order to mark whether that element is consider or not 
         int freq[nums.size()];
+        // Initializing like this instead of = {0}; as its not working in online Judge
         for (int i = 0; i < nums.size(); i++){
             freq[i] = 0;
         }
@@ -55,6 +56,7 @@ private:
         // starting traversing from given idx i.e., i = idx to n-1
         for (int i = idx; i < nums.size(); i++){
             std::swap(nums[idx], nums[i]);
+            // Here we are passing idx+1 instead of i+1 becoz we want equal no. of recursive calls from each further iteration
             calcPermutation(idx + 1, nums, ans);
             // Reverting back the swap after recursion(or Backtracking)
             std::swap(nums[idx], nums[i]);

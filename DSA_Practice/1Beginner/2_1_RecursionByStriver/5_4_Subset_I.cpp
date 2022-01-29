@@ -24,14 +24,15 @@ public:
     }
 };
 
-// Using single Recursion
+// Using Multiple Recursion (by using for loop)
 class Solution {
 private:
     void subset(int idx, std::vector<int> &nums, std::vector<std::vector<int>> &ans, std::vector<int> &ds){
         ans.push_back(ds);
-
+        
         for (int i = idx; i < nums.size(); i++){
             ds.push_back(nums[i]);
+            // Here we are passing i+1 instead of idx+1 becoz we don't want equal no. of recursive calls from each further iteration
             subset(i+1, nums, ans, ds);
             ds.pop_back();
         }
@@ -46,7 +47,7 @@ public:
     }
 };
 
-// Using Multiple Recursion
+// Using Two Recursion calls
 class Solution2 {
 private:
     void subset(int idx, std::vector<int> &nums, std::vector<std::vector<int>> &ans, std::vector<int> &ds){
@@ -76,7 +77,7 @@ public:
 int main(){
     std::vector<int> nums = {1,2,3};
 
-    Solution2 obj;
+    Solution obj;
     for (auto x : obj.subsets(nums)){
         for (auto y : x){
             std::cout << y << " ";
