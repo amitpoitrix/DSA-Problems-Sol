@@ -57,7 +57,9 @@ public:
     }
 };
 
+
 // Leetcode 36. Valid Sudoku - Imp 
+
 // Here whatever the cell is filled in 9 x 9 sudoku we just have to check whether there position is valid or not
 class Solution {
 public:
@@ -80,8 +82,9 @@ public:
                     
                     rowSet[row].insert(c);
                     colSet[col].insert(c);
-                    squareSet[sPos].insert(c);                }
-
+                    squareSet[sPos].insert(c);                
+                }
+                
             }
         }
         

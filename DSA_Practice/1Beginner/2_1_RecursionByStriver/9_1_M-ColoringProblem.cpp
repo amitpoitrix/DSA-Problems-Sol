@@ -1,6 +1,6 @@
 #include<iostream>
-#include<vector>
-#include<cstring>
+// Recursion by Striver : L16. M-Coloring Problem | Backtracking
+// https://practice.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1#
 
 bool isSafe(int col, int node, int color[], bool graph[101][101], int V){
     // Checking if adjacent nodes have same color or not
@@ -44,9 +44,8 @@ bool graphColoring(bool graph[101][101], int m, int V)
     return false;
 }
 
-
-
 int main(){
+
 
     return 0;
 }
