@@ -3,6 +3,7 @@
 #include<limits.h>
 // DP by Striver : DP 4. Frog Jump with K Distance
 // Now frog can jump from i -> i+1, i+2, i+3.... i+k
+// https://atcoder.jp/contests/dp/tasks/dp_b
 
 // Using Recursion
 // TC - O(n * k)
