@@ -1,52 +1,35 @@
 #include<iostream>
 #include<vector>
 #include<cstring>
+using namespace std;
 
-bool isSafe(int col, int node, int color[], bool graph[101][101], int V){
-    // Checking if adjacent nodes have same color or not
-    for (int k = 0; k < V; k++){
-        if( k != node && graph[k][node] == 1 && color[k] == col){
-            return false;
-        }
+int f(int day, int last, vector<vector<int>> &points,vector<vector<int>> &dp) {
+
+  if (dp[day][last] != -1) return dp[day][last];
+
+  if (day == 0) {
+    int maxi = 0;
+    for (int i = 0; i <= 2; i++) {
+      if (i != last)
+        maxi = max(maxi, points[0][i]);
     }
-    
-    return true;
+    return dp[day][last] = maxi;
+  }
+
+  int maxi = 0;
+  for (int i = 0; i <= 2; i++) {
+    if (i != last) {
+      int activity = points[day][i] + f(day - 1, i, points, dp);
+      maxi = max(maxi, activity);
+    }
+
+  }
+
+  return dp[day][last] = maxi;
 }
 
-bool mColoring(int node, int color[], bool graph[101][101], int m, int V){
-    if(node == V){
-        return true;
-    }
+int ninjaTraining(int n, vector < vector < int > > & points) {
 
-    // Else will start looping for color strting from 1...m
-    for (int i = 1; i <= m; i++){
-        if(isSafe(i, node, color, graph, V)){
-            color[node] = i;
-
-            if(mColoring(node + 1, color, graph, m, V))
-                return true;
-
-            color[node] = 0;
-        }
-    }
-    
-    return false;
-}
-
-bool graphColoring(bool graph[101][101], int m, int V)
-{
-    // your code here
-    int color[V] = {0};
-    // Starting from 0th node
-    if(mColoring(0, color, graph, m, V))
-        return true;
-    
-    return false;
-}
-
-
-
-int main(){
-
-    return 0;
+  vector < vector < int > > dp(n, vector < int > (4, -1));
+  return f(n - 1, 3, points, dp);
 }
