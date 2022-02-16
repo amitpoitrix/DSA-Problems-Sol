@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 // DP by Striver : DP 15. Partition Equal Subset Sum | DP on Subsequences
-// Same as DP 14. 
+// Same as DP 14. Subset Sum Equals to Target
 
 // Taken Most Optimized Sol from Lec 14
 class Solution3{
