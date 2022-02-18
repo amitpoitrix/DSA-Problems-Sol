@@ -95,10 +95,11 @@ public:
     int knapsack(std::vector<int> &weight, std::vector<int> &value, int n, int maxWeight) {
         std::vector<int> prev(maxWeight + 1, 0), curr(maxWeight + 1, 0);
         // Base Case for Tabulation & it should start from weight[0] instead of 1 
-        for (int w = weight[0]; w <= maxWeight; w++) prev[w] = value[0];
+        for (int w = weight[0]; w <= maxWeight; w++) 
+            prev[w] = value[0];
         
         for (int idx = 1; idx < n; idx++){
-            for (int w = 0; w <= maxWeight; w++){
+            for (int w = 0; w <= maxWeight; w++){ 
                 int notTake = 0 + prev[w];
                 int take = -1e8;
                 if(weight[idx] <= w)
@@ -125,6 +126,7 @@ public:
         for (int w = weight[0]; w <= maxWeight; w++) prev[w] = value[0];
         
         for (int idx = 1; idx < n; idx++){
+            // As we require prev[] for both the case(i.e., pick or notPick) so iterating from last(or Max) Weight 
             for (int w = maxWeight; w >= 0; w--){
                 int notTake = 0 + prev[w];
                 int take = -1e8;

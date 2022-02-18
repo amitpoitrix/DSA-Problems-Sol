@@ -77,13 +77,13 @@ public:
         std::vector<std::vector<int>> dp(n, std::vector<int>(x + 1, 0));
         int target = x;
         // Base Case for Tabulation
-        for (int T = 1; T <= target; T++){
+        for (int T = 0; T <= target; T++){
             if(T % num[0] == 0) dp[0][T] = T / num[0];
             else dp[0][T] = 1e9;
         }
         
         for (int idx = 1; idx < n; idx++){
-            for (int T = 1; T <= target; T++){
+            for (int T = 0; T <= target; T++){
                 int notTake = 0 + dp[idx - 1][T];
                 int take = 1e9;
                 if(num[idx] <= T) take = 1 + dp[idx][T - num[idx]];
@@ -109,13 +109,13 @@ public:
         int target = x;
         std::vector<int> prev(target + 1, 0), curr(target + 1, 0);
         // Base Case for Tabulation
-        for (int T = 1; T <= target; T++){
+        for (int T = 0; T <= target; T++){
             if(T % num[0] == 0) prev[T] = T / num[0];
             else prev[T] = 1e9;
         }
         
         for (int idx = 1; idx < n; idx++){
-            for (int T = 1; T <= target; T++){
+            for (int T = 0; T <= target; T++){
                 int notTake = 0 + prev[T];
                 int take = 1e9;
                 if(num[idx] <= T) take = 1 + curr[T - num[idx]];
