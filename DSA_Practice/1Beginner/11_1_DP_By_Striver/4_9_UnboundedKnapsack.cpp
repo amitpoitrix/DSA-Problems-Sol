@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 // DP by Striver : DP 23. Unbounded Knapsack | 1-D Array Space Optimised Approach
+// Here Repeatition of Element is Allowed infinite no. of times where in 0/1 only single use is allowed
 
 // Using Recursion
 // TC - >> O(2^n) i.e., Exponential time
