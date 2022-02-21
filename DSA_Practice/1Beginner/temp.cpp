@@ -1,35 +1,34 @@
 #include<iostream>
 #include<vector>
 #include<cstring>
-using namespace std;
 
-int f(int day, int last, vector<vector<int>> &points,vector<vector<int>> &dp) {
+class Solution {
+public:
+    long long coutPairs(std::vector<int>& nums, int k) {
+        int n = nums.size();
+        long long count = 0;
+        for (int i = 0; i < n - 1; i++){
+          for (int j = i+1; j < n; j++){
+            if((nums[i] % k == 0) || (nums[j] % k == 0) ){
+              count++;
+              //std::cout << nums[i] << " " << nums[j] << "\n";
+            }
+          }
+        }
 
-  if (dp[day][last] != -1) return dp[day][last];
+        if(-8){
+          std::cout << "\n" << "true" << "\n";
+        }
 
-  if (day == 0) {
-    int maxi = 0;
-    for (int i = 0; i <= 2; i++) {
-      if (i != last)
-        maxi = max(maxi, points[0][i]);
+        return count;
     }
-    return dp[day][last] = maxi;
-  }
+};
 
-  int maxi = 0;
-  for (int i = 0; i <= 2; i++) {
-    if (i != last) {
-      int activity = points[day][i] + f(day - 1, i, points, dp);
-      maxi = max(maxi, activity);
-    }
+int main(){
+  std::vector<int> nums = {8,10,2,5,9,6,3,8,2};
+  int k = 6;
+  Solution obj;
+  std::cout << obj.coutPairs(nums, k);
 
-  }
-
-  return dp[day][last] = maxi;
-}
-
-int ninjaTraining(int n, vector < vector < int > > & points) {
-
-  vector < vector < int > > dp(n, vector < int > (4, -1));
-  return f(n - 1, 3, points, dp);
+  return 0;
 }
