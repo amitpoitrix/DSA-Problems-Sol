@@ -5,8 +5,8 @@
 
 // Approach 1 : Using Array ds, map ds
 // TC - O(n * n!) as n size array will give n! no. of permutations & another n is time to insert in ds
-// SC - O(n) + O(n) + O(n) + O(n!) where 1st O(n) due to Array ds, 2nd O(n) due to HashMap, 3rd O(n) due to Auxiliary space use by recursion
-// & last  O(n!) due to size of 2d vector to store all permutations 
+// SC - O(n) + O(n) + O(n) + O(n!) where 1st O(n) due to Array ds, 2nd O(n) due to HashMap, 3rd O(n) due to Auxiliary space use by 
+// recursion & last  O(n!) due to size of 2d vector to store all permutations 
 class Solution {
 private:
     void calPermutation(std::vector<int> &nums, std::vector<std::vector<int>> &ans, std::vector<int> &ds, int freq[]){

@@ -3,7 +3,7 @@
 // Striver SDE Sheet - Day1-Array-Part1
 // Leetcode : 118. Pascal's Triangle
 // 3 types of Ques can be asked from Pascal's Traingle
-// 1st Find Pascals Triangle at particular row & col compute (row - 1) C (col - 1) for 1 based indexing
+// 1st Find Pascals Triangle at particular row & col compute (row - 1) C (col - 1) for 1 based indexing & it'll take O(n) time
 
 // 2nd Find the nth row of Pascal's Traingle
 // Tc - O(n)
