@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-// Striver SDE Sheet - Day1-Array-Part1
+// Striver SDE Sheet - Day2-Array-Part2
 // Leetcode - 56. Merge Intervals
 // for this we have to first ask interviewer whether it is sort or not if not than sort it first
 

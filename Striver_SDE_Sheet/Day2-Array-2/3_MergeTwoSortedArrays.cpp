@@ -2,7 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<cmath>
-// Striver SDE Sheet - Day1-Array-Part1
+// Striver SDE Sheet - Day2-Array-Part2
 // GFG - Merge Without Extra Space
 
 // BruteForce Approach - Taking extra space
