@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 // Leetcode : 125. Valid Palindrome
+// https://leetcode.com/problems/valid-palindrome/
 
 // Normal Check Palindrome in string
 class Solution{
@@ -40,7 +41,7 @@ private:
         if((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
             return ch;
         else{
-            char temp = ch - 'A' + 'a'; // for Making Upper Case temp = ch - 'a' + 'A';
+            char temp = ch - 'A' + 'a'; // for Making UpperCase to LowerCase temp = ch - 'a' + 'A';
             return temp;
         }
     }
