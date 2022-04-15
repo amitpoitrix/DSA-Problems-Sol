@@ -2,7 +2,8 @@
 #include<vector>
 #include<stack>
 using namespace std;
-// Striver Tree Series : Recursive PreOrder, InOrder & PostOrder Traversal (Root -> Left -> Right) (Leetcode ques 144)
+// Striver Tree Series : Recursive PreOrder, InOrder & PostOrder Traversal (Leetcode ques 144)
+// Its is DFS(Depth First Search) - PreOrder, InOrder & PostOrder Traversal 
 // TC - O(n) , SC - O(n)
 // Preorder Sol - 10 20 40 70 80 50 30 60 
 

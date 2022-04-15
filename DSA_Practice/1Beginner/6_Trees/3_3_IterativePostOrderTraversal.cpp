@@ -2,7 +2,7 @@
 #include<vector>
 #include<stack>
 using namespace std;
-// Striver Tree Series : Iterative PostOrder Traversal - Left -> Right -> Root
+// Striver Tree Series : L11 & L12 Iterative PostOrder Traversal - Left -> Right -> Root
 // TC - O(n) , SC - O(2n)
 // PostOrder Sol - 70 80 40 50 20 60 30 10
 
@@ -18,7 +18,7 @@ struct Node{
     }
 };
 
-// Approach 1 : Using 2 stacks
+// Approach 1 : L11 - Using 2 stacks 
 vector<int> iterativePostOrder(Node * root){
     vector<int> postorder;
     if(root == NULL)
@@ -47,7 +47,7 @@ vector<int> iterativePostOrder(Node * root){
     return postorder;
 }
 
-// Approach 2 : Using 1 stack
+// Approach 2 : L12 - Using 1 stack
 vector<int> iterativePostOrder2(Node * root){
     vector<int> postorder;
     if(root == NULL)

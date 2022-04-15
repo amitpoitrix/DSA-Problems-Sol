@@ -2,7 +2,7 @@
 #include<vector>
 #include<stack>
 using namespace std;
-// Striver Tree Series : Iterative PreOrder Traversal (Leetcode ques 144)
+// Striver Tree Series : L9 Iterative PreOrder Traversal (Leetcode ques 144)
 // TC - O(n) , SC - O(n)
 // Preorder Sol - 10 20 40 70 80 50 30 60 
 

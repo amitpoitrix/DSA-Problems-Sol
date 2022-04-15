@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-// Striver Tree Series : Check Balanced Binary Tree
+// Striver Tree Series : L15 Check Balanced Binary Tree
 // Condition : If Height of any tree or subtree is > 1 than that tree is not balanced
 
 struct Node{

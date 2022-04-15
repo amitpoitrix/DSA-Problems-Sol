@@ -2,7 +2,7 @@
 #include<queue>
 using namespace std;
 // Striver Tree series : 102. Binary Tree Level Order Traversal
-// Level Order Traversal - BFS(Breadth First search)
+// L8 Level Order Traversal - BFS(Breadth First search)
 
 struct Node{
 public:

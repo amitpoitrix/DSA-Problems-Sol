@@ -2,7 +2,7 @@
 #include<vector>
 #include<stack>
 using namespace std;
-// Striver Tree Series : Iterative InOrder Traversal - Left -> Root -> Right
+// Striver Tree Series : L10 Iterative InOrder Traversal - Left -> Root -> Right
 // TC - O(n) , SC - O(n)
 // InOrder Sol - 70 40 80 20 50 10 60 30
 

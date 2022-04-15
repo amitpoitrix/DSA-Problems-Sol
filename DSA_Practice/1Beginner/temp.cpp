@@ -1,34 +1,29 @@
-#include<iostream>
-#include<vector>
-#include<cstring>
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
-    long long coutPairs(std::vector<int>& nums, int k) {
-        int n = nums.size();
-        long long count = 0;
-        for (int i = 0; i < n - 1; i++){
-          for (int j = i+1; j < n; j++){
-            if((nums[i] % k == 0) || (nums[j] % k == 0) ){
-              count++;
-              //std::cout << nums[i] << " " << nums[j] << "\n";
-            }
-          }
+    int findDuplicate(vector<int>& nums) {
+        map<int, int> mp;
+        for(int i=0; i < nums.size(); i++){
+            mp[nums[i]]++;
         }
-
-        if(-8){
-          std::cout << "\n" << "true" << "\n";
+        
+        for(auto x : mp){
+            cout << x.first << " -> " << x.second << "\n";
+            if(x.second > 1)
+                return x.first;
         }
-
-        return count;
+        
+        return 0;
     }
 };
 
 int main(){
-  std::vector<int> nums = {8,10,2,5,9,6,3,8,2};
-  int k = 6;
+  vector<int> nums = {1,3,4,2,2};
+
   Solution obj;
-  std::cout << obj.coutPairs(nums, k);
+  cout << obj.findDuplicate(nums);
 
   return 0;
 }
