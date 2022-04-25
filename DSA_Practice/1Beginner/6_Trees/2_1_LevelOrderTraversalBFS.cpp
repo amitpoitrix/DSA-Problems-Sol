@@ -4,6 +4,15 @@ using namespace std;
 // Striver Tree series : 102. Binary Tree Level Order Traversal
 // L8 Level Order Traversal - BFS(Breadth First search)
 
+// Algo:
+// BFS - Breadth First Search or Level Order Traversal using QUEUE
+// 1. Take a queue of type Node* & insert root into it and run outer loop till queue is empty
+// 2. Calculate size of queue in each iteration as at each iteration no. of element inside queue will determine no. of element
+// present at each row
+// 3. So inside Outer loop, run inner loop till queue size(calculate in each outer loop iteration) times and add each elements 
+// correspomding left & right root element into queue if exist & also add current element val in 1D array that will store 
+// elements of each row
+
 struct Node{
 public:
     int data;

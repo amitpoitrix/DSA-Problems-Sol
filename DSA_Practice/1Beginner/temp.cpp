@@ -3,27 +3,30 @@ using namespace std;
 
 class Solution {
 public:
-    int findDuplicate(vector<int>& nums) {
-        map<int, int> mp;
-        for(int i=0; i < nums.size(); i++){
-            mp[nums[i]]++;
+    void reverseString(string S, string T) {
+        if(S.size() % 2){
+            // its odd length
+            int i = 0, j = S.size()-1;
+
+            while(i < j){
+                swap(S[i], S[j]);
+            }
+
+            if(S == T){
+                cout << "Match";
+            }
+            else{
+                cout << "Dont match";
+            }
         }
-        
-        for(auto x : mp){
-            cout << x.first << " -> " << x.second << "\n";
-            if(x.second > 1)
-                return x.first;
-        }
-        
-        return 0;
     }
 };
 
 int main(){
-  vector<int> nums = {1,3,4,2,2};
+//   vector<int> nums = {1,3,4,2,2};
 
   Solution obj;
-  cout << obj.findDuplicate(nums);
+  obj.reverseString("abcde", "edcba");
 
   return 0;
 }
