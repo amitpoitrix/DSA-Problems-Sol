@@ -2,8 +2,14 @@
 #include<vector>
 // Leetcode : 125. Valid Palindrome
 // https://leetcode.com/problems/valid-palindrome/
-
 // Normal Check Palindrome in string
+
+// Algo:
+// 1. Take two pointers pointing to start & end and check if both elements are equal or not, if not return false/0
+
+// TC - O(n)
+// SC - O(1)
+
 class Solution{
 public:
     bool checkPalindrome(std::string s){
@@ -26,9 +32,18 @@ public:
 
 
 // Actual Leetcode ques
+// Ques : Check palindrome by removing/ignore all Non-AlphaNumeric elments + make all elements lowerCase
+
+// Algo:
+// 1. Take two pointers pointing to start & end and check if both elements are equal or not, if not return false/0
+// 2. Remove/ignore all Non-AlphaNumeric elements first & than check for palindrome. 
+
+// TC - O(n)
+// SC - O(1)
+
 class Solution1{
 private:
-    // Checking whether a valid char or not
+    // Checking whether a valid char or not OR Checking for Non-AlphaNumeric char
     bool isValidChar(char ch){
         if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'))
             return 1;
@@ -53,11 +68,12 @@ public:
         int end = n - 1;
 
         while (start < end){
+            // First checking Non-AlphaNumeric for start pointer
             if(!isValidChar(s[start])){
                 start++;
                 continue;
             }
-
+            // Now checking Non-AlphaNumeric for end pointer
             else if(!isValidChar(s[end])){
                 end--;
                 continue;
