@@ -3,8 +3,8 @@
 // Striver SDE Sheet - Day1-Array-Part1
 // Leetcode : 73. Set Matrix Zeroes
 
-// 1. Brute Force Approach - We'll traverse whole matrix and if encounter 0 than we'll make its all corresponding row and columns as -1 apart from 0
-// as it might affect other rows and columns
+// 1. Brute Force Approach - We'll traverse whole matrix and if encounter 0 than we'll make its all corresponding row and 
+// columns as -1 apart from 0 as it might affect other rows and columns
 // TC - O(m * n) * O(m + n)
 // SC - O(1)
 // This Approach will give TLE + fail for -ve elements 
@@ -56,8 +56,8 @@ public:
 };
 
 
-// Better Approach - Using 2 arrays of size row & col that will store the state of each rows & cols. After this we'll make that cell 0 if
-// Any row state array or col state array contains 0
+// Better Approach - Using 2 arrays of size row & col that will store the state of each rows & cols. After this we'll make 
+// that cell 0 if Any row state array or col state array contains 0
 // TC - O(m * n) + O(m * n)
 // SC - O(m) + O(n)
 // ACCEPTED
@@ -92,9 +92,9 @@ public:
 };
 
 
-// Most Optimized Approach - Instead of taking 2 extra arrays for storing rowState & colState we'll use first col as rowState & first row as 
-// colState. As mat[0][0] will common for both the states we'll keep extra variable col1 for another state. After first traversal we'll traverse
-// again but in reverse order.
+// Most Optimized Approach - Instead of taking 2 extra arrays for storing rowState & colState we'll use first col as rowState & 
+// first row as colState. As mat[0][0] will common for both the states we'll keep extra variable col1 for another state. After 
+// first traversal we'll traverse again but in reverse order.
 // TC - O(m * n)
 // SC - O(1)
 // ACCEPTED

@@ -17,9 +17,10 @@ public:
     }
 };
 
-// Approach 3 : If we see all the permutations we'll notice that numbers are attaining peak and than comes down. So from back we'll 
-// get the Break Point(when arr[i] < arr[i+1]) get it idx and again from back get another idx which is just greater than previously
-// found idx element and swap it, than from idx + 1 till n - 1 reverse the order of elements you'll get the next permutation
+// Approach 3 : If we see all the permutations we'll notice that numbers are attaining peak and than comes down. So from back 
+// we'll  get the Break Point(when arr[i] < arr[i+1]) get it idx and again from back get another idx which is just greater than 
+// previously found idx element and swap it, than from idx + 1 till n - 1 reverse the order of elements you'll get the next 
+// permutation
 // TC - O(n) + O(n) + O(n)
 // SC - O(1)
 class Solution2 {

@@ -23,8 +23,8 @@ public:
             int start = intervals[i][0];
             int end = intervals[i][1];
 
-            // checking condn whether current start is greater than last stored end element if yes than just move on so as to avoid 
-            // repetitive pairs like eg: {1,3}, {2,6} so this will store {{1,6}, {2,6}} which should be {{1,6}} only
+            // checking condn whether current start is greater than last stored end element if yes than just move on so as to 
+            // avoid repetitive pairs like eg: {1,3}, {2,6} so this will store {{1,6}, {2,6}} which should be {{1,6}} only
             if(!result.empty()){
                 // As we are comparing with last stored element use back() instead of [i-1]
                 if(start <= result.back()[1])
