@@ -9,8 +9,8 @@ using namespace std;
 // 1. Here we've to solve in-place (i.e., without using extra space) so for this we'll take two pointer first to traverse 
 // the original string and second to store the valid char in the same original string.
 // 2. For count of each repeating string we'll take another pointer that will help us in counting repeating string.
-// 3. We'll use to_string(count) method to convert int to string & traverse each char using for each loop to store it in 
-// original string
+// 3. We'll use to_string(count) method to convert int to string & traverse each char of that converted string using for each
+// loop to store it in original string
 
 // TC - O(n)
 // SC - O(1)
@@ -36,8 +36,8 @@ public:
             // storing repeating char counts if count is greater than 1
             if(count > 1){
                 string str = to_string(count);
-                for(char &a: str){
-                    chars[ansIdx++] = a;
+                for(char &num: str){
+                    chars[ansIdx++] = num;
                 }
             }
             // checking for next different element

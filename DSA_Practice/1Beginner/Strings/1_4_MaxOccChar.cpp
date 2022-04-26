@@ -1,7 +1,7 @@
 #include<iostream>
 // GFG : Maximum Occuring Character
 // https://practice.geeksforgeeks.org/problems/maximum-occuring-character-1587115620/1
-// Ques - We've to find char having max freq & should lexicographically smaller alphbet
+// Ques - We've to find char having max freq & should be lexicographically smaller alphabet
 
 // Algo:
 // 1. Here we'll make use of HashMap so for this we'll take array of size 26 & traverse till str.length() & fill it up 
