@@ -2,12 +2,13 @@
 #include<vector>
 // Striver graph series - Graph Representation
 
-// 1. Using Adjacency Matrix - Not suitable for larger no. of nodes 
+// 1. Using Adjacency Matrix 
+// SC - O(n^2) : Not suitable for larger no. of nodes 
 // int main(){
 //     int n, m;   // n -> No. of Node/Vertex & m -> No. of Edges
 //     std::cin >> n >> m;
 
-//     // declare Adjacent Matrix
+//     // Declaring Adjacency Matrix
 //     int adj[n+1][n+1];  // If its 1 based indexing
 
 //     // Traversing till no. of edges
@@ -26,10 +27,10 @@
 //     int n, m;   // n -> No. of Node/Vertex & m -> No. of Edges
 //     std::cin >> n >> m;
 
-//     // declare Adjacent List
+//     // Declaring Adjacency List
 //     std::vector<int> adj[n+1];  // If its 1 based indexing
 
-//     // Traversing till no. of edges
+//     // Traversing till no. of edges(m)
 //     for (int i = 0; i < m; i++){
 //         int u, v;
 //         std::cin >> u >> v;
@@ -47,7 +48,7 @@
 //     int n, m;   // n -> No. of Node/Vertex & m -> No. of Edges
 //     std::cin >> n >> m;
 
-//     // declare Adjacent List
+//     // Declaring Adjacency List
 //     std::vector<std::pair<int, int>> adj[n+1];  // If its 1 based indexing
 
 //     // Traversing till no. of edges

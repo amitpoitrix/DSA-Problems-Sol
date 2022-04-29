@@ -3,6 +3,7 @@
 #include<algorithm>
 // Striver SDE Sheet - Day1-Array-Part1
 // Leetcode : 31. Next Permutation
+// https://leetcode.com/problems/next-permutation/
 
 // Approach 1 : Get all the permuations and Sort them in ascending order and get the next permuation of Given Input no.
 

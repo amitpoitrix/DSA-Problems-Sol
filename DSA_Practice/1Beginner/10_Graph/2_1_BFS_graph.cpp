@@ -1,13 +1,29 @@
 #include<iostream>
 #include<vector>
 #include<queue>
-//Striver Graph Series : Breadth First Search Traversal of Graph
-// 1. We'll Take a visisted vector that stores whether element(vertex/node) is already visisted or not
-// 2. Pick 1st vertex and mark it visited and push it in queue
-// 3. Take the vertex from front of queue & print it followed by adding its adjacent vertex into queue that not visited so far
+//Striver Graph Series : Breadth First Search (BFS) Traversal of Graph
+// Brief: A BFS traversal starting from root traverse first all its child nodes than only it move to next level
+// Algo:
+// 1. Take a queue & a visited array.
+// 2. Push initial node in queue & mark it as visited.
+// 3. while queue is not empty:
+//      a) pop the front node & print it
+//      b) push its adjacent nodes in queue if they are not visited & mark them visited
+// 4. Repeat step 3 for each component.
 
 // TC - O(V + E)
 // SC - O(V + E) + O(V) + O(V)  ; O(V+E) -> For using Adjacency List, O(V) -> Visited Array, O(V) -> for Queue
+
+// Application of BFS :
+
+// 1. Shortest Path in an unweighted graph
+// 2. Cycle Detection
+// 3. Crawlers in Search Engine
+// 4. Social Networking Search
+// 5. In Garbage Collection
+// 6. Broadcasting
+
+// Leetcode Post : https://leetcode.com/discuss/interview-question/1408203/2-bfs-for-graphs
 
 class Solution{
 public:
@@ -55,7 +71,7 @@ int main(){
         adj[v].push_back(u);
     }
     
-    Solution* obj = new Solution();     // Solution obj; // call its function with . instead of ->
+    Solution* obj = new Solution();     // or Solution obj; // call its function with . instead of ->
     std::vector<int> res = obj->bfsOfGraph(V, adj);
 
     for (auto x : res){

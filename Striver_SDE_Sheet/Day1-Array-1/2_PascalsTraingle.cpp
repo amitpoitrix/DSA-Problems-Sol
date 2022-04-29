@@ -2,6 +2,7 @@
 #include<vector>
 // Striver SDE Sheet - Day1-Array-Part1
 // Leetcode : 118. Pascal's Triangle
+// https://leetcode.com/problems/pascals-triangle/
 // 3 types of Ques can be asked from Pascal's Traingle
 // 1st Find Pascals Triangle at particular row & col compute (row - 1) C (col - 1) for 1 based indexing & it'll take O(n) time
 
@@ -30,6 +31,7 @@ public:
 class Solution3 {
 public:
     std::vector<std::vector<int>> generate(int numRows) {
+        // Here we are declaring 2D vector like this becoz in each row, row size will be different
         std::vector<std::vector<int>> triangle(numRows);
 
         for (int i = 0; i <= numRows - 1; i++){

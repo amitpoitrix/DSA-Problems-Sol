@@ -1,11 +1,18 @@
 #include<iostream>
 #include<vector>
-// Striver Graph Series : Depth First Search Traversal on Graph
+// Striver Graph Series : Depth First Search (DFS) Traversal On Graph
 // Here we use recursion to implement DFS & in this it calls for Adjacent Node followed by there adjacent Node that means
 // It goes into the depth of the Nodes first 
 
 // TC - O(V + E)
 // SC - O(V + E) + O(V) + O(V)  ; O(V+E) -> For using Adjacency List, O(V) -> Visited Array, O(V) -> Auxillary Space
+
+// Application of DFS :
+// 1. Cycle Detection
+// 2. Topological Sorting
+// 3. Strongly Connected Components
+// 4. Path Finding
+// 5. Solving Maze and Similar Puzzles
 
 class Solution{
 private:

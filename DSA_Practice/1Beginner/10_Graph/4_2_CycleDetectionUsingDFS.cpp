@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 // Striver Graph Series : Cycle Detection in Undirected Graph using DFS
+// If adjacent node(next node) is already visited & its not a parent node than there is a cycle
 
 class Solution{
 private:

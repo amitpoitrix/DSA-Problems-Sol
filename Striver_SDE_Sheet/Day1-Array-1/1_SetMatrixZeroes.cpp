@@ -2,6 +2,7 @@
 #include<vector>
 // Striver SDE Sheet - Day1-Array-Part1
 // Leetcode : 73. Set Matrix Zeroes
+// https://leetcode.com/problems/set-matrix-zeroes/
 
 // 1. Brute Force Approach - We'll traverse whole matrix and if encounter 0 than we'll make its all corresponding row and 
 // columns as -1 apart from 0 as it might affect other rows and columns
