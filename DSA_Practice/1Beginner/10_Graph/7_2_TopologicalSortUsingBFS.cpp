@@ -4,6 +4,18 @@
 // Striver Graph Series : Topological Sort Using BFS (Kahn's Algorithm)
 // Inorder - No. of Incoming edges to a vertex
 
+// Idea:  Node with lesser indegree will come before than the node with greater indegree in the topological sort.
+
+// Algo(DFS):
+// 1. First get the indegree of each node & store it in an array. And becoz of this indegree[] we don't require visited[]
+// 2. Push the node in queue with indegree = 0.
+// 3. While queue is not empty
+//      i) print the front node & pop it.
+//      ii) decrement indegree of its adjacents
+//      iii) If indegree becomes 0 then push the adjacent node in the queue.
+
+// TC - O(V+E)
+// SC - O(V) + O(V); 1st O(V) for Queue DS, 2nd for inDegree array
 class Solution{
 public:
     std::vector<int> topoSort(int V, std::vector<int> adj[]){
@@ -28,7 +40,7 @@ public:
         while (!q.empty()){
             int vertex = q.front();
             q.pop();
-
+            // Now this current vertex/node from queue.front() is part of topo sort so pushing into resultant vector
             res.push_back(vertex);
 
             for (auto x : adj[vertex]){

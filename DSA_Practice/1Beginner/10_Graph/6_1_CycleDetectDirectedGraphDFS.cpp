@@ -1,6 +1,11 @@
 #include<iostream>
 #include<vector>
-// Striver Graph Series : Detect cycle in Directed Graph using DFS
+// Striver Graph Series : Detecting cycle in Directed Graph using DFS
+// Algo:
+// 1. If in recursion stack, a node comes two times then cycle is there.
+// 2. So we can maintain two arrays, visited[] & dfsVisited[] call array.
+// 3. If you go to a node then mark it in both arrays but when you go back from that node than unmark it from dfsVisited[] only.
+// 4. If you go to a node where dfsVisited[] is already marked than cycle is there.
 
 class Soltuion{
 private:
@@ -18,7 +23,7 @@ private:
                 return true;
         }
         
-        // Backtracking
+        // Backtracking : Un-marking dfsVisited[] 
         dfsVis[node] = 0;
         return false;
     }
@@ -28,6 +33,7 @@ public:
         // std::vector<int> vis(V, 0);
         // std::vector<int> dfsVis(V, 0);
 
+        // Using normal array becoz vector<int> vis(V,0) initial value 0 initialization is costly(TLE)
         int vis[V];
         int dfsVis[V];
         for (int i = 0; i < V; i++){

@@ -1,9 +1,13 @@
 #include<iostream>
 #include<vector>
 // Striver Graph Series : Bipartite Graph(Graph Coloring) Using DFS
+// Same as BFS
 
+// TC - O(V + E)
+// SC - O(V) ~ Recursive Stack space
 class Solution{
 private:
+    // Using DFS - Recursive Approach
     bool checkBipartite(int node, int color[], std::vector<int> adj[]){
         if(color[node] == -1)
             color[node] = 1;    // Assigning initial color as 1
