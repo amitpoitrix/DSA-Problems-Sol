@@ -7,7 +7,7 @@
 // There can be multiple topological sort for a given DAG
 
 // Algo (BFS):
-// 1. Maintain a visited array and stack to store the topological sort
+// 1. Maintain a visited[] and stack to store the topological sort
 // 2. If adjacents of current node are done than push it into the stack(that means dfs of current node is done & there is 
 // no further adjecent node left to visit)
 
