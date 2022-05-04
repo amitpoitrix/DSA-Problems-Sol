@@ -2,7 +2,13 @@
 #include<vector>
 #include<algorithm>
 // Striver Graph Series : Krushkal's Algorithm - Used to find MSP using Disjoint Set instead of Adjacency List
-// TC - O(ElogV)
+
+// Algo:
+// 1. Store all edges in an array & sort them acc. to their weights.
+// 2. Keep taking the edge with lesser weight if corresponding nodes does not belong to same component(to avoid cycle)
+
+// TC - O(ElogE) + O(E * 4@) ~ O(ElogE); where @ is Alpha, and E or M is no. of edges
+// SC - O(3M) + O(N) + O(N) = O(N); last two O(N) for disjoint sets Rank[] & Parent[]
 
 // creating Node structure {u, v, wt}
 struct Node{
@@ -48,7 +54,7 @@ bool comp(Node a, Node b){
 }
 
 void krushkal(int V, std::vector<Node> edges){
-    // First sort the edges<Node> acc to asc order of its weight
+    // First sort the edges<Node> acc to asc order of its weight using comp(comparator)
     std::sort(edges.begin(), edges.end(), comp);
 
     std::vector<int> rank(V, 0);
@@ -58,6 +64,7 @@ void krushkal(int V, std::vector<Node> edges){
     }
 
     int cost = 0;
+    // For storing edges of MST graph
     std::vector<std::pair<int, int>> mst;
 
     for (auto it : edges){
@@ -78,7 +85,7 @@ void krushkal(int V, std::vector<Node> edges){
 int main(){
     int N, M;
     std::cin >> N >> M;
-    // Storing edges in linear DS
+    // Storing edges in linear DS having each elements of type Node 
     std::vector<Node> edges;
     for (int i = 0; i < M; i++){
         int u, v, wt;

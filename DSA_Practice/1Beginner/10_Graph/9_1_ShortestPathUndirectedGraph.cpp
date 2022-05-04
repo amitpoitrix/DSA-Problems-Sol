@@ -4,12 +4,12 @@
 
 #define MAX 1e9
 
-// Striver Graph Series : Shortest Path in Undirected Graph with Unit Weights
-// Find shortest distance from given source node to every other node in the graph
+// Striver Graph Series : Shortest Path in Undirected Graph with Unit Weight
+// Find find Shortest Path in Unit Weigt Undirected Graph from src to all vertices
 // We'll use modified version of BFS
 
 // Algo:
-// 1. Perform BFS
+
 // 2. Maintain a distance[] array initially filled with MAX(or 1e9) & here we don't require visited[]
 // 3. Mark source's distance as 0.
 // 4. If you visit neighbours of a node(whose distance is d) than check if(d+1 < dist(neighbor)) if yes than update the 

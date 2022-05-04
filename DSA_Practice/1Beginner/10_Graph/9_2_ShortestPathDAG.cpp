@@ -8,7 +8,7 @@
 // Algo:
 // 1. Store Topological Sort in stack using DFS
 // 2. Make a distance array, mark src as 0 & all other nodes as MAX
-// 3. Now apply BFS on constructed stact as While stack is not empty
+// 3. Now apply BFS(not using queue) using constructed stack as While stack is not empty
 //      a) pop(let say node u is popped)
 //      b) If current node dist is not MAX than only calculate its adjacent node distance
 //      c) see the adjacent nodes of u, dist of adjacent node = min(dist[adjacent node], dist[u] + weight on edge of u & adj. node)
