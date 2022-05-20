@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-// Striver Tree Series : Leetcode 100. Same Tree
+// Striver Tree Series : L18 Leetcode 100. Same Tree
 
 struct Node{
     int data;

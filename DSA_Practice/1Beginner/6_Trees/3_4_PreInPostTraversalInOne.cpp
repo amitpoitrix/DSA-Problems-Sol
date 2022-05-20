@@ -3,6 +3,14 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : L13 Iterative PreOrder, InOrder & PostOrder Traversal in One Traversal
+// DFS Techniques : Preorder, Inorder, Postorder Traversal
+
+// Algo:
+// 1. Maintain 3 vectors prre, in & post and push a pair{root, 1} into the stack.
+// 2. While statk is not empty, take top element & than pop it
+// 3. if num = 1 than
+// a) push top->value into preorder.
+// b) Increment num & push again i.e., push {top, 2} into stack 
 
 struct Node{
     int data;
@@ -40,7 +48,7 @@ void iterativePreInPostOrder(Node * root){
         if(temp.second == 1){
             preorder.push_back(temp.first->data);
             temp.second++;
-            st.push(temp);  // Pushing back into the stack after incrementing the num(second) value
+            st.push(temp);  // Pushing back into the stack after incrementing the num(second) value for inorder
             // If temp left exist
             if(temp.first->left != NULL){
                 st.push({temp.first->left, 1});
@@ -50,7 +58,7 @@ void iterativePreInPostOrder(Node * root){
         else if(temp.second == 2){
             inorder.push_back(temp.first->data);
             temp.second++;
-            st.push(temp);
+            st.push(temp);  // Pushing back into the stack after incrementing the num(second) value for postorder
             // If temp right exist
             if(temp.first->right != NULL){
                 st.push({temp.first->right, 1});

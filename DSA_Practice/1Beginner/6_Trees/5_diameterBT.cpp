@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
-// Striver Tree Series : Diameter of Binary Tree - Max distance btw any two nodes of BT
+// Striver Tree Series : L16 Diameter of Binary Tree
+// Diameter of BT:
+// a) Longest path btw two nodes.
+// b) Path doesn't need to pass through root node. (Optional)
 
 struct Node{
     int data;
@@ -14,7 +17,7 @@ struct Node{
     }
 };
 
-// Here we modified the height() with extra diameter as parameter which is passed as reference
+// Here we modified the height() with extra parameter which is passed as reference
 int heightOfBT(Node * root, int &diameter){
     if(root == NULL)
         return 0;

@@ -13,6 +13,11 @@ using namespace std;
 // correspomding left & right root element into queue if exist & also add current element val in 1D array that will store 
 // elements of each row
 
+// Application :
+// 1. To find the max width of BT i.e., max no. of nodes in a particular level
+
+// TC - O(n)
+// SC - O(n) - for queue
 struct Node{
 public:
     int data;

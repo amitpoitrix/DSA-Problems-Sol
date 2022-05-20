@@ -3,6 +3,7 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : L9 Iterative PreOrder Traversal (Leetcode ques 144)
+// 1st DFS Technique : Preorder Traversal
 // TC - O(n) , SC - O(n)
 // Preorder Sol - 10 20 40 70 80 50 30 60
 
@@ -11,7 +12,7 @@ using namespace std;
 // 1. For DFS PreOrder Traversal  we'll use Stack and first insert root into it & then run loop till stack is not empty
 // 2. We'll take the top() element & store this  top() element in res to be return and find its corresponding left & right 
 // elements if exist.
-// 3. First we'll insert right elment and than left element onto stack becoz of its LIFO properties.
+// 3.(Imp) First we'll insert right elment and than left element onto stack becoz of its LIFO properties.
 
 struct Node{
     int data;

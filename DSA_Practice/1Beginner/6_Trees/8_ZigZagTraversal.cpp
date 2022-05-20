@@ -1,7 +1,11 @@
 #include<iostream>
 #include<queue>
 using namespace std;
-// Striver Tree series : Leetcode 103. Binary Tree Zigzag Level Order Traversal
+// Striver Tree series : L19 Leetcode 103. Binary Tree ZigZag Level Order Traversal
+
+// ALgo:
+// Same as Level Order Traversal (BFS) with slight modification using flag that determine whether to print from Left to Right
+// or Right to Left
 
 struct Node{
     int data;

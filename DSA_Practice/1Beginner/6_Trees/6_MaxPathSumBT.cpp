@@ -2,6 +2,9 @@
 using namespace std;
 // Striver Tree Series : Maximum Path Sum of Binary Tree (Leetcode 124. Binary Tree Maximum Path Sum)
 
+// Algo:
+// Max path at any given node(curving point) = node->data + maxLeftPath  + maxRightPath
+
 struct Node{
     int data;
     Node * left;
@@ -18,11 +21,11 @@ int maxPath(Node * root, int &maxi){
     if(root == NULL)
         return 0;
 
-    // If we encounter -ve node value than we'll ignore it and replace the return value with 0
+    // If we encounter -ve node value in either left or right path than we'll ignore it and replace the return value with 0
     int leftSum = max(0, maxPath(root->left, maxi));    // here leftSum is the max path sum on left side
     int rightSum = max(0, maxPath(root->right, maxi));  // here rightSum is the max path sum on right side
 
-    // Calculating max path value at node which is assume as root node of reverse U path
+    // Backtracking: Calculating max path value at node which is assume as root node of reverse U path
     maxi = max(maxi, root->data + leftSum + rightSum);
 
     // here we're returning max path on either side(whether its left or right)

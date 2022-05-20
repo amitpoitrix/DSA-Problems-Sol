@@ -3,8 +3,14 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : L10 Iterative InOrder Traversal - Left -> Root -> Right
+// 2nd DFS Technique : Inorder Traversal
 // TC - O(n) , SC - O(n)
 // InOrder Sol - 70 40 80 20 50 10 60 30
+
+// Algo:
+// 1. Keep going left & pushing into stack until you get NULL.
+// 2. As NULL comes, check if stack empty than break else print & pop top and then go right & push on the stack.
+// 3. Repeat 1 & 2
 
 struct Node{
     int data;

@@ -3,6 +3,7 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : L11 & L12 Iterative PostOrder Traversal - Left -> Right -> Root
+// 3rd DFS Technique : Postorder Traversal
 // TC - O(n) , SC - O(2n)
 // PostOrder Sol - 70 80 40 50 20 60 30 10
 
@@ -18,7 +19,13 @@ struct Node{
     }
 };
 
-// Approach 1 : L11 - Using 2 stacks 
+// Approach 1 : L11 - Using 2 stacks
+// Algo:
+// 1. Push root in stack1.
+// 2. Pop top of the stack1, push it in stack2 and then push its left & right in stack1.
+// 3. Repeat step2 until stack1 is not empty.
+// 4. Postorder will be available in stack2.
+
 vector<int> iterativePostOrder(Node * root){
     vector<int> postorder;
     if(root == NULL)
@@ -48,6 +55,10 @@ vector<int> iterativePostOrder(Node * root){
 }
 
 // Approach 2 : L12 - Using 1 stack
+// Algo: Recursive idea
+// 1. Go left untill NULL
+// 2. Go one time right
+// 3. Go again left untill NULL
 vector<int> iterativePostOrder2(Node * root){
     vector<int> postorder;
     if(root == NULL)
