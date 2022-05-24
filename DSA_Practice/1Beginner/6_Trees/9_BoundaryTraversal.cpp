@@ -3,6 +3,20 @@
 using namespace std;
 // Striver Tree Series : Boundary Traversal of Binary Tree (Anti-Clockwise)
 
+// Algo: Anti-Clockwise 
+// 1. Left Boundary excluding leaf
+// Take result vector ds and push root node into it if its not a leaf than traverse on left side of nodes(i.e., start from 
+// root->left) & push it into ds.
+// If there doesn't exist left than check on right till it reaches leaf node
+
+// 2. Leaf nodes
+// Do inorder traversal on leaf nodes & push it into ds.
+
+// 3. Right Boundary excluding leaf
+// For reverse order we'll use another ds(vector) and start traversing from root->right. If there doesn't exist a right than 
+// go to left till it reaches leaf nodes.
+// Now take top element from ds and push it into result ds.
+
 // NOTE : This Code is working fine in Online Compiler. Not giving output here in VS Code
 
 struct Node{
@@ -24,6 +38,7 @@ bool isLeaf(Node * root){
 
 // Adding Left Boundary
 void addLeftBoundary(Node * root, vector<int> &result){
+    // Starting from left node
     Node * curr = root->left;
 
     while (curr){
@@ -40,8 +55,9 @@ void addLeftBoundary(Node * root, vector<int> &result){
 
 // Adding Right Boundary
 void addRightBoundary(Node * root, vector<int> &result){
+    // starting from right node
     Node * curr = root->right;
-    vector<int> temp;   // to store right BT nodes which will store in result vector in reverse order
+    vector<int> temp;   // to store right BT nodes which will be further used to push element into res vec in reverse order
 
     while (curr){
         if(!isLeaf(curr))
@@ -54,7 +70,7 @@ void addRightBoundary(Node * root, vector<int> &result){
             curr = curr->left;
     }
 
-    // Adding the node data of right most BT nodes back to result vector
+    // Adding the node data of right most BT nodes back to result vector in reverse order
     for (int i = temp.size()-1; i >= 0; --i){
         result.push_back(temp[i]);
     }
@@ -67,7 +83,8 @@ void addLeaves(Node * root, vector<int> &result){
         return;
     }
 
-    // Checking if Left & than right node exist or not if yes than check if its a leaf node or not if yes than add it to result vector
+    // Checking if Left & than right node exist or not if yes than check if its a leaf node or not if yes than add it to 
+    // result vector
     if(root->left)
         addLeaves(root->left, result);
     

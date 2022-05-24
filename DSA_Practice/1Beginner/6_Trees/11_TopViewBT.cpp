@@ -21,8 +21,10 @@ vector<int> topViewBT(Node * root){
     if(root == NULL)
         return result;
 
+    // map<line, Node>
     map<int, int> mp;
 
+    // Queue<Node, line>
     queue<pair<Node*, int>> q;
     q.push({root, 0});
 
@@ -33,8 +35,7 @@ vector<int> topViewBT(Node * root){
         Node * node = it.first;
         int line = it.second;
 
-        // Checking if that vertical line value already exist or not
-        // here both mp.end() & mp.find(line) will point next to last element of map if its(line) not there 
+        // If line doesn't exist than insert node->data into map
         if(mp.find(line) == mp.end())
             mp[line] = node->data;
 

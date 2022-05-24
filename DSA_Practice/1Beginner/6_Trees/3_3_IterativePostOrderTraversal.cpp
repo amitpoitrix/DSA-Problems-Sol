@@ -65,7 +65,6 @@ vector<int> iterativePostOrder2(Node * root){
         return postorder;
 
     stack<Node*> st;
-
     Node * curr = root;
 
     while (curr != NULL || !st.empty()){

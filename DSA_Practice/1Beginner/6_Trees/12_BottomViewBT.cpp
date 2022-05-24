@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-// striver Tree series : Top View of Binary Tree
+// striver Tree series : Bottom View of Binary Tree
+// Goodnotes
 
 struct Node{
     int data;

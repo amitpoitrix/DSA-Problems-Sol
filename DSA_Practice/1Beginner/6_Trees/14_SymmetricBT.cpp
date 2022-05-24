@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 // striver Tree series : Leetcode 101. Symmetric Tree
+// https://leetcode.com/problems/symmetric-tree/
+// Goodnotes
 
 struct Node{
     int data;

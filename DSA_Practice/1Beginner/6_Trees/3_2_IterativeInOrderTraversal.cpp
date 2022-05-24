@@ -9,7 +9,7 @@ using namespace std;
 
 // Algo:
 // 1. Keep going left & pushing into stack until you get NULL.
-// 2. As NULL comes, check if stack empty than break else print & pop top and then go right & push on the stack.
+// 2. As NULL comes, check if stack empty than break else pop top & print it and then go right & push on the stack.
 // 3. Repeat 1 & 2
 
 struct Node{
@@ -26,6 +26,7 @@ struct Node{
 
 vector<int> iterativeInOrder(Node * root){
     vector<int> inorder;
+    
     stack<Node*> st;
     Node * temp = root;
 

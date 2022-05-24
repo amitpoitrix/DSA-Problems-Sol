@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-// striver Tree series : Leetcode 987. Vertical Order Traversal of a Binary Tree
+// striver Tree series : Vertical Order Traversal of a Binary Tree
+// Leetcode 987: https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+// Goodnotes
 
 struct Node{
     int data;
@@ -14,6 +16,7 @@ struct Node{
     }
 };
 
+// Using BFS
 vector<vector<int>> verticalTraversal(Node * root){
     vector<vector<int>> result;
     if(root == NULL)
@@ -52,6 +55,53 @@ vector<vector<int>> verticalTraversal(Node * root){
 
     return result;
 }
+
+struct TreeNode{
+    int val;
+    TreeNode * left;
+    TreeNode * right;
+
+    TreeNode(int val){
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
+    }
+};
+
+// Using DFS
+class Solution {
+private:
+    void dfs(TreeNode * root, int vertical, int level, map<int, map<int, multiset<int>>> &nodes){
+        if(root){
+            // inserting nodes into multiset map
+            nodes[vertical][level].insert(root->val);
+            
+            dfs(root->left, vertical-1, level+1, nodes);
+            dfs(root->right, vertical+1, level+1, nodes);
+        }
+    }
+    
+public:
+    vector<vector<int>> verticalTraversal(TreeNode* root) {
+        // vertical -> level -> multinodes
+        map<int, map<int, multiset<int>>> nodes;
+        // dfs recursive call
+        dfs(root, 0, 0, nodes);
+        vector<vector<int>> res;
+        // for each vertical x
+        for(auto x: nodes){
+            vector<int> col;
+            // for each level y of vertical x
+            for(auto y: x.second){
+                col.insert(col.end(), y.second.begin(), y.second.end());
+            }
+            // Inserting col nodes into res after getting all nodes value in particular vertical
+            res.push_back(col);
+        }
+        
+        return res;
+    }
+};
 
 int main(){
     Node * root = new Node(1);

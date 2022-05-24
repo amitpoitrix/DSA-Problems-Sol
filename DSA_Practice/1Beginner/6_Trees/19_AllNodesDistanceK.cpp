@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-// Striver Tree series : Leetcode 863. All Nodes Distance K in Binary Tree 
+// Striver Tree series : Leetcode 863. All Nodes Distance K in Binary Tree
+// https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/
+// Goodnotes 
 
 struct Node{
     int data;
@@ -53,7 +55,7 @@ vector<int> nodesAtDistanceK(Node * root, Node * target, int k){
     unordered_map<Node*, bool> visited;     // visited Hash Table to check whether node is already visited or not
     visited[target] = true;
 
-    queue<Node*> q;     // As we're doing BFS traversal from target node
+    queue<Node*> q;     //BFS traversal from target node
     q.push(target);
 
     int dist = 0;
@@ -62,7 +64,6 @@ vector<int> nodesAtDistanceK(Node * root, Node * target, int k){
         if(dist == k)
             break;
         dist++;
-
         int size = q.size();
         for (int i = 0; i < size; i++){
             Node * current = q.front();
@@ -88,7 +89,7 @@ vector<int> nodesAtDistanceK(Node * root, Node * target, int k){
         }
     }
 
-    // Inserting resultant ouput in result vector
+    // Now whatever nodes are left inside queue is our desired nodes
     while (!q.empty()){
         result.push_back(q.front()->data);
         q.pop();

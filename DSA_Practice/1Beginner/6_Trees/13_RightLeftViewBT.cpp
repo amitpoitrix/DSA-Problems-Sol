@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 // striver Tree series : Leetcode 199. Binary Tree Right Side View
+// https://leetcode.com/problems/binary-tree-right-side-view/
+// Goodnotes
 
 struct Node{
     int data;
@@ -19,7 +21,7 @@ void rightViewTraversal(Node * root, int level, vector<int> &result){
     if(root == NULL)
         return;
     
-    // Smart Move : Checking if DS size is same as level No. starting from 0
+    // Smart Move : In order to get first node from right side check whether result size is same as level no
     if(level == result.size())
         result.push_back(root->data);
     

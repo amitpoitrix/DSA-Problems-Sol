@@ -6,7 +6,7 @@ using namespace std;
 // DFS Techniques : Preorder, Inorder, Postorder Traversal
 
 // Algo:
-// 1. Maintain 3 vectors prre, in & post and push a pair{root, 1} into the stack.
+// 1. Maintain 3 vectors pre, in & post and push a pair{root, 1} into the stack.
 // 2. While statk is not empty, take top element & than pop it
 // 3. if num = 1 than
 // a) push top->value into preorder.

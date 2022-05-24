@@ -3,6 +3,7 @@ using namespace std;
 // striver Tree Series : L29. Children Sum Property in Binary Tree | O(N) Approach
 // Children Sum Property of BT : Means the sum of children Nodes data should be equal to root Node
 // Condition : We can increase the size of any node by +1 any no. of times
+// Goodnotes
 
 struct Node{
     int data;
@@ -17,11 +18,11 @@ struct Node{
 };
 
 void childrenSumBT(Node * root){
-    // Top to Bottom
+    // Base Case
     if(root == NULL)
         return;
     
-    // At First 
+    // Top to bottom
     int child = 0;
     if(root->left)
         child += root->left->data;
@@ -31,7 +32,9 @@ void childrenSumBT(Node * root){
     // here we're checking the child sum whether its equal to or greater than root node or not
     if(child >= root->data)
         root->data = child;
-    else{   // If child Sum is smaller than assgin the root node value to both its child (i.e., left & right)
+
+    // If child Sum is smaller than assign the root node value to both its child (i.e., left & right)
+    else{   
         if(root->left)
             root->left->data = root->data;
         if(root->right)
@@ -42,7 +45,7 @@ void childrenSumBT(Node * root){
     childrenSumBT(root->left);
     childrenSumBT(root->right);
 
-    // Backtracking - Bottom to Top
+    // Bottom to Top - Backtracking
     int total = 0;
     if(root->left)
         total += root->left->data;

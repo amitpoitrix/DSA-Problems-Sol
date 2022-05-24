@@ -3,6 +3,7 @@
 using namespace std;
 // striver Tree Series : Leetcode 662. Maximum Width of Binary Tree
 // Max width of a BT is the max distance btw two nodes at the same level
+// https://leetcode.com/problems/maximum-width-of-binary-tree/
 
 struct Node{
     int data;
@@ -29,10 +30,12 @@ int maxWidthBT(Node * root){
         int min = q.front().second;
         int first, last;
         for (int i = 0; i < size; i++){
+            // subtracting idx with min in order to avoid overflowing
             int curr_idx = q.front().second - min;
             Node * temp = q.front().first;
             q.pop();
 
+            // Getting the first and last node idx 
             if(i == 0)
                 first = curr_idx;
             if(i == size-1)
@@ -44,7 +47,7 @@ int maxWidthBT(Node * root){
             if(temp->right)
                 q.push({temp->right, curr_idx * 2 + 2});
         }
-
+        // Computing max width so far
         width = max(width, last - first + 1);
     }
 

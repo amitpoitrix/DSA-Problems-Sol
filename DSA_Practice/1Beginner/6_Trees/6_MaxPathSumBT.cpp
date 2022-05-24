@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
-// Striver Tree Series : Maximum Path Sum of Binary Tree (Leetcode 124. Binary Tree Maximum Path Sum)
+// Striver Tree Series : Maximum Path Sum of Binary Tree 
+// Leetcode 124. Binary Tree Maximum Path Sum; https://leetcode.com/problems/binary-tree-maximum-path-sum/
 
 // Algo:
 // Max path at any given node(curving point) = node->data + maxLeftPath  + maxRightPath

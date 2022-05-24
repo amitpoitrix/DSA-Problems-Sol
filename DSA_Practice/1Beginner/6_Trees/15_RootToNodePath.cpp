@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 // striver Tree series : Print Root To Node(i.e., Leaf Node) Path
+// https://www.interviewbit.com/problems/path-to-given-node/
+// Goodnotes
 
 struct Node{
     int data;
@@ -23,11 +25,11 @@ bool rootNodePath(Node * root, vector<int> &result, int node){
     // else just insert the node data in the resultant vector
     result.push_back(root->data);
 
-    // check if the node data is the destination node
+    // check if the node data is the desired node
     if(root->data == node)
         return true;
 
-    // check either on the left or right is dest. node is there
+    // check either on the left or right is there any desired node
     if(rootNodePath(root->left, result, node) || rootNodePath(root->right, result, node))
         return true;
 
