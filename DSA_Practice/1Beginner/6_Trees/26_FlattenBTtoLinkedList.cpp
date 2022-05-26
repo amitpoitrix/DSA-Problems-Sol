@@ -1,7 +1,8 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-// Striver Tree Series : Leetcode 114. Flatten Binary Tree to Linked List 
+// Striver Tree Series : Leetcode 114. Flatten Binary Tree to Linked List
+// https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
 
 struct Node{
     int data;
@@ -16,11 +17,12 @@ struct Node{
 };
 
 // Approach 1 : Recursive Approach; TC - O(N) & SC - O(N)
+// Initially prev is passed as NULL
 void recursiveFlattenBT(Node * root, Node * &prev){
     if(root == NULL)
         return;
 
-    // First we'll go to right part of subtree
+    // First we'll go to right part of subtree i.e., Reverse Postorder Traversal
     recursiveFlattenBT(root->right, prev);
     recursiveFlattenBT(root->left, prev);
 
@@ -55,6 +57,7 @@ void iterativeFlattenBT(Node * root){
         if(cur->left)
             st.push(cur->left);
 
+        // Now joining current right to the top of the stack
         if(!st.empty())
             cur->right = st.top();
         
@@ -71,6 +74,7 @@ void morrisFlattenBT(Node * root){
     while (cur != NULL){
         // Checking if left exist
         if(cur->left){
+            // if left exist than assign it to prev
             Node * prev = cur->left;
             // Go to extreme right of left subtree
             while (prev->right){

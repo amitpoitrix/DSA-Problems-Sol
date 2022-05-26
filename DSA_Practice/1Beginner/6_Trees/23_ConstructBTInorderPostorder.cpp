@@ -23,7 +23,7 @@ Node * buildBTUsingInPost(vector<int> &inorder, int inStart, int inEnd, vector<i
     // Starting from postorder Traversal Node i.e., Root Node of actual BT
     Node * root = new Node(postorder[postEnd]);
     int inRoot = inMap[root->data]; // Getting the pos(index) of root node in InOrder Traversal 
-    int numsLeft = inRoot - inStart;
+    int numsLeft = inRoot - inStart; // No. of elements left on the left side of root node idx in inorder array
 
     root->left = buildBTUsingInPost(inorder, inStart, inRoot-1, postorder, postStart, postStart + numsLeft - 1, inMap);
     root->right = buildBTUsingInPost(inorder, inRoot+1, inEnd, postorder, postStart+numsLeft, postEnd - 1, inMap);

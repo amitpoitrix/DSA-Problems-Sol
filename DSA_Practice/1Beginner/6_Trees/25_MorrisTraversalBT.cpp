@@ -22,27 +22,26 @@ vector<int> inorderMorrisTraversal(Node * root){
     if(root == NULL)
         return inorder;
     
-    Node * cur = root;  // storing the root to some variable node so that root won't get affect
+    Node * cur = root;  // storing the root to cur pointer so that root won't get affect
 
     while (cur != NULL){
         if(cur->left == NULL){
             inorder.push_back(cur->data);   // Print
-            cur = cur->right;
+            cur = cur->right;   // normal right or threaded path right
         }
         else{
-            Node * next = cur->left;
+            Node * prev = cur->left;
             // Here we'll move to the rightmost node of subtree that will make thread connection to Root(current) Node
-            while (next->right && next->right != cur){
-                next = next->right;
+            while (prev->right && prev->right != cur){
+                prev = prev->right;
             }
             // edge case
-            if(next->right == NULL){
-                next->right = cur;  // Making thread connection to Root(Current) Node
-                cur = cur->left;
+            if(prev->right == NULL){
+                prev->right = cur;  // Making thread connection to Root(Current) Node
+                cur = cur->left; // After making thread connection than we'll move cur to left
             }
-            else{   // this is the case when next->right points to current node itself so we'll break that thread over here
-                next->right = NULL; // Breaking the thread connection
-                //here you're on the Left most side of the subtree
+            else{ // this is the case when prev->right points to current node itself so we'll break that thread over here
+                prev->right = NULL; // Breaking the thread connection
                 inorder.push_back(cur->data);   // for InOrder Traversal - Left Root Right 
                 cur = cur->right;
             }

@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-// Striver Tree series : L31. Minimum time taken to BURN the Binary Tree from a Node/ leaf
+// Striver Tree series : L31. Minimum time taken to BURN the Binary Tree from a Node/ leaf(codestudio)
+// Same as All nodes at distance k in BT
+// Goodnotes
 
 struct Node{
     int data;
@@ -14,22 +16,20 @@ struct Node{
     }
 };
 
-// Creating a Hash Map where Child Node being pointed by Parent Node and unordered_map should be pass as reference
-// Child_Node -> Parent_Node and this hash map is being done in order to move upward
-// this mapParent function will return target Node
+// to compute the parent node of all nodes as well as address of start(target) node
 Node * mapParent(Node * root, int start, unordered_map<Node*, Node*> &mpp){
-    // Here we're using the BFS traversal for creating child->parent hash map
-    Node * result;
+    Node * result;  // to store the address of node having data as start
     
     queue<Node*> q;
     q.push(root);
 
     while (!q.empty()){
         Node * current = q.front();
-        // Logic for finding the node having data as start
+        q.pop();
+
+        // Logic for finding the node address having data as start
         if(current->data == start)
             result = current;
-        q.pop();
 
         if(current->left){
             q.push(current->left);
@@ -47,8 +47,8 @@ Node * mapParent(Node * root, int start, unordered_map<Node*, Node*> &mpp){
 
 int minTimeTaken(Node * root, Node * target, unordered_map<Node*, Node*> &mpp){
     int timeTaken = 0;
-
-    unordered_map<Node*, bool> visited;     // visited Hash Table to check whether node is already visited or not
+    // visited Hash Table to check whether node is already visited or not
+    unordered_map<Node*, bool> visited;
     visited[target] = true;
 
     queue<Node*> q;     // As we're doing BFS traversal from target node
@@ -62,22 +62,19 @@ int minTimeTaken(Node * root, Node * target, unordered_map<Node*, Node*> &mpp){
         for (int i = 0; i < size; i++){
             Node * current = q.front();
             q.pop();
-            // Here we are traversing 1 step in left, right & upward Direction
-            // Checking if left child node exist if yes than is it already visited if not than 
+            
             if(current->left && !visited[current->left]){
                 flagBurn = true;
                 q.push(current->left);
                 visited[current->left] = true;
             }
             
-            // checking for right child node
             if(current->right && !visited[current->right]){
                 flagBurn = true;
                 q.push(current->right);
                 visited[current->right] = true;
             }
             
-            // checking for upward node i.e., parent node
             if(mpp[current] && !visited[mpp[current]]){
                 flagBurn = true;
                 q.push(mpp[current]);
@@ -93,13 +90,15 @@ int minTimeTaken(Node * root, Node * target, unordered_map<Node*, Node*> &mpp){
     return timeTaken;
 }
 
-// Function for min time to burn all the nodes from given node/leaf and here we're given the Node data not directly the target node
+// Function for min time to burn all the nodes from given node/leaf and here we're given 
+// the Node data not directly the target node
 int minTimeToBurn(Node * root, int start){
     int minTime = 0;
     if(root == NULL)
         return minTime;
     
     unordered_map<Node*, Node*> mpp;
+    // to compute the parent node of all nodes as well as address of start(target) node
     Node * target = mapParent(root, start, mpp);
     minTime = minTimeTaken(root, target, mpp);
 

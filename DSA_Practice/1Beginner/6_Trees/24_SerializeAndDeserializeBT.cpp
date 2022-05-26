@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 // Striver Tree Series : Leetcode 297. Serialize and Deserialize Binary Tree
+// https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 // TC - O(N), SC - O(N)
 
 struct Node{
@@ -63,7 +64,7 @@ Node * deserializeBT(string data){
         Node * currNode = q.front();
         q.pop();
 
-        // Getting another substring before ',' for left node
+        // Getting another substring before ',' for left node inside str
         getline(s, str, ',');
         if(str == "#")
             currNode->left = NULL;
@@ -73,7 +74,7 @@ Node * deserializeBT(string data){
             q.push(currNode->left);
         }
 
-        // Getting another substring before ',' for right node
+        // Getting another substring before ',' for right node inside str
         getline(s, str, ',');
         if(str == "#")
             currNode->right = NULL;
