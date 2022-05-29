@@ -2,6 +2,7 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : Leetcode 99. Recover Binary Search Tree
+// https://leetcode.com/problems/recover-binary-search-tree/
 // Here mainly 2 nodes of BST is swapped so we have to recover this BST 
 
 struct Node{
@@ -18,9 +19,9 @@ struct Node{
 
 class Solution{
     Node * first;   // First doubtful element
-    Node * middle;  // Element just next to first doubtfull element
+    Node * middle;  // Element just next to first doubtful element
     Node * second;  // Second doubtful element
-    Node * prev;    // Iterator on inorder vector
+    Node * prev;    // previous Iterator on inorder vector
 
     // Inorder BST -> Left Root Right
     void inorder(Node * root){
@@ -31,17 +32,17 @@ class Solution{
         inorder(root->left);
 
         // Print
-        if(prev != NULL && root->data < prev->data ){
-            // if this is First violation
+        if(prev != NULL && prev->data > root->data){
+            // if this is First violation store prev & current pointer
             if(first == NULL){
                 first = prev;
                 middle = root;
             }
-            else{   // If this is second violation
+            else{   // If this is second violation store only current pointer
                 second = root;
             }
         }
-        
+        // Giving current pointer to previous pointer for next iteration
         prev = root;
 
         // Right
@@ -51,9 +52,7 @@ class Solution{
 public:
     void recoverTree(Node * root){
         first = middle = second = prev = NULL;
-
         inorder(root);
-
         // Case 1 : If elements to be swapped are not adjacent
         if(first && second)
             swap(first->data, second->data);

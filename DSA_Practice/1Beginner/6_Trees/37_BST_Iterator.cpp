@@ -18,11 +18,12 @@ struct Node{
 };
 
 // Inorder BST - Left Root Right
-// Logic - We're going to extreme left as well as pushing element in the stack & than printing it and than move right and going 
-// to extreme along with pushing the element in stack
+// Logic - Inorder Iterative Approach - We're going to extreme left as well as pushing element in the stack & than 
+// printing it and than move right and going to extreme along with pushing the element in stack
 class BSTIterator{
-    // creating a stack containg nodes in Private
+private:
     stack<Node*> st;
+    
     // Function to push all left side nodes on stack
     void pushAll(Node * root){
         while (root != NULL){
@@ -41,6 +42,7 @@ public:
     int next(){
         Node * temp = st.top();
         st.pop();
+        // If stack top -> right exist than push into stack
         if(temp->right)
             pushAll(temp->right);
 

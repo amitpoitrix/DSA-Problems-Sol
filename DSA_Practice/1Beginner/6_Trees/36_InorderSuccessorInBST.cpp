@@ -18,13 +18,15 @@ struct Node{
 };
 
 // Logic to get successor of a node in Inorder BST
+// successor is the smallest node greater than the given node
 Node * inorderSuccessorBST(Node * root, Node * p){
     Node * successor = NULL;
 
     while (root != NULL){
-        // For Successor first we'll cross val to the right(becoz we want just next largest value) and than go left
         if(p->data >= root->data)
             root = root->right;
+        
+        // for smallest node move left and store current node in variable
         else{
             successor = root;
             root = root->left;
@@ -35,13 +37,16 @@ Node * inorderSuccessorBST(Node * root, Node * p){
 }
 
 // Logic to get predecessor of a node in Inorder BST
+// Predecessor is the largest node smaller than the given node
 Node * inorderPredecessorBST(Node * root, Node * p){
     Node * predecessor = NULL;
 
     while (root != NULL){
-        // For Predecessor first we'll cross val to the left(becoz we want just next smallest value) and than go right
+        
         if(p->data <= root->data)
             root = root->left;
+
+        // for largest node move right and store current node in variable
         else{
             predecessor = root;
             root = root->right;

@@ -2,6 +2,7 @@
 #include<stack>
 using namespace std;
 // Striver Tree Series : Leetcode 230. Kth Smallest Element in a BST
+// https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 // Inorder Traversal of BST is always in sorted order
 
 struct Node{
@@ -16,14 +17,15 @@ struct Node{
     }
 };
 
+// Approach 1: Iterative Inorder Traversal
+// TC = SC = O(n)
 int kthSmallestInBST(Node * root, int k){
     if(root == NULL)
-        return -1;
+        return 0;
     
     // Here we'll use iterative approach of Inorder Traversal
     stack<Node*> st;
     Node * temp = root;
-    int cnt = 0;
 
     while (true){
         if(temp != NULL){
@@ -38,16 +40,90 @@ int kthSmallestInBST(Node * root, int k){
             st.pop();
             
             // Inorder Print
-            cnt++;
-            if(cnt == k)
+            k--;
+            if(k == 0)
                 return temp->data;
             
             temp = temp->right;
         }
     }
     
-    return -1;
+    return 0;
 }
+
+// Approach 2: Recursive Inorder Approach
+// TC = SC = O(n)
+class Solution1 {
+public:
+    int kthSmallest(Node* root, int k) {
+        // Recursive Approach
+        if(root == NULL)
+            return 0;
+        
+        // Left
+        int left = kthSmallest(root->left, k);
+        if(left)
+            return left;
+        
+        // Root - Print Inorder
+        k--;
+        if(k==0)
+            return root->data;
+        
+        // Right
+        int right = kthSmallest(root->right, k);
+        if(right)
+            return right;
+        
+        return 0;
+    }
+};
+
+// Approach 3: Using Morris Traversal(Inorder)
+// TC = O(n)
+// SC = O(1)
+class Solution2 {
+public:
+    int kthSmallest(Node* root, int k) {
+        if(root == NULL)
+            return 0;
+        
+        int ans = 0;
+        Node * curr = root;
+        while(curr){
+            if(curr->left == NULL){
+                k--;
+                if(k == 0)
+                    ans = curr->data;
+                
+                curr = curr->right;
+            }
+            
+            else{
+                Node * prev = curr->left;
+                while(prev->right && prev->right != curr){
+                    prev = prev->right;
+                }
+                
+                if(prev->right == NULL){
+                    prev->right = curr;
+                    curr = curr->left;
+                }
+                
+                else{
+                    prev->right = NULL;
+                    k--;
+                    if(k == 0)
+                        ans = curr->data;
+                    
+                    curr = curr->right;
+                }
+            }
+        }
+        
+        return ans;
+    }
+};
 
 int main(){
     Node * root = new Node(5);

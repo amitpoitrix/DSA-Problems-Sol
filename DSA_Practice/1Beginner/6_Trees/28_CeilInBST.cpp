@@ -22,16 +22,19 @@ int ceilBST(Node * root, int key){
         return ceil;
 
     while (root){
-        if(root->data == key){
+        if(key == root->data){
             ceil = root->data;
             return ceil;
         }
-        else if(root->data < key)
-            root = root->right;
-        else{   //root->data > key
+        // Move left if key is smaller than current node & store it in variable
+        // as we want value to be as small as possible
+        else if(key < root->data){
             ceil = root->data;
-            root = root->left;  // we're moving left becoz we require smallest value just greater than key
+            root = root->left;
         }
+        // Move right if key is greater than current node
+        else
+            root = root->right;
     }
     
     return ceil;

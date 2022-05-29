@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 // Striver Tree Series : L53. Largest BST in Binary Tree
-// Here we have to result largest size of BST in given BT 
+// https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/
+// Here we have to return largest size of BST in given BT 
 
 struct Node{
     int data;
@@ -18,9 +19,7 @@ struct Node{
 // Container of each node
 class NodeValue{
 public:
-    int minValue;
-    int maxValue;
-    int maxSize;
+    int minValue, maxValue, maxSize;
 
     NodeValue(int minValue, int maxValue, int maxSize){
         this->minValue = minValue;
@@ -43,7 +42,7 @@ private:
         // Here we'll check whether a subtree is a valid BST or not
         if(left.maxValue < root->data && root->data < right.minValue){
             // Its a valid BST
-            return NodeValue(min(root->data, left.minValue), max(root->data, right.maxValue), left.maxSize + right.maxSize + 1);
+            return NodeValue(min(root->data, left.minValue), max(root->data, right.maxValue), 1 + left.maxSize + right.maxSize);
         }
 
         // If its not a valid BST than return {-Infinite, +Infinite} so that it'll always be invalid

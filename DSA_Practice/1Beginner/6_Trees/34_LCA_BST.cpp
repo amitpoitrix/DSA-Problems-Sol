@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 // Striver Tree Series : Leetcode 235. Lowest Common Ancestor of a Binary Search Tree
+// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 
 struct Node{
     int data;
@@ -22,7 +23,7 @@ Node * lowestCommonAncestor(Node * root, Node * p, Node * q){
     if(p->data < root->data && q->data < root->data)
         return lowestCommonAncestor(root->left, p, q);
     
-    // If both p & q nodes lie on left of the subtree
+    // If both p & q nodes lie on right of the subtree
     if(p->data > root->data && q->data > root->data)
         return lowestCommonAncestor(root->right, p, q);
 

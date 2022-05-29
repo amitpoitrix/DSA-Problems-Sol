@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 // Striver Tree Series : L42. Floor in a Binary Search Tree
-// Floor of a no. is largest num just equal to or smaller than the given no. key
+// Floor of a no. is largest num which is smaller than or equal to given no. key
 
 struct Node{
     int data;
@@ -22,15 +22,18 @@ int floorBST(Node * root, int key){
         return floor;
 
     while (root){
-        if(root->data == key){
+        if(key == root->data){
             floor = root->data;
             return floor;
         }
-        else if(root->data < key){
+        // Move right if key is greater than current node & store it in variable
+        // as we want value to be as large as possible
+        else if(key > root->data){
             floor = root->data;
-            root = root->right;      // we're moving right becoz we require largest value just smaller than key
+            root = root->right;      
         }
-        else{   //root->data > Key
+        // Move left if key is smaller than current node
+        else{
             root = root->left;
         }
     }
