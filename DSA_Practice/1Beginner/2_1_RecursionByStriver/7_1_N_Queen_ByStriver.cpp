@@ -1,20 +1,21 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Recursion By Striver : 51. N-Queens
 
-// Approch 1 : Using Recursion & extra function take itself having loops running in O(n)
+// Approch 1 : Using Recursion & extra function TC - O(n^2)
 class Solution {
 private:
     bool isSafe(int row, int col, std::vector<std::string> &board, int n){
-        // As we are placing queen in new col & row than we have to check only 3 directions i.e., leftRow, upwardDiagonal & downwardDiagonal
+        // As we are placing queen in new col & row than we have to check 
+        // only 3 directions i.e., leftRow, upwardDiagonal & downwardDiagonal
         int dupRow = row;
         int dupCol = col;
 
         // checking leftRow
         while (col >= 0){
-            if(board[row][col] == 'Q')
+            if(board[row][col] == 'Q') 
                 return false;
-
             col--;
         }
 
@@ -24,7 +25,6 @@ private:
         while (row >= 0 && col >= 0){
             if(board[row][col] == 'Q')
                 return false;
-            
             row--;
             col--;
         }
@@ -35,7 +35,6 @@ private:
         while (row < n && col >= 0){
             if(board[row][col] == 'Q')
                 return false;
-
             row++;
             col--;
         }
@@ -43,7 +42,7 @@ private:
         return true;
     }
 
-    void calcNQueen(int col, std::vector<std::vector<std::string>> &ans, std::vector<std::string> &board, int n){
+    void calcNQueen(int col, vector<vector<string>> &ans, vector<string> &board, int n){
         if(col == n){
             ans.push_back(board);
             return;
@@ -52,7 +51,6 @@ private:
         for (int row = 0; row < n; row++){
             if(isSafe(row, col, board, n)){
                 board[row][col] = 'Q';
-                // After each recursive calls we move to new col to fill it so we'll increment col by 1 
                 calcNQueen(col + 1, ans, board, n);
                 board[row][col] = '.';
             }
@@ -60,10 +58,11 @@ private:
     }
 
 public:
-    std::vector<std::vector<std::string>> solveNQueens(int n) {
-        std::vector<std::vector<std::string>> ans;  // 3D [vector][vector][string]
-        std::vector<std::string> board(n);  // 2D [vector][string]
-        std::string s(n, '.');
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> ans;  // 3D [vector][vector][string]
+        vector<string> board(n);  // 2D [vector][string]
+
+        string s(n, '.');
         for (int i = 0; i < n; i++){
             board[i] = s;
         }
@@ -76,8 +75,8 @@ public:
 // Approach 2 : Using Recursion & HashMap - optimized
 class Solution2{
 private:
-    void calcNQueens(int col, std::vector<std::vector<std::string>> &ans, std::vector<std::string> &board, int n, std::vector<int> &leftRow, 
-    std::vector<int> &upwardDiagonal, std::vector<int> &downwardDiagonal){
+    void calcNQueens(int col, vector<vector<string>> &ans, vector<string> &board, int n, vector<int> &leftRow, 
+    vector<int> &upwardDiagonal, vector<int> &downwardDiagonal){
         if(col == n){
             ans.push_back(board);
             return;
@@ -99,15 +98,15 @@ private:
     }
 
 public:
-    std::vector<std::vector<std::string>> solveNQueens(int n) {
-        std::vector<std::vector<std::string>> ans;
-        std::vector<std::string> board(n);
-        std::string s(n, '.');
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> ans;
+        vector<string> board(n);
+        string s(n, '.');
         for (int i = 0; i < n; i++){
             board[i] = s;
         }
         // Declaring HashMap
-        std::vector<int> leftRow(n,0), upwardDiagonal(2 * n -1, 0), downwardDiagonal(2 * n -1, 0);
+        vector<int> leftRow(n,0), upwardDiagonal(2 * n -1, 0), downwardDiagonal(2 * n -1, 0);
         calcNQueens(0, ans, board, n, leftRow, upwardDiagonal, downwardDiagonal);
         return ans;
     }

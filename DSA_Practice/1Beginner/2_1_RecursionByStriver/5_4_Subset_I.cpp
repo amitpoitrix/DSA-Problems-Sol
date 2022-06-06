@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Leetcode - 78. Subsets
 // Return all subsets(or Power set) of given set
 

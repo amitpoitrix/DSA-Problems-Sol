@@ -3,7 +3,8 @@
 
 // Reverse an Array/String
 // 1. Using Linear approach - one pointer
-// As string is pass by value so we use '&' before string parameter to make changes in original string
+// As string is pass by value so we use '&' before 
+// string parameter to make changes in original string
 void reverseString(std::string &s, int n){
     for (int i = 0; i < n; i++){
         if(i <= n/2)

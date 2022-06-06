@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+using namespace std;
 // Recursion by Striver - L10. Subset Sum I
 
 // Bruteforce Approach - Using Power Set
@@ -31,7 +32,7 @@ public:
 // SC - O(2^N)
 class Solution{
 private:
-    void calSubsetSum(int i, int sum, std::vector<int> &arr, int N, std::vector<int> &sumSubset){
+    void calSubsetSum(int i, int sum, vector<int> &arr, int N, vector<int> &sumSubset){
         if(i == N){
             sumSubset.push_back(sum);
             return;
@@ -45,10 +46,11 @@ private:
     }
 
 public:
-    std::vector<int> subsetSums(std::vector<int> arr, int N){
-        std::vector<int> sumSubset;
+    vector<int> subsetSums(vector<int> arr, int N){
+        vector<int> sumSubset;
         calSubsetSum(0, 0, arr, N, sumSubset);
-        std::sort(sumSubset.begin(), sumSubset.end());
+        // As sums needs to be in increasing order
+        sort(sumSubset.begin(), sumSubset.end());
         return sumSubset;
     }
 };

@@ -13,7 +13,6 @@ private:
                 return false;
             }
         }
-    
         return true;
     }
 
@@ -23,9 +22,9 @@ private:
         }
 
         // Else will start looping for color strting from 1...m
-        for (int i = 1; i <= m; i++){
-            if(isSafe(i, node, color, graph, V)){
-                color[node] = i;
+        for (int col = 1; col <= m; col++){
+            if(isSafe(col, node, color, graph, V)){
+                color[node] = col;
 
                 if(mColoring(node + 1, color, graph, m, V))
                     return true;
@@ -40,10 +39,10 @@ private:
 public:
     bool graphColoring(bool graph[101][101], int m, int V)
     {
-        // your code here
+        // Assigning color[] as each node having color as 0
         int color[V] = {0};
         // Starting from 0th node
-        if(mColoring(0, color, graph, m, V))
+        if(mColoring(0, color, graph, m, V) == true)
             return true;
     
         return false;

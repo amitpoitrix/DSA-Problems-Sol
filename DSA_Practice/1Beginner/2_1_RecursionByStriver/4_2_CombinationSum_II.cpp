@@ -1,11 +1,12 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+using namespace std;
 // Recursion by Striver : Leetcode 40. Combination Sum II
 
 // Bruteforce Approach
-// If we modify previous problem (Combination Sum I) solution - i.e., by changing i -> i+1 and using HashSet while inserting ds in ans
-// in order to avoid duplicacy of combinations we can achieve out solution but
+// If we modify previous problem (Combination Sum I) solution - i.e., by changing i -> i+1 and using HashSet while 
+// inserting ds in ans in order to avoid duplicacy of combinations we can achieve out solution but
 // TC - O(K * 2^t * logN) where logN is due to hashSet being used
 
 // Optimized Approach
@@ -13,17 +14,16 @@
 // SC - O(K * x) 
 class Solution {
 private:
-    void calCombinationSumII(int idx, std::vector<int> &candidates, int target, std::vector<std::vector<int>> &ans, std::vector<int> &ds){
+    void calCombinationSumII(int idx, vector<int> &candidates, int target, vector<vector<int>> &ans, vector<int> &ds){
         if(target == 0){
             ans.push_back(ds);
             return;
         }
 
         for (int i = idx; i < candidates.size(); i++){
-            // Avoiding duplicate combination by ignoring the starting element of combination if its same as previous element
             if(i > idx && candidates[i] == candidates[i-1])
                 continue;
-            // If current index element is greater than target than no need to check further as elements are sorted
+
             if(candidates[i] > target)
                 break;
             
@@ -35,10 +35,10 @@ private:
 
 public:
     std::vector<std::vector<int>> combinationSum2(std::vector<int>& candidates, int target) {
-        // first we'll sort the element in order to get duplicate element in grp
-        std::sort(candidates.begin(), candidates.end());
-        std::vector<std::vector<int>> ans;
-        std::vector<int> ds;
+        // first we'll sort the element in order to get rid of duplicate elements in grp
+        sort(candidates.begin(), candidates.end());
+        vector<vector<int>> ans;
+        vector<int> ds;
         calCombinationSumII(0, candidates, target, ans, ds);
         return ans;
     }

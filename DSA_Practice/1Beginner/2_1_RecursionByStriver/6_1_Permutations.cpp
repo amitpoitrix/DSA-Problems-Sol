@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Recursion by Striver - L12. Print all Permutations of a String/Array | Recursion | Approach - 1
 // Leetcode 46. Permutations
 
@@ -9,7 +10,7 @@
 // recursion & last  O(n!) due to size of 2d vector to store all permutations 
 class Solution {
 private:
-    void calPermutation(std::vector<int> &nums, std::vector<std::vector<int>> &ans, std::vector<int> &ds, int freq[]){
+    void calPermutation(vector<int> &nums, vector<vector<int>> &ans, vector<int> &ds, int freq[]){
         if(ds.size() == nums.size()){
             ans.push_back(ds);
             return;
@@ -27,10 +28,10 @@ private:
     }
 
 public:
-    std::vector<std::vector<int>> permute(std::vector<int>& nums) {
-        std::vector<std::vector<int>> ans;
-        std::vector<int> ds;
-        // Taking a HashMap in order to mark whether that element is consider or not 
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> ds;
+        // map using freq array
         int freq[nums.size()];
         // Initializing like this instead of = {0}; as its not working in online Judge
         for (int i = 0; i < nums.size(); i++){
@@ -42,12 +43,12 @@ public:
     }
 };
 
-// Approach 2 : Optimized Space Complexity -no use of extra array ds & map ds
+// Approach 2 : Optimized Space Complexity - no use of extra array ds & map ds
 // TC - O(n * n!)
 // SC - O(n) + O(n!) where O(n) is the auxiliary space taken by recursion
 class Solution2{
 private:
-    void calcPermutation(int idx, std::vector<int> &nums, std::vector<std::vector<int>> &ans){
+    void calcPermutation(int idx, vector<int> &nums, vector<vector<int>> &ans){
         if(idx == nums.size()){
             ans.push_back(nums);
             return;
@@ -55,18 +56,16 @@ private:
 
         // starting traversing from given idx i.e., i = idx to n-1
         for (int i = idx; i < nums.size(); i++){
-            std::swap(nums[idx], nums[i]);
-            // Here we are passing idx+1 instead of i+1 becoz we want equal no. of recursive calls from each further iteration
+            swap(nums[idx], nums[i]);
             calcPermutation(idx + 1, nums, ans);
-            // Reverting back the swap after recursion(or Backtracking)
-            std::swap(nums[idx], nums[i]);
+            swap(nums[idx], nums[i]);
         }
         
     }
 
 public:
-    std::vector<std::vector<int>> permute(std::vector<int>& nums) {
-        std::vector<std::vector<int>> ans;
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
         calcPermutation(0, nums, ans);
         return ans;
     }

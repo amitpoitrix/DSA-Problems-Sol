@@ -1,17 +1,21 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Recursion By Striver : L19. Rat in A Maze | Backtracking
+// https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1
 
+// TC - 4^(n*m)
+// SC - O(n*m)
 class Solution{
 private:
-    void ratMazePath(int i, int j, std::vector<std::vector<int>> &m, int n, std::string path, std::vector<std::vector<int>> &vis, 
-    std::vector<std::string> &res, int di[], int dj[]){
+    void ratMazePath(int i, int j, vector<vector<int>> &m, int n, string path, vector<vector<int>> &vis, 
+    vector<string> &res, int di[], int dj[]){
         if(i == n-1 && j == n-1){
             res.push_back(path);
             return;
         }
 
-        std::string dir = "DLRU";
+        string dir = "DLRU";
         // Looping for All 4 Direction i.e, Down Left Right Up
         for (int idx = 0; idx < 4; idx++){
             int nexti = i + di[idx];
@@ -28,10 +32,10 @@ private:
     }
 
 public:
-    std::vector<std::string> findPath(std::vector<std::vector<int>> &m, int n) {
-        std::vector<std::string> res;
-        // Visited 2D array
-        std::vector<std::vector<int>> vis(n, std::vector<int> (n, 0));
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        vector<string> res;
+        // visited[]
+        vector<vector<int>> vis(n, vector<int> (n, 0));
         // 4 Direction : D L R U
         // Down(i+1, j), Left(i, j-1), Right(i, j+1), Up(i-1, j)
         int di[] = {1, 0, 0, -1};

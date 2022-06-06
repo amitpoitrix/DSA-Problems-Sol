@@ -4,9 +4,9 @@
 // Printing Subsequence whose sum is K
 
 // 1. Printing all Subsequences whose sum is K
-void printAllSubsequence(int i, int arr[], int n, int k, int sum, std::vector<int> &ds){
+void printAllSubsequence(int i, int arr[], int n, int s, int sum, std::vector<int> &ds){
     if(i == n){
-        if(k == sum){
+        if(s == sum){
             for (auto x : ds){
                 std::cout << x << " ";
             }
@@ -17,13 +17,13 @@ void printAllSubsequence(int i, int arr[], int n, int k, int sum, std::vector<in
 
     // Take
     ds.push_back(arr[i]);
-    k += arr[i];
-    printAllSubsequence(i+1, arr, n, k, sum, ds);
-    k -= arr[i];
-    ds.pop_back();
+    s += arr[i];
+    printAllSubsequence(i+1, arr, n, s, sum, ds);
 
     // Not take
-    printAllSubsequence(i+1, arr, n, k, sum, ds);
+    s -= arr[i];
+    ds.pop_back();
+    printAllSubsequence(i+1, arr, n, s, sum, ds);
 }
 
 // OR 1. Printing all Subsequences whose sum is K - Optimized way using vector(less parameters)
@@ -69,10 +69,9 @@ bool printOneSubsequence(int i, int arr[], int n, int k, int sum, std::vector<in
     if(printOneSubsequence(i+1, arr, n, k, sum, ds) == true)
         return true;
     
+    // Not Take
     k -= arr[i];
     ds.pop_back();
-
-    // Not Take
     if(printOneSubsequence(i+1, arr, n, k, sum, ds) == true)
         return true;
     
@@ -125,15 +124,15 @@ int countSubsequence(int i, int arr[], int n, int k, int sum){
     // Take - left side
     k += arr[i];
     int l = countSubsequence(i+1, arr, n, k, sum);
-    k -= arr[i];
 
     // Not Take - right side
+    k -= arr[i];
     int r = countSubsequence(i+1, arr, n, k, sum);
 
     return l+r;
 }
 
-// 3. Printing count of Subsequences whose sum is K
+// OR 3. Printing count of Subsequences whose sum is K
 int countSubsequence2(int i, std::vector<int> arr, int sum){
     if(i == arr.size()){
         if(sum == 0)
