@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // DP By Striver : Fibonacci
 
 // Approach 1 : Memoization(or Modified Recursive Approach) - TOP DOWN APPROACH
@@ -7,7 +8,7 @@
 // SC - O(n) + O(n); 1st O(n) is becoz of Auxillary Recursive Stack Space & 2nd O(n) is becoz of dp array 
 class Solution{
 public:
-    int fibDP(int n, std::vector<int> &dp){
+    int fibDP(int n, vector<int> &dp){
         if(n <= 1)
             return n;
         
@@ -23,7 +24,7 @@ public:
 // SC - O(n); space used for storing dp array
 class Solution2{
 public:
-    int fibDP(int n, std::vector<int> &dp){
+    int fibDP(int n, vector<int> &dp){
         dp[0] = 0;
         dp[1] = 1;
 

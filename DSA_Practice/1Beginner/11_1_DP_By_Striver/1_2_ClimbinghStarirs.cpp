@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-// DP by Striver : 70. Climbing Stairs
+// DP by Striver : Lt:70. Climbing Stairs
 // https://leetcode.com/problems/climbing-stairs/
 
 // Same as Fibonacci Problem
@@ -12,9 +12,9 @@ public:
         if(n <= 2)
             return n;
 
+        int climb = 0; 
         int climb1 = 1;
         int climb2 = 2;
-        int climb = 0; 
  
         for(int i = 3;i <= n;i++){
             climb = climb1 + climb2;
