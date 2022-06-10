@@ -1,21 +1,23 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // DP by Striver : DP 15. Partition Equal Subset Sum | DP on Subsequences
+// https://leetcode.com/problems/partition-equal-subset-sum/
 // Same as DP 14. Subset Sum Equals to Target
 
 // Taken Most Optimized Sol from Lec 14
+// TC - O(n * target) + O(n)
+// SC - O(target)
 class Solution3{
 private:
-    bool subsetSumToK(int n, int k, std::vector<int> &arr) {
-        std::vector<bool> prev(k+1, 0), curr(k+1, 0); // As we are passing k so dp size k+1
-        // Base Case for Tabulation - Making First idx of each array as True i.e., when target is 0
+    bool subsetSumToK(int n, int k, vector<int> &arr) {
+        vector<bool> prev(k+1, 0), curr(k+1, 0);
+        // 1st base case
         prev[0] = curr[0] = true;
-        // Another Base Case
-        if(arr[0] <= k)
-            prev[arr[0]] = true;   // Becoz we have assume target as arr[0] so dp[0][arr[0]] will always be true
+        // 2nd base Case
+        if(arr[0] <= k) prev[arr[0]] = true;
 
         for (int idx = 1; idx < n; idx++){
-
             for (int target = 1; target <= k; target++){
                 int notTaken = prev[target];
                 int taken = false;
@@ -24,7 +26,6 @@ private:
                 
                 curr[target] = notTaken | taken;
             }
-
             prev = curr;
         }
         
@@ -32,10 +33,7 @@ private:
     }
 
 public:
-    bool canPartition(std::vector<int> &arr, int n){
-        // Here in Partition equal subset sum we have to divide the array such that both subset sums are equal and we have to return 
-        // ans in T/F, Two subsets are equal only when total sum of the subsets is divisible by 2 if yes than its same as
-        // Subset Sum Target problem with target as totalSum/2. 
+    bool canPartition(vector<int> &arr, int n){ 
         int totalSum = 0;
         for (int i = 0; i < n; i++){
             totalSum += arr[i];
@@ -43,9 +41,8 @@ public:
         
         if(totalSum % 2)
             return false;
-        else{
-            return subsetSumToK(n, totalSum/2, arr);
-        }
+
+        return subsetSumToK(n, totalSum/2, arr);
     }
 };
 

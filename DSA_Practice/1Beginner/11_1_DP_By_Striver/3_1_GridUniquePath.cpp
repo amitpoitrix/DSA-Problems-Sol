@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // DP by Striver : DP 8. Grid Unique Paths | DP on Grids |
 // DP 2nd Pattern : DP on Grids
 
@@ -34,7 +35,7 @@ public:
 // SC - O((m-1) + (n-1)) + O(n * m)
 class Solution1{
 private:
-    int f(int i, int j, std::vector<std::vector<int>> &dp){
+    int f(int i, int j, vector<vector<int>> &dp){
         if(i == 0 && j == 0)
             return 1;
         
@@ -44,16 +45,14 @@ private:
         else if(dp[i][j] != -1)
             return dp[i][j];
         
-        else{
-            int up = f(i-1, j, dp);
-            int left = f(i, j-1, dp);
-            return dp[i][j] = up + left;
-        }
+        int up = f(i-1, j, dp);
+        int left = f(i, j-1, dp);
+        return dp[i][j] = up + left;
     }
 
 public:
     int uniquePaths(int m, int n) {
-        std::vector<std::vector<int>> dp(m, std::vector<int>(n, -1));
+        vector<vector<int>> dp(m, vector<int>(n, -1));
         return f(m-1, n-1, dp);
     }
 };
@@ -65,7 +64,7 @@ public:
 class Solution2{
 public:
     int uniquePaths(int m, int n) {
-        std::vector<std::vector<int>> dp(m, std::vector<int>(n, 0));
+        vector<vector<int>> dp(m, vector<int>(n, 0));
         dp[0][0] = 1;
 
         for (int i = 0; i < m; i++){
@@ -100,33 +99,26 @@ public:
 class Solution3{
 public:
     int uniquePaths(int m, int n) {
-        std::vector<int> prev(n, 0);
+        vector<int> prev(n, 0);
 
         for (int i = 0; i < m; i++){
-            std::vector<int> curr(n, 0);
+            vector<int> curr(n, 0);
 
             for (int j = 0; j < n; j++){
-                
                 if(i == 0 && j == 0)
                     curr[j] = 1;
-                
                 else{
-                    int up = 0;
-                    int left = 0;
+                    int up = 0, left = 0;
 
-                    if(i > 0)
-                        up = prev[j];
-                    if(j > 0)
-                        left = curr[j-1];
+                    if(i > 0) up = prev[j];
+                    if(j > 0) left = curr[j-1];
 
                     curr[j] = up + left;
                 }
-
             }
 
             prev = curr;
         }
-        
         return prev[n-1];
     }
 };
@@ -155,7 +147,7 @@ public:
 
 int main(){
     Solution3 obj;
-    std::cout << obj.uniquePaths(3,2);
+    cout << obj.uniquePaths(3,2);
 
     return 0;
 }

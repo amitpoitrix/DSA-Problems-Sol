@@ -1,7 +1,9 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // DP by Striver : DP 18. Count Partitions With Given Difference | Dp on Subsequences
 // Same as DP 17. Count Subset Sum Equals to Target
+// https://leetcode.com/problems/target-sum/
 
 // Target Sum - Leetcode Problem is same as this current ques
 
@@ -10,7 +12,7 @@
 // SC - O(n)
 class Solution{
 private:
-    int f(int idx, int target, std::vector<int> &num){
+    int f(int idx, int target, vector<int> &num){
         if(idx == 0){
             if(target == 0 && num[0] == 0) return 2;
             if(target == 0 || num[0] == target) return 1;
@@ -19,7 +21,8 @@ private:
 
         int notTake = f(idx - 1, target, num);
         int take = 0;
-        if(num[idx] <= target) take = f(idx - 1, target - num[idx], num);
+        if(num[idx] <= target) 
+            take = f(idx - 1, target - num[idx], num);
         
         return notTake + take;
     }
@@ -30,20 +33,15 @@ private:
     }
 
 public:
-    int countPartitions(int n, int d, std::vector<int> &arr) {
-        // Here in this ques we have to find no. of subsets (lets say (s1, s2) where s1 > s2) whose difference should be equal to
-        // given difference
-        // s1 + s2 = TotalSum
-        // s1 = TotalSum - s2
-        // & s1 - s2 = d
-        //  TotalSum - s2 - s2 = d
-        // s2 = (totalSum - d)/2;
-        // Condition : (totalSum - d) > 0 & should be even as 0 <= nums[i](or s1, s2)
-
+    int countPartitions(int n, int d, vector<int> &arr) {
         int totalSum = 0;
-        for (int i = 0; i < arr.size(); i++) totalSum += arr[i];
-        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) return 0;
-        else return findWays(arr, (totalSum - d)/2);
+        for (int i = 0; i < arr.size(); i++) 
+            totalSum += arr[i];
+
+        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) 
+            return 0;
+
+        return findWays(arr, (totalSum - d)/2);
     }
 };
 
@@ -55,7 +53,7 @@ class Solution1{
 private:
     int mod = (1e9 + 7);    // As in CodeStudio ans can be large enough
 
-    int f(int idx, int target, std::vector<int> &num, std::vector<std::vector<int>> &dp){
+    int f(int idx, int target, vector<int> &num, vector<vector<int>> &dp){
         if(idx == 0){
             if(target == 0 && num[0] == 0) return 2;
             if(target == 0 || num[0] == target) return 1;
@@ -66,23 +64,28 @@ private:
 
         int notTake = f(idx - 1, target, num, dp);
         int take = 0;
-        if(num[idx] <= target) take = f(idx - 1, target - num[idx], num, dp);
+        if(num[idx] <= target) 
+            take = f(idx - 1, target - num[idx], num, dp);
         
         return dp[idx][target] = (notTake + take) % mod;
     }
 
-    int findWays(std::vector<int> &num, int tar){
+    int findWays(vector<int> &num, int tar){
         int n = num.size();
-        std::vector<std::vector<int>> dp(n, std::vector<int>(tar + 1, -1));
+        vector<vector<int>> dp(n, vector<int>(tar + 1, -1));
         return f(n-1, tar, num, dp);
     }
 
 public:
-    int countPartitions(int n, int d, std::vector<int> &arr) {
+    int countPartitions(int n, int d, vector<int> &arr) {
         int totalSum = 0;
-        for (int i = 0; i < arr.size(); i++) totalSum += arr[i];
-        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) return 0;
-        else return findWays(arr, (totalSum - d)/2);
+        for (int i = 0; i < arr.size(); i++) 
+            totalSum += arr[i];
+
+        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) 
+            return 0;
+
+        return findWays(arr, (totalSum - d)/2);
     }
 };
 
@@ -94,20 +97,25 @@ class Solution2{
 private:
     int mod = (1e9 + 7);
 
-    int findWays(std::vector<int> &num, int tar){
+    int findWays(vector<int> &num, int tar){
         int n = num.size();
-        std::vector<std::vector<int>> dp(n, std::vector<int>(tar + 1, 0));
-        // Base Case for Tabulation
-        if(num[0] == 0) dp[0][0] = 2;   // Either take it or not 0 will eventually leads to sum 0 so count 2
-        else dp[0][0] = 1;  // else if num[0] != sum than count is 1
+        vector<vector<int>> dp(n, vector<int>(tar + 1, 0));
+        // 1st Base Case
+        if(num[0] == 0) 
+            dp[0][0] = 2;   // As num[0] is 0 so take num[0] or not take num[0], sum will remain 0 so count is 2
+        else 
+            dp[0][0] = 1;  // if sum is 0 but num[0] != 0 than count is 1 when we don't consider num[0]
         
-        if(num[0] != 0 && num[0] <= tar) dp[0][num[0]] = 1; // Additional Check i.e., num[0] should not be equal to 0
+        // 2nd Base Case : what if num[0] = 0 than count will be 2 so in order to avoid we put additional check
+        if(num[0] != 0 && num[0] <= tar) 
+            dp[0][num[0]] = 1;
 
         for (int idx = 1; idx < n; idx++){
             for (int target = 0; target <= tar; target++){
                 int notTake = dp[idx - 1][target];
                 int take = 0;
-                if(num[idx] <= target) take = dp[idx - 1][target - num[idx]];
+                if(num[idx] <= target) 
+                    take = dp[idx - 1][target - num[idx]];
                 
                 dp[idx][target] = (notTake + take) % mod;  
             }
@@ -117,11 +125,15 @@ private:
     }
 
 public:
-    int countPartitions(int n, int d, std::vector<int> &arr) {
+    int countPartitions(int n, int d, vector<int> &arr) {
         int totalSum = 0;
-        for (int i = 0; i < arr.size(); i++) totalSum += arr[i];
-        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) return 0;
-        else return findWays(arr, (totalSum - d)/2);
+        for (int i = 0; i < arr.size(); i++) 
+            totalSum += arr[i];
+
+        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) 
+            return 0;
+
+        return findWays(arr, (totalSum - d)/2);
     }
 };
 
@@ -133,25 +145,28 @@ class Solution3{
 private:
     int mod = (1e9 + 7);
 
-    int findWays(std::vector<int> &num, int tar){
+    int findWays(vector<int> &num, int tar){
         int n = num.size();
-        std::vector<int> prev(tar + 1, 0), curr(tar + 1, 0);
-        // Base Case for Tabulation
-        if(num[0] == 0) prev[0] = 2;
-        else prev[0] = 1;
+        vector<int> prev(tar + 1, 0), curr(tar + 1, 0);
+        // 1st Base Case
+        if(num[0] == 0) 
+            prev[0] = 2;
+        else 
+            prev[0] = 1;
 
-        if(num[0] != 0 && num[0] <= tar) prev[num[0]] = 1;
+        // 2nd Base Case 
+        if(num[0] != 0 && num[0] <= tar) 
+            prev[num[0]] = 1;
 
         for (int idx = 1; idx < n; idx++){
-
             for (int target = 0; target <= tar; target++){
                 int notTake = prev[target];
                 int take = 0;
-                if(num[idx] <= target) take = prev[target - num[idx]];
+                if(num[idx] <= target) 
+                    take = prev[target - num[idx]];
                 
                 curr[target] = (notTake + take) % mod;  
             }
-
             prev = curr;
         }
         
@@ -159,11 +174,15 @@ private:
     }
 
 public:
-    int countPartitions(int n, int d, std::vector<int> &arr) {
+    int countPartitions(int n, int d, vector<int> &arr) {
         int totalSum = 0;
-        for (int i = 0; i < arr.size(); i++) totalSum += arr[i];
-        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) return 0;
-        else return findWays(arr, (totalSum - d)/2);
+        for (int i = 0; i < arr.size(); i++) 
+            totalSum += arr[i];
+
+        if((totalSum - d) < 0 || (totalSum - d)%2 != 0) 
+            return 0;
+
+        return findWays(arr, (totalSum - d)/2);
     }
 };
 

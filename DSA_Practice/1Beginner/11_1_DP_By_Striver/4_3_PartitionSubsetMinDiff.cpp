@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // DP by Striver : Dp 16. Partition A Set Into Two Subsets With Minimum Absolute Sum Difference | DP on Subsequences
 // Same as DP 14. Subset Sum Equals to Target
 
@@ -12,7 +13,7 @@
 // SC - O(n * target)
 class Solution{
 public:
-    int minSubsetSumDifference(std::vector<int>& arr, int n){
+    int minSubsetSumDifference(vector<int>& arr, int n){
         // Step 1 : Calculating Total sum of array elements
         int totalSum = 0;
         for (int i = 0; i < n; i++){
@@ -22,13 +23,12 @@ public:
         int k = totalSum;
 
         // Step 2 : Subset Sum Target DP - Tabulation Solution
-        std::vector<std::vector<bool>> dp(n, std::vector<bool>(k+1, 0));
+        vector<vector<bool>> dp(n, vector<bool>(k+1, 0));
         for (int i = 0; i < n; i++){
             dp[i][0] = true;
         }
 
-        if(arr[0] <= k)
-            dp[0][arr[0]] = true;   
+        if(arr[0] <= k) dp[0][arr[0]] = true;   
 
         for (int idx = 1; idx < n; idx++){
             for (int target = 1; target <= k; target++){
@@ -42,13 +42,11 @@ public:
         }
 
         // Step 3 : Determining the absolute difference
-        int mini = 1e9; // As we are calculating min so taking MAX_INT value
+        int mini = 1e9;
 
-        // We'll consider those cells of last row of dp matrix that are true(or Target can be achieved) and till half pos only as 
-        // further of it everything will be repeated
         for (int s1 = 0; s1 <= totalSum/2; s1++){
             if(dp[n-1][s1] == true)
-                mini = std::min(mini, abs((totalSum - s1) - s1));
+                mini = min(mini, abs((totalSum - s1) - s1));
         }
         
         return mini;
@@ -61,7 +59,7 @@ public:
 // SC - O(target)
 class Solution1{
 public:
-    int minSubsetSumDifference(std::vector<int>& arr, int n){
+    int minSubsetSumDifference(vector<int>& arr, int n){
         // Step 1 : Calculating Total sum of array elements
         int totalSum = 0;
         for (int i = 0; i < n; i++){
@@ -71,7 +69,7 @@ public:
         int k = totalSum;
 
         // Step 2 : Subset Sum Target DP - Tabulation Solution
-        std::vector<bool> prev(k+1, 0), curr(k+1, 0);
+        vector<bool> prev(k+1, 0), curr(k+1, 0);
         prev[0] = curr[0] = true;
         if(arr[0] <= k)
             prev[arr[0]] = true;
@@ -94,7 +92,7 @@ public:
         int mini = 1e9; // As we are calculating min so taking MAX_INT value
         for (int s1 = 0; s1 <= totalSum/2; s1++){
             if(prev[s1] == true)
-                mini = std::min(mini, abs((totalSum - s1) - s1));
+                mini = min(mini, abs((totalSum - s1) - s1));
         }
         
         return mini;
