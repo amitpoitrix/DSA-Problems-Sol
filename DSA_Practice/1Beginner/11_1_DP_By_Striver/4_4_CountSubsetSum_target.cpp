@@ -83,7 +83,7 @@ public:
         // 2nd Base Case
         if(num[0] <= tar) dp[0][num[0]] = 1;
 
-        for (int idx = 0; idx < n; idx++){
+        for (int idx = 1; idx < n; idx++){
             for (int target = 1; target <= tar; target++){
                 int notTake = dp[idx - 1][target];
                 int take = 0;
@@ -113,7 +113,7 @@ public:
         if(num[0] <= tar) prev[num[0]] = 1;
 
         for (int idx = 1; idx < n; idx++){
-            for (int target = 0; target <= tar; target++){
+            for (int target = 1; target <= tar; target++){
                 int notTake = prev[target];
                 int take = 0;
                 if(num[idx] <= target) 

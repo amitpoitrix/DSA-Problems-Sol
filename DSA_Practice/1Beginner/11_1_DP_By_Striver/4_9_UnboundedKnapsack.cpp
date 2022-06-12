@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // DP by Striver : DP 23. Unbounded Knapsack | 1-D Array Space Optimised Approach
 // Here Repeatition of Element is Allowed infinite no. of times where in 0/1 only single use is allowed
 
@@ -12,7 +13,7 @@ private:
         if(idx == 0) return (int)(wt / weight[0]) * profit[0];
 
         int notTake = 0 + f(idx - 1, wt, profit, weight);
-        int take = 0;
+        int take = -1e9;
         if(weight[idx] <= wt) take = profit[idx] + f(idx, wt - weight[idx], profit, weight);
 
         return std::max(notTake, take);
@@ -26,25 +27,28 @@ public:
 
 
 // Using DP - Memoization(Top-Down)
-// TC - O(n * w)
-// SC - O(n * w) + O(w)
+// TC - O(n * W)
+// SC - O(n * W) + O(W)
 class Solution1{
 private:
-    int f(int idx, int wt, std::vector<int> &profit, std::vector<int> &weight, std::vector<std::vector<int>> &dp){
-        if(idx == 0) return dp[idx][wt] = (int)(wt / weight[0]) * profit[0];
+    int f(int idx, int W, vector<int> &profit, vector<int> &weight, vector<vector<int>> &dp){
+        // Base Case
+        if(idx == 0) 
+            return dp[idx][W] = (int)(W / weight[0]) * profit[0];
 
-        if(dp[idx][wt] != -1) return dp[idx][wt];
+        if(dp[idx][W] != -1) return dp[idx][W];
 
-        int notTake = 0 + f(idx - 1, wt, profit, weight, dp);
-        int take = 0;
-        if(weight[idx] <= wt) take = profit[idx] + f(idx, wt - weight[idx], profit, weight, dp);
+        int notTake = 0 + f(idx - 1, W, profit, weight, dp);
+        int take = -1e9;
+        if(weight[idx] <= W) 
+            take = profit[idx] + f(idx, W - weight[idx], profit, weight, dp);
 
-        return dp[idx][wt] = std::max(notTake, take);
+        return dp[idx][W] = max(notTake, take);
     }
 
 public:
     int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight){
-        std::vector<std::vector<int>> dp(n, std::vector<int>(w + 1, -1));
+        vector<vector<int>> dp(n, vector<int>(w + 1, -1));
         return f(n - 1, w, profit, weight, dp);
     }
 };
@@ -56,19 +60,20 @@ public:
 class Solution2{
 public:
     int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight){
-        std::vector<std::vector<int>> dp(n, std::vector<int>(w + 1, 0));
+        vector<vector<int>> dp(n, vector<int>(w + 1, 0));
         // Base Case for Tabulation
         for (int wt = 0; wt <= w; wt++){
             dp[0][wt] = (int)(wt / weight[0]) * profit[0];
         }
         
         for (int idx = 1; idx < n; idx++){
-            for (int wt = 0; wt <= w; wt++){
+            for (int wt = 1; wt <= w; wt++){
                 int notTake = 0 + dp[idx - 1][wt];
-                int take = 0;
-                if(weight[idx] <= wt) take = profit[idx] + dp[idx][wt - weight[idx]];
+                int take = -1e9;
+                if(weight[idx] <= wt) 
+                    take = profit[idx] + dp[idx][wt - weight[idx]];
 
-                dp[idx][wt] = std::max(notTake, take);   
+                dp[idx][wt] = max(notTake, take);   
             }
         }
 
@@ -83,19 +88,19 @@ public:
 class Solution3{
 public:
     int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight){
-        std::vector<int> prev(w + 1, 0), curr(w + 1, 0);
+        vector<int> prev(w + 1, 0), curr(w + 1, 0);
         // Base Case for Tabulation
         for (int wt = 0; wt <= w; wt++){
             prev[wt] = (int)(wt / weight[0]) * profit[0];
         }
         
         for (int idx = 1; idx < n; idx++){
-            for (int wt = 0; wt <= w; wt++){
+            for (int wt = 1; wt <= w; wt++){
                 int notTake = 0 + prev[wt];
-                int take = 0;
+                int take = -1e9;
                 if(weight[idx] <= wt) take = profit[idx] + curr[wt - weight[idx]];
 
-                curr[wt] = std::max(notTake, take);   
+                curr[wt] = max(notTake, take);   
             }
             prev = curr;
         }
@@ -111,19 +116,20 @@ public:
 class Solution4{
 public:
     int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight){
-        std::vector<int> prev(w + 1, 0);
+        vector<int> prev(w + 1, 0);
         // Base Case for Tabulation
         for (int wt = 0; wt <= w; wt++){
             prev[wt] = (int)(wt / weight[0]) * profit[0];
         }
         
         for (int idx = 1; idx < n; idx++){
-            for (int wt = 0; wt <= w; wt++){
+            for (int wt = 1; wt <= w; wt++){
                 int notTake = 0 + prev[wt];
-                int take = 0;
-                if(weight[idx] <= wt) take = profit[idx] + prev[wt - weight[idx]];
+                int take = -1e9;
+                if(weight[idx] <= wt) 
+                    take = profit[idx] + prev[wt - weight[idx]];
 
-                prev[wt] = std::max(notTake, take);   
+                prev[wt] = max(notTake, take);   
             }
         }
 
