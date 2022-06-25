@@ -24,6 +24,38 @@ public:
 };
 
 // Optimize Approach - Using Sliding Window
+// Method 1
+class Solution2{
+public:
+    long maximumSumSubarray(int K, vector<int> &Arr , int N){
+        long ans = -1e9, maxSum = 0;
+        int i = 0, j = 0;
+
+        while(j < N){
+            // Calculation
+            maxSum += Arr[j];
+
+            // Window size(K) is not achieved
+            if((j - i + 1) < K)
+                j++;
+
+            // Window size(K) is achieved
+            else if((j - i + 1) == K){
+                // ans
+                ans = max(ans, maxSum);
+                // Before sliding - Here i is not yet increase
+                maxSum -= Arr[i];
+                // Slide the window
+                i++;
+                j++;
+            }
+        }
+
+        return ans;
+    }
+};
+
+// Method 2
 class Solution2{
 public:
     long maximumSumSubarray(int K, vector<int> &Arr , int N){
@@ -40,6 +72,7 @@ public:
         long maxx = sum;
         // Computing rest of the window size subarrays sum
         for(int i = K; i < Arr.size(); i++){
+            // Here i-k because i is already increase
             sum += Arr[i] - Arr[i - K];
             maxx = max(maxx, sum);
         }
