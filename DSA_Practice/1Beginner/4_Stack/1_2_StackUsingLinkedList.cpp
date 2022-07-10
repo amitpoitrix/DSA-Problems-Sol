@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+
 // Stack Implementation Using Linked List
 
 // Creating a Linked List node
@@ -58,19 +59,6 @@ int main(){
         cout << st.Top() << endl;
         st.pop();
     }
-
-    // Stack st;
-    // st.push(1);
-    // st.push(2);
-    // st.push(3);
-    // cout << st.Top() << endl;
-
-    // st.pop();
-    // cout << st.Top() << endl;
-
-    // st.pop();
-    // st.pop();
-    // cout << st.empty() << endl;
     
     cout << endl;
     return 0;

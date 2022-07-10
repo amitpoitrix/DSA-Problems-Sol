@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
+
 // Queue Implementation
+
 #define n 20
 
 class Queue{
@@ -20,11 +22,12 @@ public:
         if(back == n-1){
             cout << "Queue Overflow" << endl;
         }
-
+        // Increment the back pointer first & than insert element
         back++;
         arr[back] = data;
 
         // Edge Case - if front is -1 than move it 1 step forward
+        // So that front points to first element
         if(front == -1){
             front++;
         }

@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
 // Stack Implementation Using Vectors
 
 class Stack{
@@ -21,7 +22,7 @@ public:
         int lastIdx = arr.size()-1;
         return arr[lastIdx];
     }
-
+    
     // 4. EMPTY Method
     bool empty(){
         return arr.size()==0;
@@ -40,20 +41,4 @@ int main(){
         cout << st.Top() << endl;
         st.pop();
     }
-
-//     Stack st;
-//     st.push(1);
-//     st.push(2);
-//     st.push(3);
-//     cout << st.Top() << endl;
-
-//     st.pop();
-//     cout << st.Top() << endl;
-
-//     st.pop();
-//     st.pop();
-//     cout << st.empty() << endl;
-
-//     cout << endl;
-//     return 0;
 }

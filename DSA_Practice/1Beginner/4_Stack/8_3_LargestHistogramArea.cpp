@@ -1,86 +1,73 @@
 #include<bits/stdc++.h>
 using namespace std;
-// Pepcoding : Largest Histogram Area - Using Stack - O(N)
 
-vector<int> rightSmallestElement(vector<int> arr){
-    int n = arr.size();
-    vector<int> rse(n);
+// Maximum Rectangular Area in a Histogram 
+// https://practice.geeksforgeeks.org/problems/maximum-rectangular-area-in-a-histogram-1587115620/1#
 
-    stack<int> st;
-    st.push(n-1);
-    rse[n-1] = n;
-
-    for (int i = n-2; i >= 0; i--){
-        // 1. POP
-        while (!st.empty() && arr[st.top()] >= arr[i]){
-            st.pop();
+class Solution{
+private:
+    // Next Smallest Element On Right
+    vector<long long> nsr(long long arr[], int n){
+        vector<long long> right;
+        stack<int> st;
+        int pseudoIdx = n;
+        
+        for(int i = n-1; i >= 0; i--){
+            while(!st.empty() && arr[st.top()] >= arr[i]){
+                st.pop();
+            }
+            
+            if(st.empty())
+                right.push_back(pseudoIdx);
+            else
+                right.push_back(st.top());
+            
+            st.push(i);
         }
         
-        // 2. Print
-        if(st.empty())
-            rse[i] = n;
-        else
-            rse[i] = st.top();
-
-        // 3. PUSH
-        st.push(i);
+        reverse(right.begin(), right.end());
+        return right;
     }
     
-    return rse;
-}
-
-vector<int> leftSmallestElement(vector<int> arr){
-    int n = arr.size();
-    vector<int> lse(n);
-
-    stack<int> st;
-    st.push(0);
-    lse[0] = -1;
-
-    for (int i = 1; i < arr.size(); i++){
-        // 1. POP
-        while (!st.empty() && arr[st.top()] >= arr[i]){
-            st.pop();
+    // Next Smallest Element On Left
+    vector<long long> nsl(long long arr[], int n){
+        vector<long long> left;
+        stack<int> st;
+        int pseudoIdx = -1;
+        
+        for(int i = 0; i < n; i++){
+            while(!st.empty() && arr[st.top()] >= arr[i]){
+                st.pop();
+            }
+            
+            if(st.empty())
+                left.push_back(pseudoIdx);
+            else
+                left.push_back(st.top());
+            
+            st.push(i);
         }
         
-        // 2. Print
-        if(st.empty())
-            lse[i] = -1;
-        else
-            lse[i] = st.top();
-
-        // 3. PUSH
-        st.push(i);
+        return left;
     }
     
-    return lse;
-}
-
-int largestHistogramArea(vector<int> arr){
-    int maxArea = 0;
-    vector<int> rse = rightSmallestElement(arr);
-    vector<int> lse = leftSmallestElement(arr);
-
-    for (int i = 0; i < arr.size(); i++){
-        int width = rse[i] - lse[i] - 1;
-        int area = width * arr[i];
-        maxArea = max(maxArea, area);
+public:
+    long long getMaxArea(long long arr[], int n){
+        vector<long long> right = nsr(arr, n);
+        vector<long long> left = nsl(arr, n);
+        
+        vector<long long> width(n);
+        long long maxArea = 0;
+        
+        for(int i = 0; i < n; i++){
+            width[i] = right[i] - left[i] - 1;
+            maxArea = max(maxArea, width[i] * arr[i]);
+        }
+        
+        return maxArea;
     }
-
-    return maxArea;
-}
+};
 
 int main(){
-    int n;
-    cin >> n;
-    vector<int> arr(n,0);
-
-    for (int i = 0; i < arr.size(); i++){
-        cin >> arr[i];
-    }
-
-    cout << "Max Area : " << largestHistogramArea(arr);
-
-    cout << endl;
     return 0;
 }

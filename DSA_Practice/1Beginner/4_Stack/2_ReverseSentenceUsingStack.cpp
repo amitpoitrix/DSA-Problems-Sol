@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stack>
 using namespace std;
+
 // Stack Application - Reversing a sentence using stack
 
 void reverseSentence(string s){
@@ -21,7 +22,7 @@ void reverseSentence(string s){
     // Popping the element from top of the stack
     while (!st.empty()){
         cout << st.top() << " ";
-        st.pop();   // if pop is not done that top will remain on that position
+        st.pop();   // if pop is not done than top will remain on that position
     }
 }
 

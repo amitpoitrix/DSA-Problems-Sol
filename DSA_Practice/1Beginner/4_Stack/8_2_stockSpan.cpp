@@ -1,62 +1,100 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Pepcoding - Stock Span - Next Greater Element on Left(Index wise)
 
-void display(vector<int>a) {
-  for (int i = 0; i < a.size(); i++){
-    cout << a[i] << endl;
-  }
-}
+// The Stock Span Problem (GFG)
+// https://www.geeksforgeeks.org/the-stock-span-problem/
 
-// Next Greatest Element on the Left (Index Wise)
-vector<int> solve(vector<int>arr){
-  //write your code here
-    vector<int> span(arr.size());
+class Solution1{
+public:
+    vector<int> stockSpan(vector<int> arr){
+         // First calculate Next Greatest on Left (index-wise)
+        int n = arr.size(), pseudoIdx = -1;
+        vector<int> ngl;
+        stack<int> st;
 
-    stack<int> st;
+        for(int i = 0; i < n; i++){
+            while(!st.empty() && arr[st.top()] <= arr[i]){
+                st.pop();
+            }
 
-    st.push(0); // for first element we'll push its index value in the stack
-    span[0] = 1;    // Resultant vector 0th index value will be 1 i.e., itself    
+            if(st.empty())
+                ngl.push_back(pseudoIdx);
+            else
+                ngl.push_back(st.top());
 
-    // checking for rest of the element which starts from index value 1
-    for (int i = 1; i < arr.size(); i++){
-        // step 1 : POP
-        while (st.size() > 0 && arr[i] >= arr[st.top()]){
-            st.pop();
+            st.push(i);
         }
 
-        // Step 2 : Print
-        if(st.size() == 0)
-            span[i] = i+1;  // If stack is empty that means its greatest so far so print index + 1
-        else
-            span[i] = i - st.top(); // otherwise current index value - last greatest stock span index value
+        // Now computing the stock span of all n days
+        vector<int> span;
+        for(int i = 0; i < n; i++){
+            span.push_back(i - ngl[i]);
+        }
 
-        // Step 3 : PUSH
-        st.push(i); // PUSHing current index value in the stack as Index represent Day Number
+        return span;
+    }
+};
+
+class Solution{
+public:
+    vector<int> stockSpan(vector<int> arr){
+        // First calculate Next Greatest on Left (index-wise)
+        int n = arr.size(), pseudoIdx = -1;
+        vector<int> ngl;
+        stack<pair<int, int>> st;
+
+        for(int i = 0; i < n; i++){
+            while(!st.empty() && st.top().first <= arr[i]){
+                st.pop();
+            }
+
+            if(st.empty())
+                ngl.push_back(pseudoIdx);
+            else
+                ngl.push_back(st.top().second);
+
+            st.push({arr[i], i});
+        }
+
+        // Now computing the stock span of all n days
+        vector<int> span;
+        for(int i = 0; i < n; i++){
+            span.push_back(i - ngl[i]);
+        }
+
+        return span;
+    }
+};
+
+// Lt: 901. Online Stock Span
+// https://leetcode.com/problems/online-stock-span/
+
+// For Computing Individual Span based on its price
+class StockSpanner {    
+public:
+    stack<pair<int, int>> st;
+    
+    StockSpanner() {
+        
     }
     
-    return span;
-}
-
-
-int main(int argc, char** argv){
-    int n;
-    cin >> n;
-    vector<int>arr(n, 0);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
+    int next(int price) {
+        int span = 1;
+        while(!st.empty() && st.top().first <= price){
+            span += st.top().second;
+            st.pop();
+        }
+        st.push({price, span});
+        return span;
     }
-    vector<int>span(n, 0);
-    span = solve(arr);
-    display(span);
+};
+
+/**
+ * Your StockSpanner object will be instantiated and called as such:
+ * StockSpanner* obj = new StockSpanner();
+ * int param_1 = obj->next(price);
+ */
+
+int main(){
     return 0;
 }
-// 7
-// 100
-// 80
-// 60
-// 70
-// 60
-// 75
-// 85

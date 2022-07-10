@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+
 // Stack Implementation - LIFO - Last In First Out
 
 #define n 100
@@ -12,7 +13,7 @@ class Stack{
 public:
     Stack(){
         arr = new int[n];   // size - n value describe under #define
-        top = -1;
+        top = -1;   // To keep Track of Top element
     }
 
     // 1.PUSH Method - Insert the element from top of the stack
@@ -23,12 +24,12 @@ public:
             cout << "Stack Overflow" << endl;
             return;
         }
-
+        // else first increase the top & than assign value at top
         top++;
         arr[top] = x;
     }
 
-    // 2.POP Method - Delete/Remove the element from top of the stach
+    // 2.POP Method - Delete/Remove the element from top of the stack
     void pop(){
         // Here we're comparing top with value 
         if(top == -1){
@@ -57,19 +58,6 @@ public:
 
 
 int main(){
-    // Stack st;
-    // st.push(1);
-    // st.push(2);
-    // st.push(3);
-    // cout << st.Top() << endl;
-
-    // st.pop();
-    // cout << st.Top() << endl;
-
-    // st.pop();
-    // st.pop();
-    // cout << st.empty() << endl;
-
     Stack st;
     st.push(1);
     st.push(2);
