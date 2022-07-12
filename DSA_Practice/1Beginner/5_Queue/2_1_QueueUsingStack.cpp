@@ -2,104 +2,101 @@
 #include<stack>
 #include<queue>
 using namespace std;
-// Implementing Queue using Stack
+
+// Lt: 232. Implement Queue using Stacks
+// https://leetcode.com/problems/implement-queue-using-stacks/
 
 // Approach 1 : Using two Stacks
-class Queue{
-    stack<int> s1;
-    stack<int> s2;
-    queue<int> q1;
+class MyQueue {
 public:
-    // 1. ENQUEUE Method - O(1)
-    void enqueue(int data){
-        s1.push(data);
-    }
-
-    // 2. DEQUEUE Method - O(n)
-    int dequeue(){
-        if(s1.empty() && s2.empty()){
-            cout << "Queue is Empty" << endl;
-            return -1;
+    stack<int>s1, s2;
+    
+    MyQueue() {}
+    
+    void push(int x) {
+        while(!s1.empty()){
+            s2.push(s1.top());
+            s1.pop();
         }
-
-        // s2 stack top value will behave as Queue front value
-        if(s2.empty()){
-            while (!s1.empty()){
-                s2.push(s1.top());
-                s1.pop();
-            }
+        
+        s1.push(x);
+        
+        while(!s2.empty()){
+            s1.push(s2.top());
+            s2.pop();
         }
-
-        int topVal = s2.top();
-        s2.pop();
-        return topVal;
     }
-
-    // 3. EMPTY Method - O(n)
-    bool Empty(){
-        if(s1.empty() && s2.empty())
-            return true;
-        return false;
+    
+    int pop() {
+        int ans = s1.top();
+        s1.pop();
+        return ans;
+    }
+    
+    int peek() {
+        return s1.top();
+    }
+    
+    bool empty() {
+        return s1.empty();
     }
 };
 
 // Approach 2 : Using One Stack and another Function call stack
-class Queue2{
-    stack<int> s1;
+class MyQueue {
 public:
-    // 1. ENQUEUE Method - O(1)
-    void enqueue(int data){
-        s1.push(data);
+    stack<int>s1, s2;
+    
+    MyQueue() {}
+    
+    void push(int x) {
+        s1.push(x);
     }
-
-    // 2. DEQUEUE Method - O(n)
-    int dequeue(){
-        // Edge Case - If Queue is empty
-        if(s1.empty()){
-            cout << "Queue is Empty" << endl;
-            return -1;
+    
+    int pop() {
+        int ans = 0;
+        if(!s2.empty()){
+            ans = s2.top();
+            s2.pop();
+            return ans;
         }
-
-        // base case
-        int x = s1.top();
-        s1.pop();
-        // This checking of empty() is after getting the top element from stack
-        if (s1.empty()){
-            return x;
+        // If s2 is empty
+        while(!s1.empty()){
+            s2.push(s1.top());
+            s1.pop();
         }
-
-        // rec case
-        int item = dequeue();
-        s1.push(x);  // Pushing the item x of current state back to stack after getting item value(or Required Ans)
         
-        return item;
+        ans = s2.top();
+        s2.pop();
+        return ans;
     }
-
-    // 3. EMPTY Method - O(n)
-    bool Empty(){
-        if(s1.empty())
-            return true;
+    
+    int peek() {
+        if(!s2.empty()) return s2.top();
+        // If s2 is empty
+        while(!s1.empty()){
+            s2.push(s1.top());
+            s1.pop();
+        }
+        
+        return s2.top();
+    }
+    
+    bool empty() {        
+        if(s1.empty() && s2.empty()) return true;
         return false;
     }
 };
 
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
 
 int main(){
-    // Queue q;
-    Queue2 q;
-    q.enqueue(1);
-    q.enqueue(2);
-    q.enqueue(3);
-    q.enqueue(4);
-    q.enqueue(5);
-
-    // Print queue element
-    for (int i = 0; i < 5; i++){
-        cout << q.dequeue() << endl;
-    }
-
-    cout << q.Empty() << endl;
-
-    cout << endl;
     return 0;
 }
