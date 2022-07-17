@@ -101,6 +101,97 @@ Node * mergeRecursive(Node * &head1, Node * &head2){
     return result;
 }
 
+// Approach 1: Using Extra space
+// TC - O(n1 + n2)
+// SC - O(n1 + n2)
+class Solution {
+public:
+    Node* mergeTwoLists(Node* list1, Node* list2) {        
+        if(list1 == NULL && list2 == NULL)
+            return list1;
+        else if(list1 == NULL && list2 != NULL)
+            return list2;
+        else if(list1 != NULL && list2 == NULL)
+            return list1;
+        
+        Node * d = NULL;
+        if(list1->data < list2->data){
+            Node * n = new Node(list1->data);
+            d = n;
+            list1 = list1->next;
+        }
+        else{
+            Node * n = new Node(list2->data);
+            d = n;
+            list2 = list2->next;
+        }
+        
+        Node * dd = d;
+        
+        while(list1 != NULL && list2 != NULL){
+            if(list1->data < list2->data){
+                Node * n = new Node(list1->data);
+                dd->next = n;
+                dd = dd->next;
+                list1 = list1->next;
+            }
+            else{
+                Node * n = new Node(list2->data);
+                dd->next = n;
+                dd = dd->next;
+                list2 = list2->next;
+            }
+        }
+        
+        while(list1 != NULL){
+            Node * n = new Node(list1->data);
+            dd->next = n;
+            dd = dd->next;
+            list1 = list1->next;
+        }
+        
+        while(list2 != NULL){
+            Node * n = new Node(list2->data);
+            dd->next = n;
+            dd = dd->next;
+            list2 = list2->next;
+        }
+        
+        return d;
+    }
+};
+
+// Approach 2: Inplace Sorting
+// TC - O(n1 + n2)
+// SC - O(1)
+class Solution2{
+public:
+    Node* mergeTwoLists(Node* list1, Node* list2) {
+        if(list1 == NULL)
+            return list2;
+        else if(list2 == NULL)
+            return list1;
+        
+        if(list1->data > list2->data)
+            swap(list1, list2);
+        
+        Node * head = list1;
+        
+        while(list1 != NULL && list2 != NULL){
+            Node * temp = NULL;
+            while(list1 != NULL && list1->data <= list2->data){
+                temp = list1;
+                list1 = list1->next;
+            }
+            
+            temp->next = list2;
+            swap(list1, list2);
+        }
+        
+        return head;
+    }
+};
+
 int main(){
     Node * head1 = NULL;
     Node * head2 = NULL;

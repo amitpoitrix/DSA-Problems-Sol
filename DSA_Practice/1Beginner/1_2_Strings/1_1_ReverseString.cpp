@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Leetcode : 344. Reverse String
 // https://leetcode.com/problems/reverse-string/
 
@@ -11,7 +12,7 @@ public:
         int n = s.size();
         // Traversing till n/2
         for (int i = 0; i < n / 2; i++){
-            std::swap(s[i], s[n - i - 1]);
+            swap(s[i], s[n - i - 1]);
         }
     }
 };
@@ -24,7 +25,7 @@ public:
         int start = 0;
         int end = n - 1;
         while(start < end){
-            std::swap(s[start++], s[end--]);
+            swap(s[start++], s[end--]);
         }
     }
 };

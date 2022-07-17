@@ -70,8 +70,8 @@ Node * reverseRecursive(Node * &head){
 
     // rec case
     Node * newHead = reverseRecursive(head->next);
-    head->next->next = head;    // head -> 1 -> 2  =>  head -> 1 <- 2
-    head->next = NULL;  // head -> 1 <- 2  => NULL <- (head <-) 1 <- 2
+    head->next->next = head;
+    head->next = NULL;
 
     return newHead;
 }

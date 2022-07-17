@@ -1,73 +1,31 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-// Pepcoding Ques - Find Mid Node of Linked List - Using Two Pointers(Slow & fast pointers) approach(Iterative)
-// Constraints : Don't use recursive approach and size() directly or indirectly and should be solve in single traversal
 
-class Node{
+// Lt: 876. Middle of the Linked List
+// https://leetcode.com/problems/middle-of-the-linked-list/
+
+ // Definition for singly-linked list.
+ struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+ };
+ 
+class Solution {
 public:
-    int data;
-    Node * next;
-
-    Node(int data){
-        this->data = data;
-        this->next = NULL;
+    ListNode* middleNode(ListNode* head) {
+        ListNode * slow = head;
+        ListNode * fast = head;
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
     }
 };
 
-// INSERT
-void InsertAtTail(Node * &head, int data){
-    Node * n = new Node(data);
-    // If Linked List is empty
-    if(head == NULL){
-        head = n;
-        return;
-    }
-
-    // Traverse till end node
-    Node * temp = head;
-    while (temp->next != NULL){
-        temp = temp->next;
-    }
-
-    temp->next = n;
-}
-
-// DISPLAY
-// Here we pass value of head as we are just printing the Linked List
-void display(Node * head){
-    Node * temp = head;
-    while(temp != NULL){
-        cout << temp->data << "->";
-        temp = temp->next;
-    }
-    cout << "NULL" << endl;
-}
-
-// Mid node of Linked List - Using Two Pointer
-int midNode(Node * &head){
-    Node * slow = head;
-    Node * fast = head;
-    // for finding the mid node we'll move slow by 1 step and fast by 2 step
-    while (fast->next != NULL && fast->next->next != NULL){
-        slow = slow->next;
-        fast = fast->next->next;
-    }
-
-    return slow->data;
-}
-
 int main(){
-    Node * head = NULL;
-
-    int arr[] = {1,2,5};
-
-    for (int i = 0; i < 3; i++){
-        InsertAtTail(head, arr[i]);
-    }
-    display(head);
-
-    cout << "Mid Node = " << midNode(head);
-
-    cout << endl;
     return 0;
 }
