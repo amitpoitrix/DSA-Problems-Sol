@@ -8,8 +8,8 @@ using namespace std;
 // Algo:
 // 1. Here we've to solve in-place (i.e., without using extra space) so for this we'll take two pointer first to traverse 
 // the original string and second to store the valid char in the same original string.
-// 2. For count of each repeating string we'll take another pointer that will help us in counting repeating string.
-// 3. We'll use to_string(count) method to convert int to string & traverse each char of that converted string using for each
+// 2. For count of each repeating characters we'll take another pointer that will help us in counting repeating characters.
+// 3. We'll use to_string(count) method to convert int to string & traverse over each digit of count using for each
 // loop to store it in original string
 
 // TC - O(n)
@@ -19,7 +19,7 @@ class Solution {
 public:
     int compress(vector<char>& chars) {
         int i = 0;  // For traversing the chars
-        int ansIdx = 0; // For valid char to input into chars
+        int ansIdx = 0; // Idx for storing valid char
         int n = chars.size();
         
         while(i < n){

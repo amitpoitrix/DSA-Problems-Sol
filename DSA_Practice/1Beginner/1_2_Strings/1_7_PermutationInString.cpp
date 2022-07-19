@@ -22,20 +22,19 @@ private:
             if(a[i] != b[i])
                 return false;
         }
-        
         return true;
     }
     
 public:
     bool checkInclusion(string s1, string s2) {
-        // hashmap of size 26 for char freq of string s1
+        // Char freq for string s1
         int arr1[26] = {0};
         for(int i = 0; i < s1.length(); i++){
             int charIdx = s1[i] - 'a';
             arr1[charIdx]++;
         }
         
-        // hashmap of size 26 for char freq of string s2
+        // Char freq for string s2
         int arr2[26] = {0};
         // Now taking window of size s1
         int window = s1.length();
@@ -50,7 +49,8 @@ public:
         if(isSame(arr1, arr2))
             return true;
         
-        // Now shifting the window to next idx and removing old char which doesn't comes under window size
+        // Now shifting the window to next idx and removing 
+        // old char which doesn't comes under window size
         while(i < s2.length()){
             // Insert new element to window
             int charIdx = s2[i] - 'a';

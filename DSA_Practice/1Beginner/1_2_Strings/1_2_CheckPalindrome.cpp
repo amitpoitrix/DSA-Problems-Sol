@@ -1,5 +1,7 @@
 #include<iostream>
 #include<vector>
+using namespace std;
+
 // Leetcode : 125. Valid Palindrome
 // https://leetcode.com/problems/valid-palindrome/
 // Normal Check Palindrome in string
@@ -12,18 +14,14 @@
 
 class Solution{
 public:
-    bool checkPalindrome(std::string s){
+    bool checkPalindrome(string s){
         int n = s.length();
         int start = 0;
         int end = n - 1;
 
         while (start < end){
-            if(s[start] != s[end])
+            if(s[start++] != s[end--])
                 return 0;
-            else{
-                start++;
-                end--;
-            }
         }
         
         return 1;
@@ -56,13 +54,13 @@ private:
         if((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
             return ch;
         else{
-            char temp = ch - 'A' + 'a'; // for Making UpperCase to LowerCase temp = ch - 'a' + 'A';
+            char temp = ch - 'A' + 'a'; // Making lowercase from uppercase
             return temp;
         }
     }
 
 public:
-    bool checkPalindrome(std::string s){
+    bool checkPalindrome(string s){
         int n = s.length();
         int start = 0;
         int end = n - 1;
@@ -73,19 +71,14 @@ public:
                 start++;
                 continue;
             }
-            // Now checking Non-AlphaNumeric for end pointer
+            // than checking Non-AlphaNumeric for end pointer
             else if(!isValidChar(s[end])){
                 end--;
                 continue;
             }
 
-            else if(makeLowerCase(s[start]) != makeLowerCase(s[end]))
+            else if(makeLowerCase(s[start++]) != makeLowerCase(s[end--]))
                 return 0;
-            
-            else{
-                start++;
-                end--;
-            }
         }
         
         return 1;

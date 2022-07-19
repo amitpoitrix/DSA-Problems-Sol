@@ -1,4 +1,6 @@
 #include<iostream>
+using namespace std;
+
 // GFG : Maximum Occuring Character
 // https://practice.geeksforgeeks.org/problems/maximum-occuring-character-1587115620/1
 // Ques - We've to find char having max freq & should be lexicographically smaller alphabet
@@ -17,7 +19,7 @@
 class Solution{
 public:
     //Function to find the maximum occurring character in a string.
-    char getMaxOccuringChar(std::string str){
+    char getMaxOccuringChar(string str){
         // Taking array of size 26
         int arr[26] = {0};
 
