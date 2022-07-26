@@ -1,46 +1,77 @@
-#include<iostream>
-#include<vector>   
-#include<algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
-public:
-    int minOperations(int n) {
-        vector<int> arr(n);
-        for(int i = 0; i < n; i++){
-            arr[i] = (2 * i) + 1;
-        }
-        
-        int i = 0,j = 0;
-        if(n % 2){
-            i = n/2 - 1;
-            j = n/2 + 1;
-        }
-        else{
-            i = n/2 - 1;
-            j = n/2;
-        }
-		cout << "i " << i << " " << "j " << j << "\n";
-        
-        int res = 0;
-        while(i >= 0 && j < n){
-            while(arr[i] != arr[j]){
-                arr[i] += 1;
-                arr[j] -= 1;
+private:
+    bool kmpAlgo(string txt, string pat){
+        vector<int> lps(pat.length());
+        for(int i = 1; i < pat.length(); i++){
+            int j = lps[i-1];
+            while(j > 0 && pat[i] != pat[j]){
+                j = lps[j-1];
             }
-            i--;
-            j++;
-            res += 1;
-            cout << "arr[i] " << arr[i] << " " << "arr[j] " << arr[j] << "\n";
+            if(pat[i] == pat[j])
+                lps[i] = j + 1;
+            else if(j == 0)
+                lps[i] = j;
         }
         
-        return res;
+        int i = 0, j = 0;
+        while(i < txt.length()){
+            if(txt[i] == pat[j]){
+                i++, j++;
+            }
+            
+            if(j == pat.length())
+                return true;
+            
+            else if(txt[i] != pat[j]){
+                if(j == 0) i++;
+                else j = lps[j-1];
+            }
+        }
+        
+        return false;
+    }
+    
+public:
+    int repeatedStringMatch(string a, string b) {
+        int count = 1;
+        
+        string tmp = a;
+        cout << tmp << "\n";
+        while(a.length() <= b.length()){
+            a += tmp;
+            count++;
+        }
+
+        // cout << "a :" << a << "\n";
+        // cout << "b :" << b << "\n";
+
+        // if(kmpAlgo(a, b) == true)
+        //     return count;
+        
+        a += tmp;
+        cout << "tmp :" << tmp << "\n";
+        cout << "a :" << a << "\n";
+        cout << "b :" << b << "\n";
+
+        if(kmpAlgo(a, b) == true)
+            return count;
+        
+        return -1;
     }
 };
 
-int main()
-{
-	Solution obj;
-	cout << obj.minOperations(3);
-	return 0;
+
+int main(){
+    string txt = "abcd";
+    string pat = "cdabcdab";
+
+    Solution obj;
+    cout << obj.repeatedStringMatch(txt, pat) << "\n";
+    
+    cout << "\n";
+
+    return 0;
 }
