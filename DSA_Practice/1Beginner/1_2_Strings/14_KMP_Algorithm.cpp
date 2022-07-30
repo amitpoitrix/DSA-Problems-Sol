@@ -11,16 +11,16 @@ public:
         // Step 1: Computing LPS[] of pattern string
         int lps[pat.length()];
         lps[0] = 0;
-        int i = 1, len = 0;
+        int i = 1, j = 0;
         while(i < pat.length()){
-            if(pat[i] == pat[len]){
-                len++;
-                lps[i] = len;
+            if(pat[i] == pat[j]){
                 i++;
+                j++;
+                lps[i] = j;
             }
             else{
-                if(len != 0)
-                    len = lps[len-1];
+                if(j != 0)
+                    j = lps[j-1];
                 else{
                     lps[i] = 0;
                     i++;
