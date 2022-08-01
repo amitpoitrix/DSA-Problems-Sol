@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Striver SDE Sheet - Day1-Array-Part1
 // Leetcode - 75. Sort Colors
 
@@ -10,7 +11,7 @@
 // SC - O(1)
 class Solution {
 public:
-    void sortColors(std::vector<int>& nums) {
+    void sortColors(vector<int>& nums) {
         int n = nums.size();
         int count0 = 0, count1 = 0, count2 = 0;
         for (int i = 0; i <= n - 1; i++){
@@ -48,26 +49,23 @@ public:
 
 class Solution2 {
 public:
-    void sortColors(std::vector<int>& nums) {
+    void sortColors(vector<int>& nums) {
         int n = nums.size();
         int low = 0, mid = 0, high = n - 1;
 
         while(mid <= high){
-            switch (nums[mid]){
-            case 0:
-                std::swap(nums[low], nums[mid]);
+            if (nums[mid] == 0){
+                swap(nums[low], nums[mid]);
                 low++;
                 mid++;
-                break;
+            }
             
-            case 1:
+            else if(nums[mid] == 1)
                 mid++;
-                break;
             
-            case 2:
-                std::swap(nums[mid], nums[high]);
+            else if(nums[mid] == 2){
+                swap(nums[mid], nums[high]);
                 high--;
-                break;
             }
         }
     }
@@ -75,6 +73,5 @@ public:
 
 
 int main(){
-
     return 0;
 }

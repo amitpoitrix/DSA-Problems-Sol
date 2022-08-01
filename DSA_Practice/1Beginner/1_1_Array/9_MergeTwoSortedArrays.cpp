@@ -2,6 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<cmath>
+using namespace std;
 // Striver SDE Sheet - Day2-Array-Part2
 // GFG - Merge Without Extra Space
 
@@ -23,7 +24,7 @@ public:
         }
 
         // Sorting arr3
-        std::sort(arr3, arr3 + n + m);
+        sort(arr3, arr3 + n + m);
 
         // Again inserting back elements from arr3 back to arr1 & arr2
         k = 0;
@@ -47,16 +48,16 @@ public:
 class Solution1{
 public:
     void merge(long long arr1[], long long arr2[], int n, int m) {
-        // Traversing arr1 and Comparing & Swapping with 1st element of arr2 if arr2 element is smaller than arr1 element
-        for (int i = 0; i <= n-1; i++){
+        for (int i = 0; i < n; i++){
+            // Swap only when arr1[i] contains greater element than arr2[0]
             if(arr1[i] > arr2[0]){
-                std::swap(arr1[i], arr2[0]);
+                swap(arr1[i], arr2[0]);
             }
 
             // Now sorting the arr2 using insertion sort
             int first = arr2[0];
             int j;
-            for (j = 1; j <= m - 1 && first > arr2[j]; j++){
+            for (j = 1; j < m && first > arr2[j]; j++){
                 arr2[j - 1] = arr2[j];
             }
             arr2[j - 1] = first;
@@ -69,12 +70,16 @@ public:
 // Works using two nested while loop & 2 pointers which are at distance of Gap(i.e., ceil((n+m)/2)) from each other
 // TC - O((n * m)log(n + m))
 // SC - O(1)
-// Getting TLE
 class Solution2{
 public:
-    void merge(long long arr1[], long long arr2[], int n, int m) {
+    void merge(vector<int>& arr1, int m, vector<int>& arr2, int n) {
+        // First we'll take all the elements of arr2 in arr1 if any
+        for(int i = 0; i < n; i++){
+            arr1[i + m] = arr2[i];
+        }
+        
         // Calculating gap which is ceil of (arr1(length) + arr2(length)) / 2
-        int gap = std::ceil((float)(n + m) / 2);
+        int gap = ceil((float)(n + m) / 2);
 
         // Traversing till gap becomes 0
         while (gap > 0){
@@ -84,29 +89,20 @@ public:
 
             // Nested while loop till j is less than or equal to (n+m)-1
             while (j < (n + m)){
-                // When j is less than arr1 length than i&j will use arr1 only
-                if(j < n && arr1[i] > arr1[j])
-                    std::swap(arr1[i], arr1[j]);
-                
-                // When j is greater than or equal to n & i is less than n than j will use arr2 & i will use arr1
-                else if(j >= n && i < n && arr1[i] > arr2[j - n])
-                    std::swap(arr1[i], arr2[j - n]);
-                
-                // When both i & j is greater than equal to n than both i & j will use arr2
-                else if(j >= n && i >= n && arr2[i - n] > arr2[j - n])
-                    std::swap(arr2[i - n], arr2[j - n]);
-                
+                if(arr1[i] > arr1[j]){
+                    swap(arr1[i], arr1[j]);
+                }
                 i++;
                 j++;
             }
             
-            // Checking if current gap(which is of float type) is 1 than assign it to 0 otherwise gap/2
+            // Checking if current gap(which is of float type) is 1 than 
+            // break out else reduce gap as gap/2
             if(gap == 1)
-                gap = 0;
+                break;
             else
-                gap = std::ceil((float)gap / 2);
+                gap = ceil((float)gap / 2);
         }
-        
     }
 };
 
