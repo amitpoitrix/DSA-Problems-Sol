@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+using namespace std;
 //Striver Graph Series : Breadth First Search (BFS) Traversal of Graph
 // Brief: A BFS traversal starting from root traverse first all its child nodes than only it move to next level
 // Algo:
@@ -27,27 +28,27 @@
 
 class Solution{
 public:
-    std::vector<int> bfsOfGraph(int V, std::vector<int> adj[]){
-        std::vector<int> bfs;
-        std::vector<int> visited(V, 0); // O based indexing of Graph having each value initialise to 0(i.e., Not visited)
+    vector<int> bfsOfGraph(int V, vector<int> adj[]){
+        vector<int> bfs;
+        vector<int> vis(V, 0); // O based indexing of Graph having each value initialise to 0(i.e., Not visisted)
 
-        std::queue<int> q;
+        queue<int> q;
         q.push(0);  // Inserting the 1st Vertex into queue
-        visited[0] = 1; // Marking 1st vertex as visisted after inserting into queue
+        vis[0] = 1; // Marking 1st vertex as visisted after inserting into queue
 
         while (!q.empty()){
             // Removing vertex/node from queue
             int node = q.front();
             q.pop();
 
-            //Print the node
+            //Insert that node into bfs[]
             bfs.push_back(node);
 
-            // Taking out all non-visited adjacent nodes of current node 
+            // Taking out all non-vis adjacent nodes of current node 
             for (auto it : adj[node]){
-                if(!visited[it]){
-                    q.push(it);
-                    visited[it] = 1;
+                if(!vis[it]){   // if not visisted
+                    vis[it] = 1;    // make it visisted 
+                    q.push(it); // and than insert it into queue
                 }
             }
         }
@@ -58,24 +59,24 @@ public:
 
 int main(){
     int V, E;
-    std::cin >> V >> E;
+    cin >> V >> E;
 
     // Creating Array of list of size V -> No. of Vertex
-    std::vector<int> adj[V];    
+    vector<int> adj[V];    
 
     // Adding edges
     for (int i = 0; i < E; i++){
         int u, v;
-        std::cin >> u >> v;
+        cin >> u >> v;
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
     
     Solution* obj = new Solution();     // or Solution obj; // call its function with . instead of ->
-    std::vector<int> res = obj->bfsOfGraph(V, adj);
+    vector<int> res = obj->bfsOfGraph(V, adj);
 
     for (auto x : res){
-        std::cout << x << " ";
+        cout << x << " ";
     }
     
     return 0;
