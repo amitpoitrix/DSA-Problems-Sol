@@ -1,49 +1,50 @@
-#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
 
-int eqIndex(std::string inputString, int n){
-    int mid = n / 2;
-    
-    int sumLeft = 0;
-    for (int i = 0; i < mid; i++){
-        sumLeft += inputString[i];
-    }
+#include <bits/stdc++.h>
+using namespace std;
 
-    int sumRight = 0;
-    for (int i = mid+1; i < n; i++){
-        sumRight += inputString[i];
-    }
-    
-    if(sumLeft > sumRight){
-        // Move Leftward till sumLeft <= sumRight
-        while (sumLeft > sumRight && mid >= 1){
-            sumLeft -= inputString[mid - 1];
-            sumRight += inputString[mid];
-            mid--;
+class Solution {
+  private: 
+    // dfs traversal function 
+    void dfs(int node, vector<int> adjLs[], int vis[]) {
+        // mark the more as visited
+        vis[node] = 1; 
+        for(auto it: adjLs[node]) {
+            if(!vis[it]) {
+                dfs(it, adjLs, vis); 
+            }
         }
     }
-    // sumLeft <= sumRight
-    else{
-        // Move Rightward till sumRight <= sumLeft
-        while (sumLeft < sumRight && mid <= n-2){
-            sumLeft += inputString[mid];
-            sumRight -= inputString[mid + 1];
-            mid++;
+  public:
+    int numProvinces(vector<vector<int>> adj, int V) {
+        vector<int> adjLs[V]; 
+        
+        // to change adjacency matrix to list 
+        for(int i = 0; i < V; i++) {
+            for(int j = 0; j < V; j++) {
+                if(adj[i][j] == 1 && i != j) {
+                    adjLs[i].push_back(j); 
+                    adjLs[j].push_back(i); 
+                }
+            }
         }
-    }
 
-    if(sumLeft == sumRight){
-        return mid;
+        int vis[V] = {0}; 
+        int cnt = 0; 
+        for(int i = 0; i < V; i++) {
+            // if the node is not visited
+            if(!vis[i]) {
+                // counter to count the number of provinces 
+                cnt++;
+               dfs(i, adjLs, vis); 
+            }
+        }
+        return cnt; 
+        
     }
-    else
-        return -1;
-}
+};
 
 int main(){
-    std::string inputString;
-    std::getline(std::cin, inputString);
-    int n = inputString.size();
-    std::cout << n << "\n";
-    std::cout << eqIndex(inputString, n);
-    
     return 0;
 }

@@ -1,19 +1,21 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 // Striver Graph Series : Cycle Detection in Undirected Graph using DFS
 // If adjacent node(next node) is already visited & its not a parent node than there is a cycle
 
 class Solution{
 private:
-    bool detectCycle(int node, int parent, std::vector<int> &visited, std::vector<int> adj[]){
-        visited[node] = true;
-        for (auto x : adj[node]){
-            if(!visited[x]){
-                if(detectCycle(x, node, visited, adj))
+    bool detectCycle(int node, int parent, vector<int> &vis, vector<int> adj[]){
+        vis[node] = 1;
+
+        for (auto adjacentNode : adj[node]){
+            if(!vis[adjacentNode]){
+                if(detectCycle(adjacentNode, node, vis, adj))
                     return true;
             }
 
-            else if(x != parent)
+            else if(adjacentNode != parent)
                 return true;
         }
         
@@ -21,11 +23,12 @@ private:
     }
 
 public:
-    bool isCycle(int V, std::vector<int> adj[]){
-        std::vector<int> visited(V, 0);
+    bool isCycle(int V, vector<int> adj[]){
+        vector<int> vis(V, 0);
+
         for (int i = 0; i < V; i++){
-            if(!visited[i]){
-                if(detectCycle(i, -1, visited, adj))
+            if(!vis[i]){
+                if(detectCycle(i, -1, vis, adj))
                     return true;
             }
         }
@@ -36,22 +39,22 @@ public:
 
 int main(){
     int V, E;
-    std::cin >> V >> E;
+    cin >> V >> E;
 
-    std::vector<int> adj[V];
+    vector<int> adj[V];
 
     for (int i = 0; i < E; i++){
         int u, v;
-        std::cin >> u >> v;
+        cin >> u >> v;
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
     
     Solution obj;
     if(obj.isCycle(V, adj))
-        std::cout << "Graph has Cycle";
+        cout << "Graph has Cycle";
     else
-        std::cout << "Graph doesn't have cycle";
+        cout << "Graph doesn't have cycle";
 
     return 0;
 }

@@ -2,7 +2,7 @@
 using namespace std;
 
 // Lt: 18. 4Sum
-// https://leetcode.com/problems/4sum/
+// https://leetcode.com/problems/4 sum/
 
 // TC - O(n^3)
 // SC - O(1)
