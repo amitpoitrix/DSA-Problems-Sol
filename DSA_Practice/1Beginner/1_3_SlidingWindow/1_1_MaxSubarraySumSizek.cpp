@@ -81,6 +81,30 @@ public:
     }
 };
 
+// Using Prefix Sum
+// TC - O(n)
+// SC - O(n)
+class Solution{
+public:
+    long maximumSumSubarray(int K, vector<int> &Arr , int N){
+        // Using prefix sum
+        vector<long> prefixSum(N+1);
+        for(int i = 0; i < N; i++){
+            // Computing prefix sum using 1-based indexing
+            prefixSum[i+1] = Arr[i] + prefixSum[i];
+        }
+        
+        long ans = 0;
+        // Starting from 0 due to N == K condition
+        for(int i = 0; i <= N - K; i++){
+            if(ans < (prefixSum[i+K] - prefixSum[i]))
+                ans = prefixSum[i+K] - prefixSum[i];
+        }
+        
+        return ans;
+    }
+};
+
 int main(){
     return 0;
 }

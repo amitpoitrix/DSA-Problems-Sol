@@ -23,6 +23,29 @@ public:
     }
 };
 
+// Another Approach - Using concept of Favourable and Unfavourable Search Space
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int l = 0;
+        int h = letters.size() - 1;
+        
+        while(l <= h){
+            int mid = l + (h - l) / 2;
+            
+            // Favorable Search Space
+            if(letters[mid] > target)
+                h = mid - 1;
+            
+            // Unfavorable Search Space
+            else
+                l = mid + 1;
+        }
+        
+        return (l >= letters.size())? letters[0]: letters[l];
+    }
+};
+
 int main(){
     return 0;
 }
