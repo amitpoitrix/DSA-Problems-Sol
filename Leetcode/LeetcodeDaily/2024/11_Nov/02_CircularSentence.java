@@ -1,11 +1,11 @@
 /*
-Link: https://leetcode.com/problems/circular-sentence/?envType=daily-question&envId=2024-11-02
-
-Approach:
-Approach is to first forn Strings Array of words and keep on comparing last character with first character of next 
-word and last word last character with first word first character.
-If it doesn't matches return false else true
-*/
+ * 2490. Circular Sentence
+ * Link: https://leetcode.com/problems/circular-sentence/?envType=daily-question&envId=2024-11-02
+ * 
+ * Approach is to first forn Strings Array of words and keep on comparing last character with first character of 
+ * next word and last word last character with first word first character. 
+ * If it doesn't matches return false else true
+ */
 
 class Solution {
     public boolean isCircularSentence(String sentence) {

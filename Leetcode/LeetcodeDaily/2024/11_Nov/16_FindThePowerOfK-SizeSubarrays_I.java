@@ -1,6 +1,7 @@
 import java.util.*;
 
 /*
+ * 3254. Find the Power of K-Size Subarrays I
  * Link: https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i/?envType=daily-question&envId=2024-11-16
  * 
  * 
