@@ -108,3 +108,49 @@ class Solution {
         return -1;
     }
 }
+
+
+/*
+The two types of BFS loops differ in how they process the nodes in the queue, and they are typically used for different types of problems in graph or tree traversal.
+
+1. Level-Order BFS (Processing level by level)
+cpp
+Copy code
+while (!que.empty()) {
+    int n = que.size(); // Get the number of nodes at the current level
+    while (n--) {
+        // Process all nodes at this level
+    }
+}
+Key Characteristics:
+----- Purpose: Processes nodes level by level (useful in layered traversal).
+----- Queue Behavior: At each iteration of the outer loop, it processes all the elements currently in the queue, which corresponds to all nodes at the same level in a tree or all nodes at the same distance in an unweighted graph.
+
+Common Uses:
+----- Problems where levels matter (e.g., level-order traversal of a tree).
+----- Finding the shortest path in an unweighted graph.
+----- Problems like "minimum depth of a binary tree" or "number of islands" (when counting steps between layers).
+
+
+2. Standard BFS (Node-by-node processing)
+cpp
+Copy code
+while (!que.empty()) {
+    auto node = que.front();
+    que.pop(); // Process the node directly
+    // Add children or neighbors to the queue
+}
+
+Key Characteristics:
+----- Purpose: Processes nodes in a First-In-First-Out (FIFO) manner without explicitly grouping them by levels.
+----- Queue Behavior: Each node is popped from the queue and processed independently.
+
+Common Uses:
+----- Problems where grouping by levels is not required (e.g., just exploring all reachable nodes).
+----- Detecting connectivity in a graph (e.g., connected components, cycle detection).
+----- Problems like "breadth-first search for a target node."
+
+
+
+Note that DFS does not guarantee shortest path. Hence in problem like these , DFS is not preferred.
+ */
