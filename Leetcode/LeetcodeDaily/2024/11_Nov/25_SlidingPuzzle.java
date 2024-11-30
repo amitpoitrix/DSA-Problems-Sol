@@ -111,7 +111,10 @@ class Solution {
 
 
 /*
-The two types of BFS loops differ in how they process the nodes in the queue, and they are typically used for different types of problems in graph or tree traversal.
+WHY TO USE BFS & TWO TYPES OF BFS
+
+The two types of BFS loops differ in how they process the nodes in the queue, and they are typically used for 
+different types of problems in graph or tree traversal.
 
 1. Level-Order BFS (Processing level by level)
 cpp
@@ -123,13 +126,14 @@ while (!que.empty()) {
     }
 }
 Key Characteristics:
------ Purpose: Processes nodes level by level (useful in layered traversal).
------ Queue Behavior: At each iteration of the outer loop, it processes all the elements currently in the queue, which corresponds to all nodes at the same level in a tree or all nodes at the same distance in an unweighted graph.
+Purpose: Processes nodes level by level (useful in layered traversal).
+Queue Behavior: At each iteration of the outer loop, it processes all the elements currently in the queue, which 
+corresponds to all nodes at the same level in a tree or all nodes at the same distance in an unweighted graph.
 
 Common Uses:
------ Problems where levels matter (e.g., level-order traversal of a tree).
------ Finding the shortest path in an unweighted graph.
------ Problems like "minimum depth of a binary tree" or "number of islands" (when counting steps between layers).
+Problems where levels matter (e.g., level-order traversal of a tree).
+Finding the shortest path in an unweighted graph.
+Problems like "minimum depth of a binary tree" or "number of islands" (when counting steps between layers).
 
 
 2. Standard BFS (Node-by-node processing)
@@ -142,13 +146,13 @@ while (!que.empty()) {
 }
 
 Key Characteristics:
------ Purpose: Processes nodes in a First-In-First-Out (FIFO) manner without explicitly grouping them by levels.
------ Queue Behavior: Each node is popped from the queue and processed independently.
+Purpose: Processes nodes in a First-In-First-Out (FIFO) manner without explicitly grouping them by levels.
+Queue Behavior: Each node is popped from the queue and processed independently.
 
 Common Uses:
------ Problems where grouping by levels is not required (e.g., just exploring all reachable nodes).
------ Detecting connectivity in a graph (e.g., connected components, cycle detection).
------ Problems like "breadth-first search for a target node."
+Problems where grouping by levels is not required (e.g., just exploring all reachable nodes).
+Detecting connectivity in a graph (e.g., connected components, cycle detection).
+Problems like "breadth-first search for a target node."
 
 
 
