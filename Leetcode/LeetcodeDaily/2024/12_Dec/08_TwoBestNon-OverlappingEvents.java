@@ -57,8 +57,12 @@ import java.util.*;
 
 class Solution2 {
     public int maxTwoEvents(int[][] events) {
-        // Here in ques, we've to choose atmost 2 events so there is this possibility of choosing an event or not choosing (means pick & non-pick startegy) so we can apply recursion and while choosing event we'll keep track of no. of events being choosen, so if it crosses 2 we'll stop.
-        // So during picking of current event, we need to choose next element from rest of the event so for this we can sort the events base don starting time and than choose those first event which doesn't violate the range with the current event using Binary Search
+        // Here in ques, we've to choose atmost 2 events so there is this possibility of choosing an event or not choosing 
+        // (means pick & non-pick startegy) so we can apply recursion and while choosing event we'll keep track of no. of 
+        // events being choosen, so if it crosses 2 we'll stop.
+        // So during picking of current event, we need to choose next element from rest of the event so for this we can 
+        // sort the events base don starting time and than choose those first event which doesn't violate the range with 
+        // the current event using Binary Search
 
         // Sorting events based on starting time
         Arrays.sort(events, (a, b) -> {
