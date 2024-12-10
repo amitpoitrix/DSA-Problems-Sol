@@ -10,6 +10,7 @@
  * The maximum valid substring length (frequency ≥ 3) is tracked.
  * 
  * Complexity:
+ * 
  * Time: O(n^3)
  * Space: O(n^2)
  */
