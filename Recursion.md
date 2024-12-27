@@ -115,7 +115,7 @@ class Solution {
 
 **Approach:** Using Recursion
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/3dbc44ac-3465-40dd-a7d5-1cb035b64be9/image.png)
+![alt text](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/3dbc44ac-3465-40dd-a7d5-1cb035b64be9/image.png)
 
 So if we have to move N disks from from_rod to to_rod than we’ll follow below steps:
 
