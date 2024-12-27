@@ -5,14 +5,13 @@ Recursion means a function calling itself.
 **Hint:** If there is options than always think of recursion
 
 **How Recursion Works in Stack ?**
-
-<img width="716" alt="image" src="https://github.com/user-attachments/assets/9a565b7c-201d-43cf-beef-cd2b008c57bc" />
+![alt text](Images/image-1.png)
 
 <br>
 
 **We make use of Recursion Tree to visualise recursion problems:**
 
-<img width="428" alt="image" src="https://github.com/user-attachments/assets/35990323-d364-4cfa-a4e9-a9cc32fdddda" />
+![alt text](Images/image-6.png)
 
 <br>
 
@@ -48,21 +47,21 @@ public class Print1toN {
 
 Form of recursion, where the recursive call is the last operation performed in the function.
 
-![alt text](image.png)
+![alt text](Images/image.png)
 
 **Non-Tail Recursion**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/51683c63-69c0-4406-a89c-e7ca1a13a3a1/image.png)
+![alt text](Images/image-2.png)
 
 **Below Code is Tail or Non-Tail ?**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/9579a179-61b7-4f90-a37a-2baaccfa7ffa/image.png)
+![alt text](Images/image-3.png)
 
 Its non-tail because after calling Fact(n - 1) we’re multiplying its result with n.
 
 **Now converting non-tail recursion to Tail recursion**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/b04fd05f-d0b6-4866-a83d-784e04621c39/image.png)
+![alt text](Images/image-4.png)
 
 Here, we’ve introduced another parameter i.e., product which is being return from recursive function in Base Case.
 
@@ -70,7 +69,7 @@ Now because of this modern compilers are smart enough to not maintain function c
 
 When we write recursion in formula its called **Recurrence Relation.**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/f98e4267-52c0-4aa1-902d-e56a3282e875/Untitled.png)
+![alt text](Images/image-5.png)
 
 - We use recursion to solve bigger/complex problem in a simpler way which is very difficult in iterative way.
 - Every recursive function call take separate space in stack
