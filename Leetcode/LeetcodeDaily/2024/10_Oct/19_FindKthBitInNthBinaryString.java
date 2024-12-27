@@ -74,6 +74,8 @@ class Solution1 {
  * Space: O(n)
  */
 
+<img width="1361" alt="image" src="https://github.com/user-attachments/assets/484f99e7-2c4f-4f93-a5d8-27bd3eb392ad" />
+
 class Solution2 {
     public int kthGrammar(int n, int k) {
         // Base Case
