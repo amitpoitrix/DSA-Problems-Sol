@@ -21,9 +21,9 @@
  * The final result is the maximum of the three values: the diameter of tree 1, tree 2, and the combined diameter.
  * 
  * Complexity:
- * Time: O(n1 + n2); where n1 and n2 are the number of nodes in the two trees. The time complexity comes from 
+ * Time: O((V1 + E1) + (V2 + E2)); where n1 and n2 are the number of nodes in the two trees. The time complexity comes from 
  * creating the adjacency lists and performing two BFS operations for each tree.
- * Space: O(n1 + n2);  where n1 and n2 are the number of nodes in the two trees. The space complexity comes from 
+ * Space: O((V1 + E1) + (V2 + E2)); where n1 and n2 are the number of nodes in the two trees. The space complexity comes from 
  * storing the adjacency lists and the BFS-related data structures (queue, visited array).
  */
 
