@@ -118,6 +118,8 @@ public class Factorial {
 }
 ```
 
+<br>
+
 ### 2. Fibonacci
 - Sequence of numbers formed from summation of its previous 2 numbers
 
@@ -145,6 +147,8 @@ public class Fibonacci {
     }
 }
 ```
+
+<br>
 
 ### 3. Sum & Product of Digits
 
