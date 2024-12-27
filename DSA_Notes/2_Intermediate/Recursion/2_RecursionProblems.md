@@ -1,6 +1,6 @@
 | S.No. | Questions |
 | --- | --- |
-| 1. | https://leetcode.com/problems/reverse-string/description/ |
+| 1. | [344. Reverse String](https://leetcode.com/problems/reverse-string/description/) |
 | 2.  | https://www.geeksforgeeks.org/problems/reverse-a-stack/1 |
 | 3. | https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1 |
 | 4. | https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card |
@@ -45,7 +45,7 @@ class Solution {
 }
 ```
 
-1. https://www.geeksforgeeks.org/problems/reverse-a-stack/1
+### 2. [Reverse a Stack](https://www.geeksforgeeks.org/problems/reverse-a-stack/1)
 
 **Approach 1:** Using Auxiliary Space
 
@@ -131,7 +131,7 @@ class Solution {
 }
 ```
 
-1. https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1
+### 3. [Tower Of Hanoi ](https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1)
 
 **Approach:** Using Recursion
 
@@ -197,7 +197,7 @@ class Hanoi {
 }
 ```
 
-1. https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+### 4. [Merge Sort](https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
 
 **Approach:** Using Recursion
 
@@ -288,7 +288,7 @@ class Solution {
 }
 ```
 
-1. https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+5. https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
 
 **Approach:** Using Recursion
 
@@ -355,7 +355,7 @@ class Solution {
 
 ```
 
-1. https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1
+6. https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1
 
 **Approach Summary:**
 
@@ -409,7 +409,7 @@ class Solution {
 }
 ```
 
-1. https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
+7. https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
 
 **Approach:** Using Recursion
 
@@ -465,7 +465,7 @@ class Solution {
 }
 ```
 
-1. https://leetcode.com/problems/generate-parentheses/description/
+8. https://leetcode.com/problems/generate-parentheses/description/
 
 **Approach 1:** Using Simple Recursion
 
@@ -619,7 +619,7 @@ class Solution {
 }
 ```
 
-1. https://leetcode.com/problems/valid-palindrome/description/
+9. https://leetcode.com/problems/valid-palindrome/description/
 
 **Approach:**
 
@@ -658,7 +658,7 @@ class Solution {
 }
 ```
 
-1. **Count Zeroes**
+10. **Count Zeroes**
 
 **Approach:** Using Recursion
 
@@ -699,7 +699,7 @@ public class CountZeroes {
 }
 ```
 
-1. https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+11. https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
 
 **Approach:**
 
@@ -728,7 +728,7 @@ public class NoOfStepsToReduceToZero {
 }
 ```
 
-1. **Find all Permutations of a given string?**
+12. **Find all Permutations of a given string?**
 
 **Approach:**
 
@@ -841,7 +841,7 @@ public class Permutations {
 }
 ```
 
-1. **How many no. of ways are there to form target on a dice ?**
+13. **How many no. of ways are there to form target on a dice ?**
 
 **Approach:**
 
@@ -910,7 +910,7 @@ public class DiceRollTarget {
 }
 ```
 
-1. **Finding All Paths from A → B in a Matrix**
+14. **Finding All Paths from A → B in a Matrix**
 
 **Approach 1:** Counting Paths - Moving Right & Down only.
 
@@ -1045,7 +1045,7 @@ private static void printingDiagonalPaths(String p, int row, int col) {
 }
 ```
 
-1. **Maze with Obstacles**
+15. **Maze with Obstacles**
 
 **Approach:**
 
@@ -1096,7 +1096,7 @@ public class MazePathsWithObstacles {
 }
 ```
 
-1. https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
+16. https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
 
 **Approach:**
 
@@ -1141,7 +1141,7 @@ class Solution {
 }
 ```
 
-1. https://leetcode.com/problems/regular-expression-matching/description/
+17. https://leetcode.com/problems/regular-expression-matching/description/
 
 **Approach 1:** Using Recursion (using substring)
 
