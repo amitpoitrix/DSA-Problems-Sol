@@ -1,4 +1,4 @@
-**Recursion**
+# Recursion
 
 Recursion means a function calling itself.
 
@@ -6,11 +6,15 @@ Recursion means a function calling itself.
 
 **How Recursion Works in Stack ?**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/64a9a061-f17b-4653-9dbc-1dd56396dd94/Untitled.png)
+<img width="716" alt="image" src="https://github.com/user-attachments/assets/9a565b7c-201d-43cf-beef-cd2b008c57bc" />
+
+<br>
 
 **We make use of Recursion Tree to visualise recursion problems:**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/ae9bd968-ed77-4052-9f18-58fada5ddf92/Untitled.png)
+<img width="428" alt="image" src="https://github.com/user-attachments/assets/35990323-d364-4cfa-a4e9-a9cc32fdddda" />
+
+<br>
 
 ```java
 public class Print1toN {
@@ -38,11 +42,13 @@ public class Print1toN {
 }
 ```
 
+<br>
+
 **Tail Recursion**
 
 Form of recursion, where the recursive call is the last operation performed in the function.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/75ff7010-41a8-40ef-9b13-e74201124a68/image.png)
+![alt text](image.png)
 
 **Non-Tail Recursion**
 
@@ -92,7 +98,7 @@ When we write recursion in formula its called **Recurrence Relation.**
 
 **Basic Recursion Problems:**
 
-1. **Factorial**
+### 1. Factorial
 
 eg: 4! = 4 * 3 * 2 * 1
 
@@ -113,7 +119,7 @@ public class Factorial {
 }
 ```
 
-1. **Fibonacci**
+### 2. Fibonacci
 - Sequence of numbers formed from summation of its previous 2 numbers
 
 eg: 0 1 1 2 3 5 8 13 21 36
@@ -141,7 +147,7 @@ public class Fibonacci {
 }
 ```
 
-1. **Sum & Product of Digits**
+### 3. Sum & Product of Digits
 
 ```java
 public class SumOfDigits {
@@ -169,9 +175,3 @@ public class SumOfDigits {
     }
 }
 ```
-
-[Recursion Problems](https://www.notion.so/Recursion-Problems-16951fb695f080259d3ef6a745384f40?pvs=21)
-
-[Backtracking Problems](https://www.notion.so/Backtracking-Problems-76b19c6901a641e787c104138d4fd6bf?pvs=21)
-
-[Searching using Recursion](https://www.notion.so/Searching-using-Recursion-7454c5492c3b4266a4513e7cf3e6943f?pvs=21)
