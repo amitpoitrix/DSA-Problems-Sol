@@ -95,7 +95,7 @@ When we write recursion in formula its called **Recurrence Relation.**
 - Return type of recursive function.
 - Body of the function
 
-**Basic Recursion Problems:**
+## Basic Recursion Problems:
 
 ### 1. Factorial
 
