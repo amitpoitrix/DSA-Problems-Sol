@@ -1,52 +1,3 @@
-/*
- * 1545. Find Kth Bit in Nth Binary String
- * Link: https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/
- * 
- * 
- * Approach: 
- * 
- * Recursive Structure: The binary sequence at level n is built recursively by taking the sequence at level n-1, 
- * adding a '1', and then appending the reverse of n-1 where each bit is flipped. This pattern can be leveraged 
- * to recursively find the k-th bit.
- * 
- * Base Case: When n = 1, the sequence is just '0', so if the search reaches this level, the result is '0'.
- * 
- * Midpoint Check: The sequence length at level n is 2^n - 1. The midpoint is always '1'. If k is exactly at this 
- * midpoint, return '1'.
- * 
- * First Half: If k lies in the first half of the sequence, the answer can be found by recursively searching the 
- * corresponding position in the sequence for n-1.
- * 
- * Second Half: If k is in the second half, it corresponds to a mirrored and flipped bit of the first half. 
- * Recursively find the corresponding bit in the first half and flip it.
- * 
- * This approach efficiently uses recursion to handle the reverse and flip operations without generating the entire 
- * sequence explicitly.
- */
-
-class Solution1 {
-    public char findKthBit(int n, int k) {
-        // Using Recursion
-
-        // Step 1: Base Case
-        if(n == 1)
-            return '0';
-
-        // Step 2: Now based on ceil(length) < k, == k & > k
-        int len = (1 << n) - 1; // 2^n - 1
-
-        if(k < (len / 2) + 1) {
-            return findKthBit(n - 1, k);
-        } else if(k == (len / 2) + 1) {
-            return '1';
-        } else {
-            // ceil(len / 2) > k
-            return findKthBit(n - 1, len - k + 1) == '0' ? '1': '0';
-        }
-    }
-}
-
-
 /**
  * Similar Questions:
  * 
@@ -75,7 +26,7 @@ class Solution1 {
  * Space: O(n)
  */
 
-class Solution2 {
+class Solution1 {
     public int kthGrammar(int n, int k) {
         // Base Case
         if(n == 1 && k == 1) {
@@ -83,13 +34,14 @@ class Solution2 {
         }
 
         // Recursive Case
-        int length = (int)Math.pow(2, n - 1);
-        int mid = length / 2;
+        int len = (int)Math.pow(2, n - 1);  // 2^(n-1) 2 to the power (n-1)
 
-        if(k <= mid) {
+        if(k <= (len / 2)) {
+            // means lies in 1st Half
             return kthGrammar(n - 1, k);
         } else {
-            return 1 - kthGrammar(n - 1, k - mid); // negation 1 -> 0 & 0 -> 1
+            // means lies in 2nd half
+            return 1 - kthGrammar(n - 1, k - (len / 2)); // negation 1 -> 0 & 0 -> 1
         }
     }
 }
@@ -104,7 +56,7 @@ class Solution2 {
  * Than after getting value of length find using recursion.
  * 
  */
-class Solution3 {
+class Solution2 {
     public char kthCharacter(int k) {
         // Step 1: First find the min len of word needed to have atleast k characters
         int len = 1;    // intial word = 'a'
@@ -177,7 +129,7 @@ class Solution3 {
  * of operations, which is O(logn), since the string doubles in size with each operation.
  */
 
-class Solution4 {
+class Solution3 {
     public char kthCharacter(long k, int[] operations) {
         // Base Case: means what's the 1st character of any word
         if(k == 1) {
@@ -199,6 +151,7 @@ class Solution4 {
         }
         
         // Step 2: Recursive call with updated value of k
+        // Always lies in 2nd half because of calculation of len at each recursive call
         char ch = kthCharacter(k - (len / 2), operations);
 
         if(operationsType == 0) {
@@ -218,3 +171,59 @@ class Solution4 {
 // a a a a a a a a
 
 // solve(k - l / 2);
+
+
+
+/*
+ * 1545. Find Kth Bit in Nth Binary String
+ * Link: https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/
+ * 
+ * Explaination Diagram:
+ * https://github.com/user-attachments/assets/f99470e3-c724-42d4-afce-0045190f73b6
+ * https://github.com/user-attachments/assets/57fd8d1d-93d0-4ed9-8a62-a0a4e30b5972
+ * 
+ * Approach: 
+ * 
+ * Recursive Structure: The binary sequence at level n is built recursively by taking the sequence at level n-1, 
+ * adding a '1', and then appending the reverse of n-1 where each bit is flipped. This pattern can be leveraged 
+ * to recursively find the k-th bit.
+ * 
+ * Base Case: When n = 1, the sequence is just '0', so if the search reaches this level, the result is '0'.
+ * 
+ * Midpoint Check: The sequence length at level n is 2^n - 1. The midpoint is always '1'. If k is exactly at this 
+ * midpoint, return '1'.
+ * 
+ * First Half: If k lies in the first half of the sequence, the answer can be found by recursively searching the 
+ * corresponding position in the sequence for n-1.
+ * 
+ * Second Half: If k is in the second half, it corresponds to a mirrored and flipped bit of the first half. 
+ * Recursively find the corresponding bit in the first half and flip it.
+ * 
+ * This approach efficiently uses recursion to handle the reverse and flip operations without generating the entire 
+ * sequence explicitly.
+ */
+
+class Solution4 {
+    public char findKthBit(int n, int k) {
+        // Using Recursion
+
+        // Step 1: Base Case
+        if(n == 1)
+            return '0';
+
+        // Step 2: Now based on ceil(length) < k, == k & > k
+        int len = (1 << n) - 1; // 2^n - 1
+
+        if(k < (len / 2) + 1) { // taking ceil(len / 2)
+            // k lies in 1st half, so pass k as it it
+            return findKthBit(n - 1, k);
+        } else if(k == (len / 2) + 1) {
+            // k equals middle value so return 1 always
+            return '1';
+        } else {
+            // ceil(len / 2) > k
+            // k lies in 2nd half so it should match with negation of [len - (k - 1)]th character 
+            return findKthBit(n - 1, len - (k - 1)) == '0' ? '1': '0';
+        }
+    }
+}
