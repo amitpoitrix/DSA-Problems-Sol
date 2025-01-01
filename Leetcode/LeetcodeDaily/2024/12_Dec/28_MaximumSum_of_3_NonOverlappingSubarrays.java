@@ -2,6 +2,30 @@
  * 689. Maximum Sum of 3 Non-Overlapping Subarrays
  * Link: https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/description/?envType=daily-question&envId=2024-12-28
  * 
+ * 
+ * Approach: Dp with Memoization
+ * The solution uses Dynamic Programming (DP) to find the maximum sum of three non-overlapping subarrays of size k. 
+ * The approach is divided into three key steps:
+ * 
+ * 1. Precomputing Subarray Sums:
+ * A sliding window technique is used to compute the sums of all possible subarrays of size k in the input array.
+ * These sums are stored in a separate array, sums, to simplify further calculations.
+ * 
+ * 2. Dynamic Programming to Maximize Sum:
+ * A recursive function (helper) with memoization is used to compute the maximum sum of up to 3 subarrays.
+ * 
+ * The state is defined by:
+ * idx: Current position in the sums array.
+ * rem: Remaining number of subarrays to include.
+ * 
+ * The function explores two choices:
+ * Include the current subarray and skip k indices.
+ * Skip the current subarray and move to the next index.
+ * 
+ * 3. Reconstructing the Solution:
+ * Another recursive function (solve) reconstructs the indices of the subarrays contributing to the maximum sum.
+ * It uses the precomputed DP table to decide whether to include or skip a subarray at each step.
+ * 
  * Complexity:
  * Time: O(n); Each state is computed at most once due to memoization, so the total number of subproblems is O((n - k + 1) * 4)
  * Space: O(n); The dp table has dimensions (n - k + 1) x 4
