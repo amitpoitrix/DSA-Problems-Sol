@@ -17,6 +17,7 @@
 class Solution1 {
     public int minimizeXor(int num1, int num2) {
         // Approach 1: 
+        // Assuming taking value of x as num1
         int x = num1;
 
         int currentSetBit = Integer.bitCount(x);
@@ -85,6 +86,7 @@ class Solution1 {
 class Solution2 {
     public int minimizeXor(int num1, int num2) {
         // Approach 2: 
+        // Assuming taking value of x as 0 i.e., from scratch
         int x = 0;
 
         int requiredSetBit = Integer.bitCount(num2);
