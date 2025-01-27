@@ -21,3 +21,4 @@
 | 21. | [2017. Grid Game](https://leetcode.com/problems/grid-game/description/?envType=daily-question&envId=2025-01-21) | [Code](21_GridGame.java) |  |
 | 22. | [1765. Map of Highest Peak](https://leetcode.com/problems/map-of-highest-peak/?envType=daily-question&envId=2025-01-22) | [Code](22_MapOfHighestPeak.java) | Microsoft, Google |
 | 23. | [1267. Count Servers that Communicate](https://leetcode.com/problems/count-servers-that-communicate/description/?envType=daily-question&envId=2025-01-23) | [Code](23_CountServersThatCommunicate.java) |  |
+| 25. | [2948. Make Lexicographically Smallest Array by Swapping Elements](https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/description/?envType=daily-question&envId=2025-01-25) | [Code](25_MakeLexicographicallySmallestArrayBySwappingElements.java) | Atlassian |
