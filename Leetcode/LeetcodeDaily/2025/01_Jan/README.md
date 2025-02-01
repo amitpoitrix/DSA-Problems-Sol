@@ -25,3 +25,4 @@
 | 26. | [2127. Maximum Employees to Be Invited to a Meeting](https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/description/?envType=daily-question&envId=2025-01-26) | [Code](26_MaximumEmployeesToBeInvited_to_a_Meeting.java) | Barclays, Uber, SAP, Google, Bloomberg, Microsoft |
 | 27. | [1462. Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/description/?envType=daily-question&envId=2025-01-27) | [Code](27_CourseSchedule_IV.java) | Uber |
 | 28. | [2658. Maximum Number of Fish in a Grid](https://leetcode.com/problems/maximum-number-of-fish-in-a-grid/description/?envType=daily-question&envId=2025-01-28) | [Code](28_MaximumNumberOfFish_in_a_Grid.java) | Adobe |
+| 30. | [2493. Divide Nodes Into the Maximum Number of Groups](https://leetcode.com/problems/divide-nodes-into-the-maximum-number-of-groups/description/?envType=daily-question&envId=2025-01-30) | [Code](30_DivideNodesIntoTheMaximumNumberOfGroups.java) | Uber |
