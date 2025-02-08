@@ -45,6 +45,8 @@ class Solution {
 }
 ```
 
+<br>
+
 ### 2. [Reverse a Stack](https://www.geeksforgeeks.org/problems/reverse-a-stack/1)
 
 **Approach 1:** Using Auxiliary Space
@@ -699,7 +701,7 @@ public class CountZeroes {
 }
 ```
 
-11. [Number of Steps to reduce a number to zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
+### 11. [Number of Steps to reduce a number to zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
 
 **Approach:**
 
@@ -728,7 +730,7 @@ public class NoOfStepsToReduceToZero {
 }
 ```
 
-12. **Find all Permutations of a given string?**
+### 12. Find all Permutations of a given string?
 
 **Approach:**
 
@@ -841,7 +843,7 @@ public class Permutations {
 }
 ```
 
-13. **How many no. of ways are there to form target on a dice ?**
+### 13. How many no. of ways are there to form target on a dice ?
 
 **Approach:**
 
@@ -910,7 +912,7 @@ public class DiceRollTarget {
 }
 ```
 
-14. **Finding All Paths from A → B in a Matrix**
+### 14. Finding All Paths from A → B in a Matrix
 
 **Approach 1:** Counting Paths - Moving Right & Down only.
 
@@ -1045,7 +1047,7 @@ private static void printingDiagonalPaths(String p, int row, int col) {
 }
 ```
 
-15. **Maze with Obstacles**
+### 15. Maze with Obstacles
 
 **Approach:**
 
@@ -1096,7 +1098,7 @@ public class MazePathsWithObstacles {
 }
 ```
 
-16. [Letter Combination of a phone number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
+### 16. [Letter Combination of a phone number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
 
 **Approach:**
 
@@ -1141,7 +1143,7 @@ class Solution {
 }
 ```
 
-17. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
+### 17. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
 
 **Approach 1:** Using Recursion (using substring)
 
