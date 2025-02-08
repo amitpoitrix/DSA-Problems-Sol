@@ -1,22 +1,22 @@
 | S.No. | Questions |
 | --- | --- |
 | 1. | [344. Reverse String](https://leetcode.com/problems/reverse-string/description/) |
-| 2.  | https://www.geeksforgeeks.org/problems/reverse-a-stack/1 |
-| 3. | https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1 |
-| 4. | https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card |
-| 5. | https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card |
-| 6. | https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1 |
-| 7. | https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1 |
-| 8. | https://leetcode.com/problems/generate-parentheses/description/ |
-| 9. | https://leetcode.com/problems/valid-palindrome/description/ |
+| 2. | [Reverse a Stack](https://www.geeksforgeeks.org/problems/reverse-a-stack/1) |
+| 3. | [Tower Of Hanoi ](https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1) |
+| 4. | [Merge Sort](https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card) |
+| 5. | [Quick Sort](https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card) |
+| 6. | [Flatten BST to Sorted Array](https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1) |
+| 7. | [Flattening a Linked List](https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1) |
+| 8. | [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/) |
+| 9. | [Valid Parentheses](https://leetcode.com/problems/valid-palindrome/description/) |
 | 10. | **Count Zeroes** |
-| 11. | https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/ |
+| 11. | [Number of Steps to reduce a number to zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/) |
 | 12. | **Find all Permutations of a given string?** |
 | 13. | **How many no. of ways are there to form target on a dice ?** |
 | 14. | **Finding All Paths from A → B in a Matrix** |
 | 15. | **Maze with Obstacles** |
-| 16. | https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/ |
-| 17. | https://leetcode.com/problems/regular-expression-matching/description/ |
+| 16. | [Letter Combination of a phone number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/) |
+| 17. | [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/) |
 
 <br>
 
@@ -133,6 +133,8 @@ class Solution {
 }
 ```
 
+<br>
+
 ### 3. [Tower Of Hanoi ](https://www.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1)
 
 **Approach:** Using Recursion
@@ -198,6 +200,8 @@ class Hanoi {
     }
 }
 ```
+
+<br>
 
 ### 4. [Merge Sort](https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
 
@@ -290,6 +294,8 @@ class Solution {
 }
 ```
 
+<br>
+
 ### 5. [Quick Sort](https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
 
 **Approach:** Using Recursion
@@ -357,6 +363,8 @@ class Solution {
 
 ```
 
+<br>
+
 ### 6. [Flatten BST to Sorted Array](https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1)
 
 **Approach Summary:**
@@ -410,6 +418,8 @@ class Solution {
     }
 }
 ```
+
+<br>
 
 ### 7. [Flattening a Linked List](https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1)
 
@@ -467,6 +477,8 @@ class Solution {
 }
 ```
 
+<br>
+
 ### 8. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
 **Approach 1:** Using Simple Recursion
@@ -475,7 +487,7 @@ class Solution {
 
 Generate All possible → Combinations, Permutations, subsets etc than always think of using **Backtracking** (which is nothing but recursion).
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/55326c01-c430-40dd-9b87-8a3afb494ca2/image.png)
+![image.png](https://github.com/user-attachments/assets/b35358ee-1b74-47c5-88f7-1d76270e0a94)
 
 **Basic Backtracking Template:**
 
@@ -487,11 +499,11 @@ Generate All possible → Combinations, Permutations, subsets etc than always th
 - explore - recursion
 - undo
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/2c4468ea-0edc-4e1f-afae-6199365dccc5/image.png)
+![image.png](https://github.com/user-attachments/assets/e4aa13e2-e3e4-477e-bfad-8a2e7ef522f5)
 
 **Smart way of checking parentheses is valid or not instead of using stack**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/fbe0507a-317d-4979-b632-066079fb080b/image.png)
+![image.png](https://github.com/user-attachments/assets/16cc462d-cf9a-4a39-a2d0-e618b6c5bbc0)
 
 Using **count** variable (+1 for open bracket & -1 for close bracket) and if sum is 0 parentheses is valid.
 
@@ -621,6 +633,8 @@ class Solution {
 }
 ```
 
+<br>
+
 ### 9. [Valid Parentheses](https://leetcode.com/problems/valid-palindrome/description/)
 
 **Approach:**
@@ -659,6 +673,8 @@ class Solution {
     }
 }
 ```
+
+<br>
 
 ### 10. Count Zeroes
 
@@ -701,6 +717,8 @@ public class CountZeroes {
 }
 ```
 
+<br>
+
 ### 11. [Number of Steps to reduce a number to zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
 
 **Approach:**
@@ -730,6 +748,8 @@ public class NoOfStepsToReduceToZero {
 }
 ```
 
+<br>
+
 ### 12. Find all Permutations of a given string?
 
 **Approach:**
@@ -741,9 +761,9 @@ public class NoOfStepsToReduceToZero {
 - Here, you will observe in recursion tree that no. of recursive calls is being increased at each step(i.e., variable no. of recursive calls) that means no. of recursive call depends on size of processed string
     - i.e., No. of recursive call at each step = size of processed string + 1
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/891b3966-b6e7-40b8-8b91-e2a568c25a70/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/794e8731-16ed-4c67-a072-c3471163198f)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/d30a469d-2c57-48c9-8328-8bc6c26ebde9/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/1f970285-0ae3-419b-9c27-f38a1cfcc78b)
 
 **Complexity:**
 
@@ -843,11 +863,13 @@ public class Permutations {
 }
 ```
 
+<br>
+
 ### 13. How many no. of ways are there to form target on a dice ?
 
 **Approach:**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/4de31c77-30a9-4fbe-b43a-aaf30d492872/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/bde10c10-6549-4f97-b58e-829b8265ae08)
 
 **Complexity:**
 
@@ -912,11 +934,13 @@ public class DiceRollTarget {
 }
 ```
 
+<br>
+
 ### 14. Finding All Paths from A → B in a Matrix
 
 **Approach 1:** Counting Paths - Moving Right & Down only.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/5e8c74af-72f8-4ba6-b788-a39918a60e63/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/bfb1e9f5-2231-495f-af6b-3539d1e9b631)
 
 **Complexity:**
 
@@ -951,7 +975,7 @@ public class CountingPaths {
 
 **Approach 2:** Printing Paths - Moving Right & Down only
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/6cffc938-b796-4fb1-903a-02851861c848/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/410aa330-e090-4303-8c86-e2db205178dc)
 
 **Complexity:**
 
@@ -1017,7 +1041,7 @@ private static ArrayList<String> pathsInArrayReturn(String p, int row, int col) 
 
 **Approach 3:** Printing Paths - Moving Vertical, Horizontal & Diagonal
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/f62691cc-4b44-4a26-8ff6-aefb031de328/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/ded2edcd-5a8d-4783-ab10-21b307d50c8c)
 
 **Complexity:**
 
@@ -1047,13 +1071,15 @@ private static void printingDiagonalPaths(String p, int row, int col) {
 }
 ```
 
+<br>
+
 ### 15. Maze with Obstacles
 
 **Approach:**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/8ff836dc-035a-4fba-9075-b6efdf356765/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/b0f85d7f-9c98-4f87-a455-3c65a7bd7d9e)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/421b8100-40de-479f-9b95-34724ad1bd2b/Untitled.png)
+![Untitled](https://github.com/user-attachments/assets/fb922a64-c711-4b71-a894-e3b6fcc029f4)
 
 **Complexity:**
 
@@ -1098,11 +1124,13 @@ public class MazePathsWithObstacles {
 }
 ```
 
+<br>
+
 ### 16. [Letter Combination of a phone number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
 
 **Approach:**
 
-![IMG_3239.jpeg](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/4468b0fb-27c9-4e7d-a5c9-bcc08527697b/IMG_3239.jpeg)
+![IMG_3239.jpeg](https://github.com/user-attachments/assets/a97aebad-d87a-4c5e-a5b4-2dddde52952e)
 
 **Complexity:**
 
@@ -1143,6 +1171,8 @@ class Solution {
 }
 ```
 
+<br>
+
 ### 17. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
 
 **Approach 1:** Using Recursion (using substring)
@@ -1150,13 +1180,13 @@ class Solution {
 - The solution uses recursion to check if a given text matches a pattern with wildcard characters **‘.' and '*'**.
 - It handles base cases, matches the first character, and deals with '' by exploring two possibilities
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/61cd3bb6-42ee-486e-b491-033d1968e32a/image.png)
+![image.png](https://github.com/user-attachments/assets/14ddcb19-e530-48a1-9152-a2b9f8961c97)
 
 **Recursive Tree Diagram for Regular Expression Matching:**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/3c4d1c82-fc0c-479d-ab50-4ca172608f2b/image.png)
+![image.png](https://github.com/user-attachments/assets/001488d2-c0b3-4a27-b98a-5e6e962b646e)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/9a84a3ca-8e84-4ab9-a26e-e1d1d9ba496c/image.png)
+![image.png](https://github.com/user-attachments/assets/fe6cd3cd-8c25-4089-86d7-53412147db6e)
 
 **Complexity:**
 
