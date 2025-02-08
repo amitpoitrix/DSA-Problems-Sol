@@ -135,7 +135,7 @@ class Solution {
 
 **Approach:** Using Recursion
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/3dbc44ac-3465-40dd-a7d5-1cb035b64be9/image.png)
+![image.png](https://github.com/user-attachments/assets/9783a36f-73e6-4394-b334-a220d9780724)
 
 So if we have to move N disks from from_rod to to_rod than we’ll follow below steps:
 
@@ -149,7 +149,7 @@ So if we have to move N disks from from_rod to to_rod than we’ll follow below 
 
 In this total 7 steps (which is minimum) steps it took to move all the disks from from_rod to to_rod
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/2e4fb7db-9a48-46f9-8123-c8b9cbc5ff29/image.png)
+![image.png](https://github.com/user-attachments/assets/e24d1749-84f5-4f9e-980d-d13092055aff)
 
 **Story from Diagram: Just 2 lines of code**
 
@@ -157,7 +157,7 @@ In this total 7 steps (which is minimum) steps it took to move all the disks fro
 2. Step 4 can be interpret as **just moving disk** from **from_rod** to **to_rod** represented by 2nd line of code
 3. Step 5,6 & 7 can be interpret as **moving rest (n-1) disks** from **aux_rod** to **to_rod** in 2nd recursive call **using from_rod**
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/6ccccabc-9cb5-4b96-a8d1-60cdb356c5a8/f74dc98e-7636-477d-bcaf-b1e1adfc2983/image.png)
+![image.png](https://github.com/user-attachments/assets/2532962a-dfab-440a-a3fe-29f77478f469)
 
 **Approach Summary:**
 
