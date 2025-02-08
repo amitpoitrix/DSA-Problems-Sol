@@ -288,7 +288,7 @@ class Solution {
 }
 ```
 
-5. https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+5. [Quick Sort](https://www.geeksforgeeks.org/problems/quick-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card)
 
 **Approach:** Using Recursion
 
@@ -355,7 +355,7 @@ class Solution {
 
 ```
 
-6. https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1
+6. [Flatten BST to Sorted Array](https://www.geeksforgeeks.org/problems/flatten-bst-to-sorted-list--111950/1)
 
 **Approach Summary:**
 
@@ -409,7 +409,7 @@ class Solution {
 }
 ```
 
-7. https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
+7. [Flattening a Linked List](https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1)
 
 **Approach:** Using Recursion
 
@@ -465,7 +465,7 @@ class Solution {
 }
 ```
 
-8. https://leetcode.com/problems/generate-parentheses/description/
+8. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
 **Approach 1:** Using Simple Recursion
 
@@ -619,7 +619,7 @@ class Solution {
 }
 ```
 
-9. https://leetcode.com/problems/valid-palindrome/description/
+9. [Valid Parentheses](https://leetcode.com/problems/valid-palindrome/description/)
 
 **Approach:**
 
@@ -699,7 +699,7 @@ public class CountZeroes {
 }
 ```
 
-11. https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+11. [Number of Steps to reduce a number to zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
 
 **Approach:**
 
@@ -1096,7 +1096,7 @@ public class MazePathsWithObstacles {
 }
 ```
 
-16. https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
+16. [Letter Combination of a phone number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
 
 **Approach:**
 
@@ -1141,7 +1141,7 @@ class Solution {
 }
 ```
 
-17. https://leetcode.com/problems/regular-expression-matching/description/
+17. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
 
 **Approach 1:** Using Recursion (using substring)
 
