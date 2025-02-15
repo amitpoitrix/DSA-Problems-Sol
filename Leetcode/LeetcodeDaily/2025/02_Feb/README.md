@@ -10,3 +10,4 @@
 | 10. | [3174. Clear Digits](https://leetcode.com/problems/clear-digits/description/?envType=daily-question&envId=2025-02-10) | [Code](10_ClearDigits.java) | |
 | 11. | [1910. Remove All Occurrences of a Substring](https://leetcode.com/problems/remove-all-occurrences-of-a-substring/description/?envType=daily-question&envId=2025-02-11) | [Code](11_RemoveAllOccurrences_of_a_Substring.java) | Google Amazon Microsoft MakeMyTrip |
 | 14. | [1352. Product of the Last K Numbers](https://leetcode.com/problems/product-of-the-last-k-numbers/description/?envType=daily-question&envId=2025-02-14) | [Code](14_ProductOfTheLast_K_Numbers.java) | Google Amazon Apple Cruise Automation |
+| 15. | [2698. Find the Punishment Number of an Integer](https://leetcode.com/problems/find-the-punishment-number-of-an-integer/description/?envType=daily-question&envId=2025-02-15) | [Code](15_FindThePunishmentNumberOfAnInteger.java) | |
