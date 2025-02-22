@@ -14,9 +14,9 @@
  * Space: O(log10(n^2) * n)
  */
 
-class Solution1 {
+class Solution {
     public int punishmentNumber(int n) {
-        // Approach 1: Using Recursion (or Bactracking) - Memoization
+        // Approach 1: Using Recursion (or Bactracking)
         int result = 0;
 
         for(int i = 1; i <= n; i++) {
@@ -24,13 +24,7 @@ class Solution1 {
 
             String square = Integer.toString(sq);
 
-            // dp -> square.length() * (num + 1)
-            int[][] dp = new int[square.length()][i + 1];
-            for(int[] row: dp) {
-                Arrays.fill(row, -1);
-            }
-
-            if(check(0, 0, square, i, dp) == true) {
+            if(check(0, 0, square, i) == true) {
                 result += sq;
             }
         }
@@ -38,7 +32,7 @@ class Solution1 {
         return result;
     }
 
-    private boolean check(int idx, int currSum, String square, int num, int[][] dp) {
+    private boolean check(int idx, int currSum, String square, int num) {
         // Base Case 1
         if(idx >= square.length()) {
             return currSum == num;
@@ -49,20 +43,16 @@ class Solution1 {
             return false;
         }
 
-        if(dp[idx][currSum] != -1) {
-            return dp[idx][currSum] == 1;
-        }
-
         for(int j = idx; j < square.length(); j++) {
-            int subNum = Integer.parseInt(square.substring(idx, j + 1));
+            int substring = square.substring(idx, j + 1);
+            
+            int subNum = Integer.parseInt(substring);
 
-            if(check(j + 1, currSum + subNum, square, num, dp) == true) {
-                dp[idx][currSum] = 1;
+            if(check(j + 1, currSum + subNum, square, num) == true) {
                 return true;
             }
         }
-        
-        dp[idx][currSum] = 0;
+
         return false;
     }
 }
