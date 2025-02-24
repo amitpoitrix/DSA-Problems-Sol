@@ -9,8 +9,8 @@
  * The goal is to maximize Alice’s income when she reaches a leaf node.
  * 
  * Complexity:
- * Time: O(n)
- * Space: O(n)
+ * Time: O(n); due to two DFS traversals over all nodes
+ * Space: O(n); due to adjacency list, visited array, and recursion stack
  */
 
 class Solution {
