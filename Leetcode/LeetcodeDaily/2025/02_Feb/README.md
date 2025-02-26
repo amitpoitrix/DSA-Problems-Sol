@@ -13,3 +13,4 @@
 | 15. | [2698. Find the Punishment Number of an Integer](https://leetcode.com/problems/find-the-punishment-number-of-an-integer/description/?envType=daily-question&envId=2025-02-15) | [Code](15_FindThePunishmentNumberOfAnInteger.java) | |
 | 22. | [1028. Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/description/?envType=daily-question&envId=2025-02-22) | [Code](22_Recover_a_TreeFromPreorderTraversal.java) | Amazon Facebook Microsoft |
 | 24. | [2467. Most Profitable Path in a Tree](https://leetcode.com/problems/most-profitable-path-in-a-tree/description/?envType=daily-question&envId=2025-02-24) | [Code](24_MostProfitablePath_in_a_Tree.java) | Google Intuit |
+| 25. | [1524. Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/description/?envType=daily-question&envId=2025-02-25) | [Code](25_Number_of_Sub-arraysWithOddSum.java) | Google Apple |
