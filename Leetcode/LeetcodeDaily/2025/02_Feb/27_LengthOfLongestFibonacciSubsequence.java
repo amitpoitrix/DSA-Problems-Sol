@@ -116,6 +116,10 @@ class Solution2 {
 
 /**
  * Approach 3: Using Tabulation (Bottom Up)
+ * This approach builds the solution iteratively using a 2D table t[j][k], where each entry stores the 
+ * longest subsequence ending at (j, k). 
+ * By iterating over all possible pairs and looking up previous elements efficiently, it constructs the 
+ * solution in a structured manner.
  * 
  * Complexity:
  * Time: O(n^2)

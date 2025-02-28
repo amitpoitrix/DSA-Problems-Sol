@@ -15,3 +15,4 @@
 | 24. | [2467. Most Profitable Path in a Tree](https://leetcode.com/problems/most-profitable-path-in-a-tree/description/?envType=daily-question&envId=2025-02-24) | [Code](24_MostProfitablePath_in_a_Tree.java) | Google Intuit |
 | 25. | [1524. Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/description/?envType=daily-question&envId=2025-02-25) | [Code](25_Number_of_Sub-arraysWithOddSum.java) | Google Apple |
 | 27. | [873. Length of Longest Fibonacci Subsequence](https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/description/?envType=daily-question&envId=2025-02-27) | [Code](27_LengthOfLongestFibonacciSubsequence.java) | Baidu |
+| 28. | [1092. Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/?envType=daily-question&envId=2025-02-28) | [Code](28_ShortestCommonSupersequence.java) | Amazon Google Microsoft Uber Bloomberg |
