@@ -32,6 +32,11 @@
     well, in this way we'll get top k msum in O(1)
     
     Edge Case: if element is same as previous one than its result will also be same as previous
+ *
+ *
+ * Complexity:
+ * Time: O(nlogn + nlogk)
+ * Space: O(n)
  */
 
 
@@ -48,8 +53,8 @@ class Solution {
             triple[i][1] = i;
         }
 
-        // Now sort based on element
-        Arrays.sort(triple, (a, b) -> a[0] - b[0]);
+        // Now sort based on element 
+        Arrays.sort(triple, (a, b) -> a[0] - b[0]); // O(nlogn)
 
         long[] result = new long[n];
 
@@ -58,7 +63,7 @@ class Solution {
         long cumulativeSum = 0;
 
         // Now we'll traverse over triple[] array
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < n; i++) {    // O(n)
             int originalIdx = triple[i][1];
 
             // Edge Case: if element is same as previous one than its result will also be same
@@ -72,7 +77,7 @@ class Solution {
             cumulativeSum += (long)nums2[originalIdx];
             minHeap.offer((long)nums2[originalIdx]);
 
-            if(minHeap.size() > (long)k) {
+            if(minHeap.size() > (long)k) {  // O(nlogk)
                 long removeElement = minHeap.poll();
                 cumulativeSum -= removeElement;
             }
