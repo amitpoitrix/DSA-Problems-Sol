@@ -8,6 +8,10 @@
  * 2nd pointer will keep on moving starting from 1st one till end pointer where end pointer is the last position of 
  * 2nd pointer character
  * So when 2nd pointer matches with end pointer than we got our partition with size as 2nd pointer - 1st pointer + 1
+ * 
+ * Complexity:
+ * Time: O(n)
+ * Space: O(1)
  */
 
 class Solution {
